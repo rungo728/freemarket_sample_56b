@@ -75,3 +75,12 @@ Things you may want to cover:
 ### Association
 - has_many :users
 - has_many :items
+
+
+## first_categoryテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+- has_many :items
+- has_many :second_categories
