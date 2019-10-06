@@ -33,3 +33,21 @@ Things you may want to cover:
 - belongs_to :prefecture
 - has_many :items
 - has_many :comments
+
+## itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false, foreign_key: true|
+|prefecture_id|integer|null:false, foreign_key: true|
+|first_category_id|integer|null:false, foreign_key: true|
+|second_category_id|integer|null:false, foreign_key: true|
+|third_category_id|integer|null:false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :prefecture
+- belongs_to :first_category
+- belongs_to :second_category
+- belongs_to :third_category
+- has_many :comments
