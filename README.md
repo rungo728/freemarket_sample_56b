@@ -90,6 +90,7 @@ Things you may want to cover:
 - has_many :items
 - has_many :second_categories
 
+
 ## second_categoryテーブル
 
 |Column|Type|Options|
@@ -97,6 +98,19 @@ Things you may want to cover:
 |first_category_id|integer|null:false, foreign_key: true|
 
 ### Association
+
 - has_many :items
 - has_many :third_categories
 - belongs_to :first_category
+
+
+## third_categoryテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|second_category_id|integer|null:false, foreign_key: true|
+
+### Association
+
+- has_many :items
+- belongs_to :second_category
