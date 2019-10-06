@@ -23,6 +23,7 @@ Things you may want to cover:
 
 * ...
 
+
 ## usersテーブル
 
 |Column|Type|Options|
@@ -33,6 +34,7 @@ Things you may want to cover:
 - belongs_to :prefecture
 - has_many :items
 - has_many :comments
+
 
 ## itemsテーブル
 
@@ -52,6 +54,7 @@ Things you may want to cover:
 - belongs_to :third_category
 - has_many :comments
 
+
 ## commentsテーブル
 
 |Column|Type|Options|
@@ -63,3 +66,12 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 
+
+## prefectureテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+
+### Association
+- has_many :users
+- has_many :items
