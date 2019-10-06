@@ -31,6 +31,7 @@ Things you may want to cover:
 |prefecture_id|integer|null:false, foreign_key: true|
 
 ### Association
+
 - belongs_to :prefecture
 - has_many :items
 - has_many :comments
@@ -47,6 +48,7 @@ Things you may want to cover:
 |third_category_id|integer|null:false, foreign_key: true|
 
 ### Association
+
 - belongs_to :user
 - belongs_to :prefecture
 - belongs_to :first_category
@@ -63,6 +65,7 @@ Things you may want to cover:
 |item_id|integer|null:false, foreign_key: true|
 
 ### Association
+
 - belongs_to :user
 - belongs_to :item
 
@@ -82,5 +85,18 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 
+### Association
+
 - has_many :items
 - has_many :second_categories
+
+## second_categoryテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|first_category_id|integer|null:false, foreign_key: true|
+
+### Association
+- has_many :items
+- has_many :third_categories
+- belongs_to :first_category
