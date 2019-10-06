@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|prefecture_id|integer|null:false, foreign_key: true|
+
+### Association
+- belongs_to :prefecture
+- has_many :items
+- has_many :comments
