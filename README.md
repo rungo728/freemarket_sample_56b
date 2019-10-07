@@ -57,12 +57,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
 |name|string|null: false|
 |explanation|text|null: false|
 |status|string|null: false|
 |size|string||
-|brand|string||
 |shipping_charge|string|null: false|
 |days_before_shipment|string|null: false|
 |price|integer|null: false|
@@ -76,6 +74,8 @@ Things you may want to cover:
 - belongs_to :prefecture
 - belongs_to :category
 - has_many :comments
+- has_many :photos
+- has_many :brands
 
 
 ## commentsテーブル
@@ -108,10 +108,33 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|parent_id|integer|null: false, foreign_key: true|
+|ancestry|string|index?|
 
 ### Association
 
 - has_many :items
-- belongs_to :parent
-- has_many :children
+- has_ancestry
+
+
+## photosテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|photo|text|null: false|
+|item_id|integer|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :item
+
+
+## brandsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :item
