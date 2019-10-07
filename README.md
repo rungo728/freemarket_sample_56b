@@ -43,14 +43,17 @@ Things you may want to cover:
 |address|string|null: false|
 |building|string||
 |phone_number_sub|string||
-|credit_card|string|null: false|
 |profile|text||
+|point|integer|null: false|
 
 ### Association
 
 - belongs_to :prefecture
 - has_many :items
 - has_many :comments
+- has_many :credits
+- has_many :evaluations
+
 
 
 ## itemsテーブル
@@ -67,6 +70,7 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
+|brand_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -75,7 +79,8 @@ Things you may want to cover:
 - belongs_to :category
 - has_many :comments
 - has_many :photos
-- has_many :brands
+- belongs_to :brand
+
 
 
 ## commentsテーブル
@@ -92,6 +97,7 @@ Things you may want to cover:
 - belongs_to :item
 
 
+
 ## prefecturesテーブル
 
 |Column|Type|Options|
@@ -101,6 +107,7 @@ Things you may want to cover:
 ### Association
 - has_many :users
 - has_many :items
+
 
 
 ## categoriesテーブル
@@ -116,6 +123,7 @@ Things you may want to cover:
 - has_ancestry
 
 
+
 ## photosテーブル
 
 |Column|Type|Options|
@@ -128,13 +136,40 @@ Things you may want to cover:
 - belongs_to :item
 
 
+
 ## brandsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 
-- belongs_to :item
+- has_many :items
+
+
+
+## creditsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|number|string|null: false|
+|month|string|null: false|
+|year|string|null: false|
+|security_code|string|null: false|
+|user_id|integer|null: false, foreign_key|
+
+### Association
+
+- belongs_to :user
+
+
+
+## evaluationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|evaluation|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :user
