@@ -28,41 +28,68 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|prefecture_id|integer|null:false, foreign_key: true|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birthday|date|null: false|
+|phone_number|string|null: false|
+|postal_code|string|null: false|
+|prefecture_id|integer|null: false, foreign_key: true|
+|city|string|null: false|
+|address|string|null: false|
+|building|string||
+|phone_number_sub|string||
+|profile|text||
+|point|integer|null: false|
 
 ### Association
 
 - belongs_to :prefecture
 - has_many :items
 - has_many :comments
+- has_many :credits
+- has_many :evaluations
+
 
 
 ## itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false, foreign_key: true|
-|prefecture_id|integer|null:false, foreign_key: true|
-|first_category_id|integer|null:false, foreign_key: true|
-|second_category_id|integer|null:false, foreign_key: true|
-|third_category_id|integer|null:false, foreign_key: true|
+|name|string|null: false|
+|explanation|text|null: false|
+|status|string|null: false|
+|size|string||
+|shipping_charge|string|null: false|
+|days_before_shipment|string|null: false|
+|price|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|prefecture_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
+|brand_id|integer|null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
 - belongs_to :prefecture
-- belongs_to :first_category
-- belongs_to :second_category
-- belongs_to :third_category
+- belongs_to :category
 - has_many :comments
+- has_many :photos
+- belongs_to :brand
+
 
 
 ## commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false, foreign_key: true|
-|item_id|integer|null:false, foreign_key: true|
+|comment|text||
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -70,47 +97,79 @@ Things you may want to cover:
 - belongs_to :item
 
 
-## prefectureテーブル
+
+## prefecturesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
 
 ### Association
 - has_many :users
 - has_many :items
 
 
-## first_categoryテーブル
+
+## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
+|ancestry|string|index?|
 
 ### Association
 
 - has_many :items
-- has_many :second_categories
+- has_ancestry
 
 
-## second_categoryテーブル
+
+## photosテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|first_category_id|integer|null:false, foreign_key: true|
+|photo|text|null: false|
+|item_id|integer|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :item
+
+
+
+## brandsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
 
 ### Association
 
 - has_many :items
-- has_many :third_categories
-- belongs_to :first_category
 
 
-## third_categoryテーブル
 
+## creditsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|second_category_id|integer|null:false, foreign_key: true|
+|number|string|null: false|
+|month|string|null: false|
+|year|string|null: false|
+|security_code|string|null: false|
+|user_id|integer|null: false, foreign_key|
 
 ### Association
 
-- has_many :items
-- belongs_to :second_category
+- belongs_to :user
+
+
+
+## evaluationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|evaluation|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :user
