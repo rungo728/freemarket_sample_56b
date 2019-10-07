@@ -28,7 +28,23 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|prefecture_id|integer|null:false, foreign_key: true|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birthday|date|null: false|
+|tel|string|null: false|
+|postal_code|string|null: false|
+|prefecture_id|integer|null: false, foreign_key: true|
+|city|string|null: false|
+|address|string|null: false|
+|building|string||
+|tel2|string||
+|credit_card|string|null: false|
+|profile|text||
 
 ### Association
 
@@ -41,11 +57,11 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false, foreign_key: true|
-|prefecture_id|integer|null:false, foreign_key: true|
-|first_category_id|integer|null:false, foreign_key: true|
-|second_category_id|integer|null:false, foreign_key: true|
-|third_category_id|integer|null:false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|prefecture_id|integer|null: false, foreign_key: true|
+|first_category_id|integer|null: false, foreign_key: true|
+|second_category_id|integer|null: false, foreign_key: true|
+|third_category_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -61,8 +77,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false, foreign_key: true|
-|item_id|integer|null:false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -95,7 +111,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|first_category_id|integer|null:false, foreign_key: true|
+|first_category_id|integer|null: false, foreign_key: true|
 
 ### Association
 
@@ -108,7 +124,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|second_category_id|integer|null:false, foreign_key: true|
+|second_category_id|integer|null: false, foreign_key: true|
 
 ### Association
 
