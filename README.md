@@ -57,6 +57,15 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
+|image|text|null: false|
+|name|string|null: false|
+|explanation|text|null: false|
+|status|string|null: false|
+|size|string||
+|brand|string||
+|shipping_charge|string|null: false|
+|days_before_shipment|string|null: false|
+|price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
 |first_category_id|integer|null: false, foreign_key: true|
@@ -77,6 +86,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
+|comment|text||
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
 
@@ -86,20 +96,22 @@ Things you may want to cover:
 - belongs_to :item
 
 
-## prefectureテーブル
+## prefecturesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|prefecture|string|null: false|
 
 ### Association
 - has_many :users
 - has_many :items
 
 
-## first_categoryテーブル
+## first_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|category|string|null: false|
 
 ### Association
 
@@ -107,10 +119,11 @@ Things you may want to cover:
 - has_many :second_categories
 
 
-## second_categoryテーブル
+## second_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|category|string|null: false|
 |first_category_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -120,10 +133,11 @@ Things you may want to cover:
 - belongs_to :first_category
 
 
-## third_categoryテーブル
+## third_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|category|string|null: false|
 |second_category_id|integer|null: false, foreign_key: true|
 
 ### Association
