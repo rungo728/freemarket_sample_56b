@@ -36,13 +36,13 @@ Things you may want to cover:
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
-|tel|string|null: false|
+|phone_number|string|null: false|
 |postal_code|string|null: false|
 |prefecture_id|integer|null: false, foreign_key: true|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
-|tel2|string||
+|phone_number_sub|string||
 |credit_card|string|null: false|
 |profile|text||
 
