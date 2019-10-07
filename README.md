@@ -68,17 +68,13 @@ Things you may want to cover:
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
-|first_category_id|integer|null: false, foreign_key: true|
-|second_category_id|integer|null: false, foreign_key: true|
-|third_category_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
 - belongs_to :prefecture
-- belongs_to :first_category
-- belongs_to :second_category
-- belongs_to :third_category
+- belongs_to :category
 - has_many :comments
 
 
@@ -107,40 +103,15 @@ Things you may want to cover:
 - has_many :items
 
 
-## first_categoriesテーブル
+## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false|
+|name|string|null: false|
+|parent_id|integer|null: false, foreign_key: true|
 
 ### Association
 
 - has_many :items
-- has_many :second_categories
-
-
-## second_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
-|first_category_id|integer|null: false, foreign_key: true|
-
-### Association
-
-- has_many :items
-- has_many :third_categories
-- belongs_to :first_category
-
-
-## third_categoriesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
-|second_category_id|integer|null: false, foreign_key: true|
-
-### Association
-
-- has_many :items
-- belongs_to :second_category
+- belongs_to :parent
+- has_many :children
