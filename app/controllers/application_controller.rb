@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+<<<<<<< HEAD
   before_action :basic_auth, if: :production?
 
   private
@@ -14,4 +15,6 @@ class ApplicationController < ActionController::Base
       username ==  ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
   end
+=======
+>>>>>>> parent of 4f4041d... add basic auth
 end
