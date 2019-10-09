@@ -66,3 +66,8 @@ gem 'haml-rails'
 gem 'rails-i18n'
 
 gem 'ancestry'
+
+#画像をアップロードするためのgem
+gem 'carrierwave'
+#S3にアップロードするためのgem
+gem 'fog-aws'
