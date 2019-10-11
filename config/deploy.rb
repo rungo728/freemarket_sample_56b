@@ -10,6 +10,7 @@ set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/Atsushi_Key.pem']
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
+set :keep_releases, 5
 
 
 # Default branch is :master
@@ -41,7 +42,7 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-set :keep_releases, 5
+
 # secrets.yml用のシンボリックリンクを追加
 set :linked_files, %w{ config/secrets.yml }
 # 環境変数をcapistranoでの自動デプロイで使用
