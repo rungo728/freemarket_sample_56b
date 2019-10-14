@@ -53,6 +53,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :credits
 - has_many :evaluations
+- has_many :items, through: :likes
 
 
 
@@ -80,6 +81,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :photos
 - belongs_to :brand
+- has_many :users, through: :likes
 
 
 
@@ -173,3 +175,16 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
+
+
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+
+- belong_to :item
+- belong_to :user
