@@ -186,5 +186,5 @@ Things you may want to cover:
 
 ### Association
 
-- belong_to :item
-- belong_to :user
+- belongs_to :item
+- belongs_to :user
