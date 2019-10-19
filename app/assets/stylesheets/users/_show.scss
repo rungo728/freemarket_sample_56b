@@ -52,13 +52,13 @@
 }
 
 // メイン画面
-.mypage__main{
+.mypage{
   margin: 40px auto 0;
   width: 1020px;
   display: block;
   padding: 0 0 40px;
   overflow: auto;
-  .mypage__user-content{
+  &__user-content{
     width: 100%;
     .mypage__user-iconbox{
       height: 200px;
