@@ -1,1 +1,221 @@
-mypage
+.header
+    // ヘッダーの部分テンプレートを挿入
+  %nav.bread-crumbs
+    // パンくずリスト
+    %ul
+      %li
+        = link_to do
+          %span
+            メルカリ
+        = fa_icon "chevron-right"
+      %li
+        %span
+          マイページ
+
+  %main.mypage__main.clearfix
+    .mypage__user-content
+      %section.mypage__user-iconbox
+        = link_to '' do
+          %figure
+            = image_tag 'mrkr-icon.png', size: "60x60"
+          %h2.crrent-user__name.bold
+            testuser
+          .current-user__numbers
+            .current-user__evaluation
+              評価
+              %span.bold
+                5
+            .current-user__items
+              出品数
+              %span.bold
+                10
+
+      %section.mypage__informations
+        %ul.mypage__informations__tab
+          // タブが切り替わるようになっており、jsで参照したいコンテンツにactiveクラスを付与する。
+          %li.active
+            %h3
+              = link_to 'お知らせ'
+          %li
+            %h3
+              = link_to 'やることリスト'
+        .mypage__tab-content
+          %ul#mypage__tab-notification.mypage__list.tab-pane.active
+            %li
+              = link_to do
+                %figure
+                  = image_tag 'mercari_profile.png', size: "48x48"
+                .mypage__list__body
+                  .mypage__list__content
+                    お知らせテストお知らせテストお知らせテストお知らせテストお知らせテストお知らせテストお知らせテスト
+                  .mypage__list__time.time
+                    = fa_icon "clock-o"
+                    %span
+                      2 時間前
+                = fa_icon "chevron-right"
+            %li
+              = link_to do
+                %figure
+                  = image_tag 'mercari_profile.png', size: "48x48"
+                .mypage__list__body
+                  .mypage__list__content
+                    テスト
+                  .mypage__list__time.time
+                    = fa_icon "clock-o"
+                    %span
+                      3 時間前
+                = fa_icon "chevron-right"
+            %li.mypage__go-list
+              = link_to '一覧を見る'
+          %ul#mypage__tab-todo.mypage__list.tab-pane
+            // リストがある場合とない場合で分ける必要がある
+            .mypage__list-not-found.bold
+              =image_tag "mrkr-gray.png", size: "90x90"
+              .mypage__list-not-found__text
+                現在、やることリストはありません
+
+      %section.mypage__transaction
+        %h2.mypage__transaction__tab-head
+          購入した商品
+        %ul.mypage__transaction__tab
+          //jsでactiveクラスを付与する
+          %li.active
+            %h3
+              = link_to '取引中'
+          %li
+            %h3
+              = link_to '過去の取引'
+        .mypage__tab-content
+          // タブが切り替わるようになっており、jsで参照したいコンテンツにactiveクラスを付与する。
+          %ul#mypage__tab-trading.mypage__list.tab-pane.active
+            // リストの有無で条件分岐
+            .mypage__list-not-found.bold
+              =image_tag "mrkr-gray.png", size: "90x90"
+              .mypage__list-not-found__text
+                取引中の商品がありません
+          %ul#mypage__tab-traded.mypage__list.tab-pane
+            // リストの有無で条件分岐
+            %li
+              = link_to do
+                %figure
+                  = image_tag 'mrkr-icon.png'
+                .mypage__list__body
+                  .mypage__list__content
+                    「〇〇」を購入しました。
+                    %span
+                      取引が完了しました
+                  .mypage__list__content__status.done.bold
+                    取引完了
+                = fa_icon "chevron-right"
+            %li.mypage__go-list
+              = link_to '一覧を見る'
+    
+    .mypage__side-menu
+      %nav.mypage__nav
+        %ul.mypage__nav-list
+          %li
+            = link_to '', class: "mypage__nav-list-item active" do
+              マイページ
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              お知らせ
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              やることリスト
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              いいね！一覧
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              出品する
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              出品した商品-出品中
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              出品した商品-取引中
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              出品した商品-売却済み
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              購入した商品-取引中
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              購入した商品-過去の取引
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              ニュース一覧
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              評価一覧
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              ガイド
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              お問い合わせ
+              = fa_icon "chevron-right"
+        %h3.mypage__nav-title
+          メルペイ
+        %ul.mypage__nav-list
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              売上・振込申請
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              ポイント
+              = fa_icon "chevron-right"
+        %h3.mypage__nav-title
+          設定
+        %ul.mypage__nav-list
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              プロフィール
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              発送・お届け先住所変更
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              支払い方法
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              メール/パスワード
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              本人情報
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              電話番号の確認
+              = fa_icon "chevron-right"
+          %li
+            = link_to '', class: "mypage__nav-list-item" do
+              ログアウト
+              = fa_icon "chevron-right"
+
+
+  .app-banner
+    //バナーのテンプレートを挿入
+  .footer
+    //フッターのテンプレートを挿入
+  .footer-sell-btn
+    //出品ボタンのテンプレートを挿入
