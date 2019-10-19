@@ -1,0 +1,394 @@
+body{
+  background: #f5f5f5;
+  min-height: 100%;
+  font-size: 14px;
+  position: relative;
+}
+
+.bold{
+  font-weight: 600;
+}
+
+.clearfix{
+  clear: both;
+  content: "";
+  display: block;
+}
+
+
+.bread-crumbs{
+  height: 49px;
+  width: 100%;
+  position: relative;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  ul{
+    width: 1020px;
+    overflow: visible;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+    li{
+      text-overflow: ellipsis;
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      a{
+        text-decoration: none;
+      }
+      .fa-chevron-right{
+        margin: 0 8px;
+        font-size: 9px;
+        color: #888;
+      }
+    }
+    li:last-child{
+      font-weight: 600;
+    }
+  }
+}
+
+.mypage__main{
+  margin: 40px auto 0;
+  width: 1020px;
+  display: block;
+  padding: 0 0 40px;
+  overflow: auto;
+  .mypage__user-content{
+    width: 100%;
+    .mypage__user-iconbox{
+      height: 200px;
+      position: relative;
+      padding:20px;
+      box-sizing: border-box;
+      background: pink;
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      a{
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translate(0, -50%);
+        color: #333;
+        text-decoration: none;
+        figure{
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 50%;
+        }
+        h2{
+          margin: 8px 0 0;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        .current-user__numbers{
+          margin: 8px 0 0;
+          font-size: 0;
+          .current-user__evaluation{
+            display: inline-block;
+            font-size: 14px;
+          }
+          .current-user__items{
+            display: inline-block;
+            font-size: 14px;
+            margin: 0 0 0 16px;
+          }
+        }
+      }
+    }
+    .mypage__informations{
+      background: #fff;
+      margin: 0;
+      &__tab{
+        border: 0;
+        background: #eee;
+        font-size: 0;
+        li.active{
+          background: #fff;
+          border-top: 2px solid #ea352d;
+        }
+        li{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          h3{
+            font-size: 22px;
+            display: block;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            a{
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 72px;
+              text-decoration: none;
+              touch-action: manipulation;
+            }
+          }
+        }
+      }
+    }
+
+    .mypage__transaction{
+      margin: 40px 0 0;
+      background: #fff;
+      &__tab-head{
+        padding: 0 16px;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+      }
+      h2{
+        font-weight: bold;
+      }
+      &__tab{
+        border: 0;
+        background: #eee;
+        font-size: 0;
+        li.active{
+          background: #fff;
+          border-top: 2px solid #ea352d;
+        }
+        li{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          h3{
+            font-size: 22px;
+            display: block;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            a{
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 72px;
+              text-decoration: none;
+              touch-action: manipulation;
+            }
+          }
+        }
+      }
+      .done{
+        background: #888;
+      }
+      .mypage__list__content__status{
+        display: inline-block;
+        margin: 8px 0 0 0;
+        padding: 5px 6px;
+        border-radius: 2px;
+        font-size: 12px;
+        color: #fff;
+      }
+    }
+  }
+  @media screen and (min-width: 768px){
+  .mypage__user-content{
+    float: none;
+    width: 700px;
+    margin: 0 auto;
+  }
+  }
+  @media screen and (min-width: 1068px){
+  .mypage__user-content{
+    float: right;
+  }
+  }
+
+  .mypage__side-menu{
+    margin: 40px auto 0;
+    .mypage__nav{
+      display: block;
+      .mypage__nav-list{
+        li{
+          border-top: 1px solid #eee;
+          .mypage__nav-list-item{
+            position: relative;
+            display: block;
+            min-height: 48px;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+            box-sizing: border-box;
+            .fa-chevron-right{
+              position: absolute;
+              top: 50%;
+              right: 16px;
+              color: #ccc;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+              -webkit-transition: all ease-out .2s;
+              transition: all ease-out .2s;
+            }
+          }
+          a{
+            text-decoration: none;
+          }
+          .mypage__nav-list-item.active{
+            background: #eee;
+            font-weight: 600;
+            .fa-chevron-right{
+              color: #333;
+            }
+          }
+        }
+        li.first-child{
+          border: 0;
+        }
+      }
+      .mypage__nav-title{
+        margin: 40px 0 0;
+        font-size: 16px;
+      }
+      h3{
+        font-weight: bold;
+      }
+    }
+  }
+  @media screen and (min-width: 768px){
+  .mypage__side-menu{
+    width: 700px;
+  }
+  .mypage__nav-title{
+    margin: 40px 4% 0;
+  }
+  }
+  @media screen and (min-width: 1068px){
+  .mypage__side-menu{
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+  }
+  .mypage__nav-title{
+    margin: 40px 0 0;
+  }
+  }
+}
+
+// 以下に共通するプロパティ
+
+.mypage__tab-content{
+  li{
+    border-bottom: 1px solid #eee;
+    position: relative;
+    min-height: 80px;
+    padding: 16px;
+    box-sizing: border-box;
+    a{
+      display: block;
+      box-sizing: border-box;
+      color: #333;
+      text-decoration: none;
+      figure{
+        position: relative;
+        overflow: hidden;
+        float: left;
+        width: 48px;
+        height: 48px;
+        img{
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+        }
+      }
+      .mypage__list__body{
+        margin: 0 40px 0 68px;
+        .mypage__list__content{
+          overflow: hidden;
+          display: -webkit-box;
+          max-height: 4.4em;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          line-height: 1.5;
+        }
+        .mypage__list__time{
+          display: inline-block;
+          color: #888;
+          .fa-clock-o{
+            margin: 0 8px 0 0;
+            font-size: 16px;
+            vertical-align: middle;
+          }
+          span{
+            vertical-align: middle;
+          }
+        }
+      }
+      .fa-chevron-right{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+}
+
+.mypage__list-not-found{
+  padding: 60px 0 60px;
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+  img{
+    margin-bottom: 30px;
+  }
+}
+
+.mypage__go-list{
+  border: 0;
+  padding: 16px;
+  box-sizing: border-box;
+  a{
+    display: block;
+    height: 56px;
+    margin: 0 auto;
+    background: #eee;
+    color: #333;
+    line-height: 56px;
+    text-align: center;
+  }
+}
+
+.tab-pane{
+  display: none;
+}
+
+.active{
+  display: block;
+}
+
+
+// 仮プロパティ(のちに消去)
+
+.header{
+  height: 100px;
+  width: 100%;
+  background-color: gray;
+}
+
+.footer{
+  height: 200px;
+  background: pink;
+}
+
