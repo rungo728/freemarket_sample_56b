@@ -30,6 +30,25 @@
       font-weight: 600;
     }
   }
+  // 画面サイズによって配置・サイズの変更
+  @media screen and (min-width: 768px){
+  ul {
+    overflow: visible;
+    width: 700px;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+  }
+  }
+  @media screen and (min-width: 1068px){
+  ul {
+    width: 1020px;
+    overflow: visible;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+  }
+  }
 }
 
 // メイン画面
