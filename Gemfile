@@ -71,3 +71,5 @@ gem 'ancestry'
 gem 'carrierwave'
 #S3にアップロードするためのgem
 gem 'fog-aws'
+
+gem 'font-awesome-rails'
