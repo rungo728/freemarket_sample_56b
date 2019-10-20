@@ -68,14 +68,16 @@ Things you may want to cover:
 |shipping_charge|string|null: false|
 |days_before_shipment|string|null: false|
 |price|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|saler_id|integer|null: false, foreign_key: true|
+|buyer_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true|
 
 ### Association
 
-- belongs_to :user
+- belongs_to :saler, class_name: "User"
+- has_one :buyer, class_name: "User"
 - belongs_to :prefecture
 - belongs_to :category
 - has_many :comments
