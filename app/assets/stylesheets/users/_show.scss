@@ -30,7 +30,7 @@
       font-weight: 600;
     }
   }
-  // 画面サイズによって配置・サイズの変更
+  // 画面サイズによってパンくずリストの配置を変更
   @media screen and (min-width: 768px){
   ul {
     overflow: visible;
@@ -52,13 +52,13 @@
 }
 
 // メイン画面
-.mypage{
+.l-container{
   margin: 40px auto 0;
   width: 1020px;
   display: block;
   padding: 0 0 40px;
   overflow: auto;
-  &__user-content{
+  .l-content{
     width: 100%;
     .mypage__user-iconbox{
       height: 200px;
@@ -197,22 +197,10 @@
       }
     }
   }
-  // 画面サイズによって配置・サイズの変更
-  @media screen and (min-width: 768px){
-  .mypage__user-content{
-    float: none;
-    width: 700px;
-    margin: 0 auto;
-  }
-  }
-  @media screen and (min-width: 1068px){
-  .mypage__user-content{
-    float: right;
-  }
-  }
+
 
   // 部分テンプレートにしてあるサイドメニューのプロパティ
-  .mypage__side-menu{
+  .l-side-menu{
     margin: 40px auto 0;
     .mypage__nav{
       display: block;
@@ -263,9 +251,14 @@
       }
     }
   }
-  // 画面サイズによって配置・サイズの変更
+  // 画面サイズによってサイドメニュー・メインコンテンツの配置・サイズを変更
   @media screen and (min-width: 768px){
-  .mypage__side-menu{
+  .l-content{
+    float: none;
+    width: 700px;
+    margin: 0 auto;
+  }
+  .l-side-menu{
     width: 700px;
   }
   .mypage__nav-title{
@@ -273,7 +266,10 @@
   }
   }
   @media screen and (min-width: 1068px){
-  .mypage__side-menu{
+  .l-content{
+    float: right;
+  }
+  .l-side-menu{
     float: left;
     width: 280px;
     margin: 0 40px 0 0;
@@ -284,7 +280,7 @@
   }
 }
 
-// 以下に共通するプロパティ
+// 以下に本ページで共通するプロパティ
 
 .mypage__tab-content{
   .tab-pane{
