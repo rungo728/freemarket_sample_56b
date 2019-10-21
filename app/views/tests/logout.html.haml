@@ -1,0 +1,39 @@
+//ユーザーログアウトページ
+.header
+  // ヘッダーの部分テンプレートを挿入
+%nav.bread-crumbs
+  // パンくずリスト
+  %ul
+    %li
+      = link_to do
+        %span
+          メルカリ
+      = fa_icon "chevron-right"
+    %li
+      = link_to do
+        %span
+          マイページ
+      = fa_icon "chevron-right"
+    %li
+      %span
+        ログアウト
+  
+%main.l-container.clearfix
+  .l-content
+    .l-chapter-container
+      %form{action: "", method: "POST", class: "l-single-inner", novalidate: "novalidate"}
+        .l-single-content
+          %button{type: "submit", class: "btn-default btn-red"}
+            ログアウト
+
+  // 部分テンプレートのサイドメニューを呼び出し
+  = render partial: "side"
+  
+
+
+.app-banner
+  //バナーのテンプレートを挿入
+.footer
+  //フッターのテンプレートを挿入
+.footer-sell-btn
+  //出品ボタンのテンプレートを挿入
