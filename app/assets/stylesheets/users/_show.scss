@@ -7,10 +7,9 @@
   background-color: #fff;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   ul{
-    width: 1020px;
     overflow: visible;
     margin: 0 auto;
-    padding: 16px 0;
+    padding: 16px;
     white-space: normal;
     li{
       text-overflow: ellipsis;
@@ -54,8 +53,6 @@
 // メイン画面
 .l-container{
   margin: 40px auto 0;
-  width: 1020px;
-  display: block;
   padding: 0 0 40px;
   overflow: auto;
   .l-content{
@@ -251,12 +248,15 @@
       }
     }
   }
-  // 画面サイズによってサイドメニュー・メインコンテンツの配置・サイズを変更
-  @media screen and (min-width: 768px){
+}
+
+// 画面サイズによってサイドメニュー・メインコンテンツの配置・サイズを変更
+@media screen and (min-width: 768px){
+.l-container{
+  width: 700px;
   .l-content{
     float: none;
     width: 700px;
-    margin: 0 auto;
   }
   .l-side-menu{
     width: 700px;
@@ -264,8 +264,12 @@
   .mypage__nav-title{
     margin: 40px 4% 0;
   }
-  }
-  @media screen and (min-width: 1068px){
+}
+}
+@media screen and (min-width: 1068px){
+.l-container{
+  margin: 40px auto 0;
+  width: 1020px;
   .l-content{
     float: right;
   }
@@ -277,7 +281,7 @@
   .mypage__nav-title{
     margin: 40px 0 0;
   }
-  }
+}
 }
 
 // 以下に本ページで共通するプロパティ
