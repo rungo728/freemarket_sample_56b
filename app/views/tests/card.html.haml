@@ -1,0 +1,53 @@
+//クレジットカード登録画面
+.header
+  // ヘッダーの部分テンプレートを挿入
+%nav.bread-crumbs
+  // パンくずリスト
+  %ul
+    %li
+      = link_to do
+        %span
+          メルカリ
+      = fa_icon "chevron-right"
+    %li
+      = link_to do
+        %span
+          マイページ
+      = fa_icon "chevron-right"
+    %li
+      %span
+        支払い方法
+  
+%main.l-container.clearfix
+  .l-content
+    %section.l-chapter-container
+      %h2.l-chapter__head
+        支払い方法
+      .l-single-inner
+        %section
+          .l-single-content
+            %h3.l-chapter-sub-head
+              クレジットカード一覧
+          %ul.setting-payment-list
+            // この中に登録しているクレジットカードの一覧を表示
+        %section.setting-add-card
+          .l-single-content
+            = link_to "", class: "btn-default btn-red submit-btn" do
+              = fa_icon "credit-card"
+              クレジットカードを追加する
+        .setting-not-regist
+          = link_to "", target: "blank" do
+            %span
+              支払い方法について
+            = fa_icon "chevron-right"
+  // 部分テンプレートのサイドメニューを呼び出し
+  = render partial: "side_menu"
+  
+
+
+.app-banner
+  //バナーのテンプレートを挿入
+.footer
+  //フッターのテンプレートを挿入
+.footer-sell-btn
+  //出品ボタンのテンプレートを挿入

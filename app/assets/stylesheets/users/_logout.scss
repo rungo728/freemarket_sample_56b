@@ -1,0 +1,40 @@
+.l-container{
+  .l-content{
+    .l-chapter-container{
+      margin: 0;
+      background: #fff;
+      .l-single-inner{
+        border-top: 1px solid #f5f5f5;
+        padding: 40px;
+        box-sizing: border-box;
+        .l-single-content{
+          max-width: 320px;
+          margin: 0 auto;
+          button{
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+          }
+          .btn-default{
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+          }
+        }
+      }
+      @media screen and (min-width: 768px){
+      .l-single-inner{
+        float: none;
+        width: 700px;
+        padding: 64px;
+      }
+      }
+    }
+  }
+}
