@@ -1,4 +1,4 @@
 class TestsController < ApplicationController
-  def edit
+  def logout
   end
 end
