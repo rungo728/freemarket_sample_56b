@@ -33,8 +33,6 @@
 
   = render partial: "side_menu"  
 
--# 部分テンプレートにしてある出品ボタン
-= link_to '', class: "footer-sell-btn" do
-  %div 出品
-  = fa_icon 'camera'
+//出品ボタンのテンプレート呼びだし
+= render partial: "btn"
 
