@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191026054333) do
+ActiveRecord::Schema.define(version: 20191027094748) do
+
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+  end
 
   create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "number",        null: false
@@ -29,6 +43,35 @@ ActiveRecord::Schema.define(version: 20191026054333) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_evaluations_on_user_id", using: :btree
+  end
+
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                               null: false
+    t.text     "description",          limit: 65535, null: false
+    t.string   "status",                             null: false
+    t.string   "size"
+    t.string   "shipping_charge",                    null: false
+    t.string   "shipping_method",                    null: false
+    t.string   "days_before_shipment",               null: false
+    t.integer  "price",                              null: false
+    t.integer  "saler_id",                           null: false
+    t.integer  "buyer_id"
+    t.integer  "prefecture_id",                      null: false
+    t.integer  "category_id",                        null: false
+    t.integer  "brand_id"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id", using: :btree
+  end
+
+  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "photo",      limit: 65535, null: false
+    t.integer  "item_id",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["item_id"], name: "index_photos_on_item_id", using: :btree
   end
 
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,5 +110,9 @@ ActiveRecord::Schema.define(version: 20191026054333) do
 
   add_foreign_key "credits", "users"
   add_foreign_key "evaluations", "users"
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "prefectures"
+  add_foreign_key "photos", "items"
   add_foreign_key "users", "prefectures"
 end
