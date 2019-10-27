@@ -66,6 +66,7 @@ Things you may want to cover:
 |status|string|null: false|
 |size|string||
 |shipping_charge|string|null: false|
+|shipping_method|string|null: false|
 |days_before_shipment|string|null: false|
 |price|integer|null: false|
 |saler_id|integer|null: false, foreign_key: true|
@@ -77,7 +78,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :saler, class_name: "User"
-- has_one :buyer, class_name: "User"
+- belongs_to :buyer, class_name: "User"
 - belongs_to :prefecture
 - belongs_to :category
 - has_many :comments
@@ -125,6 +126,7 @@ Things you may want to cover:
 
 - has_many :items
 - has_ancestry
+- has_many :brands
 
 
 
@@ -146,6 +148,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|category_id|integer|null: false, foreign_key|
 
 ### Association
 
