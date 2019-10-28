@@ -1,4 +1,4 @@
 class TestsController < ApplicationController
-  def logout
+  def signup
   end
 end
