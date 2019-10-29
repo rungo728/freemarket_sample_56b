@@ -1,0 +1,46 @@
+.common.container
+  %header.common-header
+    %h1
+      //部分テンプレートのヘッダー
+      = link_to "#" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4194600336", alt: "merucari",class: 'common-header__image'
+    
+  %main.single-main
+    .login-panel
+      .login-no-account
+        %p
+          アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録"
+      .login-form-inner
+        %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook"}
+          = fa_icon "facebook-square"
+          Facebookでログイン
+        %button{id: "google-login", class: "btn-default btn-sns btn-sns-google"}
+          Googleでログイン
+      %form{action: "", method: "POST", novalidate: "novalidate"}
+        .login-form-inner
+          .form-group
+            %input{type: "email", name: "email", value: "", placeholder: "メールアドレス", class: "login-input-text input-default"}
+          .form-group
+            %input{type: "password", name: "password", placeholder: "パスワード", class: "login-input-text input-default"}
+          .form-group
+            %div{class: "g-recaptcha login-captcha", "data-sitekey" => ""}
+              %div{style: "width: 304px; height: 78px;"}
+                %iframe{src: "https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=5fbZx3NV5xhaMoMLrZV3TkN4&size=normal&cb=2ix95l36veh9", width: "304", height: "78", role: "presentation", name: "not-robot", frameborder: "0", scrolling: "no", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"}
+                  
+          %button{type: "submit", class: "login-submit btn-default btn-red"}
+            ログイン
+          =link_to "パスワードをお忘れの方"
+  %footer.common-footer
+    %nav
+      %ul.common-footer-container
+        %li.common-footer-container__list
+          = link_to "プライバシーポリシー"
+        %li.common-footer-container__list
+          = link_to "メルカリ利用規約"
+        %li.common-footer-container__list
+          = link_to "特定商取引に関する表記"
+    = link_to "#" do
+      = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1248199994', alt: "mercari-logo-gray" , class: 'common-footer-container__logo'   
+    %p
+      %small©︎2019 Mercari
