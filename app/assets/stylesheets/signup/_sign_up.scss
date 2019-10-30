@@ -1,6 +1,5 @@
-
 // 画面の幅768px以下だった場合の各要素のプロパティの設定
-.common.container{
+.common-container{
   padding: 0 0 250px;
   .common-header{
     text-align: center;
@@ -137,7 +136,7 @@
   }
 }
 @media screen and (min-width: 768px){
-.common.container{
+.common-container{
   .common-header{
     height: 128px;
     h1{

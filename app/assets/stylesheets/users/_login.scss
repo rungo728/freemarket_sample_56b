@@ -1,0 +1,96 @@
+.common-container{
+  .single-main{
+    .login-panel{
+      max-width: 456px;
+      margin: 0 auto;
+      background: #fff;
+      .login-no-account{
+        padding: 24px 32px;
+        text-align: center;
+        font-size: 14px;
+        a{
+          display: block;
+          margin: 8px 0 0;
+          border: 1px solid #0099e8;
+          background: #0099e8;
+          color: #fff;
+          line-height: 40px;
+        }
+      }
+      .login-form-inner{
+        padding: 24px 32px;
+        border-top: 1px solid #eee;
+        .btn-sns{
+          position: relative;
+          i{
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+        }
+        .btn-sns-facebook:first-child{
+          margin: 0;
+        }
+        .btn-sns-facebook{
+          margin: 16px 0 0;
+          background: #385185;
+          color: #fff;
+          .fa-facebook-square{
+            color: #fff;
+            background: #385185;
+            font-size: 26px;
+          }
+        }
+        .btn-sns-google{
+          margin: 16px 0 0;
+          background: #fff url("googlelogo.png") no-repeat 14px 14px;
+          background-size: 22px;
+          border: #979797 solid 1px;
+          color: #333;
+        }
+      }
+      form{
+        .login-form-inner:first-child{
+          padding: 24px 32px;
+          border: 0;
+        }
+        .login-form-inner{
+          padding: 24px 32px;
+          border-top: 1px solid #eee;
+          .form-group:first-child{
+            margin: 0;
+          }
+          .form-group{
+            margin: 24px 0 0;
+            .input-default {
+              margin: 0;
+              width: 100%;
+            }
+            .login-captcha{
+              -webkit-transform: scale(0.8);
+              transform: scale(0.8);
+              -webkit-transform-origin: 0 0;
+              transform-origin: 0 0;
+            }
+          }
+          .login-submit{
+            margin: 24px 0 0;
+          }
+          a{
+            display: block;
+            margin: 40px 0 0;
+            font-size: 14px;
+          }
+          .btn-red{
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+
+          }
+        }
+      }
+    }
+  }
+} 
