@@ -1,0 +1,221 @@
+.common-container{
+  .common-header{
+    nav{
+      border-top: 1px solid #eee;
+      padding: 16px 0;
+      ol{
+        margin: 0;
+        .active_red{
+          font-weight: 600;
+          color: #ea352d;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          .progress-status{
+            background-color: #ea352d;
+            width: 12px;
+            height: 12px;
+            margin: 8px auto 0;
+            border-radius: 50%;
+            .after{
+              position: absolute;
+              bottom: 5px;
+              z-index: -1;
+              width: 100%;
+              height: 2px;
+              background: #ccc;
+
+            }
+          }
+        }
+        li{
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          color: #888;
+          .progress-status{
+            width: 12px;
+            height: 12px;
+            margin: 8px auto 0;
+            background: #ccc;
+            border-radius: 50%;
+            .before{
+              position: absolute;
+              bottom: 5px;
+              z-index: -1;
+              width: 100%;
+              height: 2px;
+              background: #ccc;
+              right: 50%;
+              display: block;
+            }
+            .after{
+              position: absolute;
+              bottom: 5px;
+              z-index: -1;
+              width: 100%;
+              height: 2px;
+              background: #ccc;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .contents__form__require{
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    background: #ea352d;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .input-default{
+    width: 100%;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    margin: 8px 0 0;
+  }
+
+  .half:first-of-type{
+    margin-right: 8px;
+  }
+  .half{
+    width: calc(50% - 6px);
+    
+  }
+  .step1-main{
+    display: block;
+    .l-step1-container{
+      background-color: #fff;
+      h2{
+        padding: 16px;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: bold;
+      }
+      form{
+        padding: 24px 16px 40px;
+      }
+      .l-step1-inner {
+        border-top: 1px solid #f5f5f5;
+        padding: 12px 0;
+
+      }
+      .l-step1-content{
+        margin: 0 auto;
+        max-width: 343px;
+        .form-group:first-child{
+          margin: 0;
+        }
+        .form-group{
+          margin: 24px 0 0;
+          label{
+            font-weight: 600;
+            display: inline-block;
+          }  
+          .birthday-select{
+            .select-wrap{
+              select{
+                width: calc(34% - 21px);
+                height: 48px;
+                margin: 8px 0 0;
+
+              }
+            }
+          }
+          p{
+            margin: 8px 0 0;
+            line-height: 1.5;
+
+          }
+        }
+        .btn-red{
+          margin: 24px 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+        }
+        .text-right{
+          text-align: right;
+          p{
+            a{
+              color: #0099e8;
+            }
+            i{
+              color: #0099e8;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px){
+.common-container{
+  padding: 0 0 220px;
+  .common-header{
+    height: 128px;
+    h1{
+      margin:40px 0 0;
+    }
+    nav{
+      padding: 44px 0 0 44px;
+      border: 0;
+      display: inline-block;
+      vertical-align: top;      
+      ol{
+        li{
+          margin: 0 40px 0 0;
+          min-width: 60px;
+        }
+        li:first-child{
+          margin: 0 40px 0 0;
+        }
+        li:last-child{
+          margin: 0;
+        }
+      }
+    }   
+  }
+  .step1-main{
+    section{
+      width: 700px;
+      margin: 0 auto;
+      .l-step1-head{
+        font-size: 22px;
+        padding: 32px;
+  
+      }
+    }
+  }
+  .common-footer{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    nav{
+      ul{
+        li{
+          display: inline-block;
+          margin:0 0 0 16px;
+        }
+      }
+    }
+  }
+}
+}
