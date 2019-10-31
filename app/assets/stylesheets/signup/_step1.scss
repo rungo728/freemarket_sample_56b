@@ -5,7 +5,7 @@
       padding: 16px 0;
       ol{
         margin: 0;
-        .active_red{
+        li.active_red{
           font-weight: 600;
           color: #ea352d;
           position: relative;
@@ -20,15 +20,18 @@
             height: 12px;
             margin: 8px auto 0;
             border-radius: 50%;
-            .after{
-              position: absolute;
-              bottom: 5px;
-              z-index: -1;
-              width: 100%;
-              height: 2px;
-              background: #ccc;
-
-            }
+          }
+          .progress-status:before{
+            background: none;
+          }
+          .progress-status:after{
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+            left: 50%;
           }
         }
         li{
@@ -45,25 +48,33 @@
             margin: 8px auto 0;
             background: #ccc;
             border-radius: 50%;
-            .before{
-              position: absolute;
-              bottom: 5px;
-              z-index: -1;
-              width: 100%;
-              height: 2px;
-              background: #ccc;
-              right: 50%;
-              display: block;
-            }
-            .after{
-              position: absolute;
-              bottom: 5px;
-              z-index: -1;
-              width: 100%;
-              height: 2px;
-              background: #ccc;
-              display: block;
-            }
+          }
+          .progress-status:before{
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+            right: 50%;
+            display: block;
+            content: '';
+          }
+          .progress-status:after{
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+            display: block;
+            content:'';
+            left: 50%;
+          }
+        }
+        li:last-child{
+          .progress-status:after{
+            background: none;
           }
         }
       }
