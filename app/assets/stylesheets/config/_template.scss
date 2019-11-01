@@ -20,10 +20,12 @@ body{
   content: "";
   display: block;
 }
+
 a{
   text-decoration: none;
   color: #0099e8;
 }
+
 .input-default {
   height: 48px;
   padding: 10px 16px 8px;
@@ -34,6 +36,20 @@ a{
   font-size: 16px;
   box-sizing: border-box;
 }
+
+.textarea-default {
+  display: block;
+  width: 100%;
+  max-width: 97%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
 .btn-default{
   display: block;
   width: 100%;
@@ -45,6 +61,17 @@ a{
   cursor: pointer;
   text-align: center;
 }
+
+.btn-red{
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+
 main{
+  display: block;
+}
+
+section{
   display: block;
 }

@@ -4,9 +4,7 @@
   position: sticky;
   z-index: 3;
   padding-top: 6px;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   height: 100%;
-  box-sizing: border-box;
   .upper-row {
     display: flex;
     align-items: center;
@@ -108,6 +106,7 @@
   }
   .under-row {
     display: flex;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
     a {
       align-items: center;
       height: 42px;

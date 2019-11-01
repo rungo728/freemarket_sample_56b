@@ -1,3 +1,10 @@
+.user-container{
+  .header{
+    .under-row{
+      display: none;
+    }
+  }
+}
 // パンくずリスト
 .bread-crumbs{
   height: 49px;
@@ -381,18 +388,3 @@
     text-align: center;
   }
 }
-
-
-// 仮プロパティ(のちに消去)
-
-.header{
-  height: 100px;
-  width: 100%;
-  background-color: gray;
-}
-
-.footer{
-  height: 200px;
-  background: pink;
-}
-
