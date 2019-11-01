@@ -1,0 +1,89 @@
+.aside{
+  color: rgb(255, 255, 255);
+  background-image: url("/images/merucari3.jpg");
+  background-position: center center;
+  .aside-content{
+    background-position: center center;
+    a{
+      background-color: rgba(0, 0, 0, 0.2);
+      color: rgb(255, 255, 255);
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        vertical-align: middle;
+        width:50px;
+        height: 50px;
+        margin-right: 20px;
+      }  
+      .aside-banner__link{
+        flex-direction: column;
+        &__text{
+          font-size: 20px;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px){
+.aside2-content{
+  display: none;
+}
+}
+@media screen and (min-width: 768px){  
+.aside-content{
+  display: none;
+}
+.aside2-content{
+  background-position: center center;
+  //画像なしのため仮の背景
+  background-color: rgba(0, 0, 0, 0.2);
+  .aside2-banner{
+    display: flex;
+    width: 750px;
+    margin: 0px auto;
+    justify-content: space-between;
+    &__links{
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      &__text1{
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        font-weight: 600;
+      }
+      &__text2{
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+      &__logo{
+        img{
+          height: 68px;
+          margin-right: 8px;
+          width: 68px;
+          vertical-align: middle;
+        }
+        a{
+          color: inherit;
+          text-decoration: none;
+          img{
+            height: 40px;
+            margin-right: 8px;
+            width: 144px;
+          }
+        }
+      }
+    }
+    &__figure{
+      img{
+        height: 250px;
+        width: 300px;
+      }
+    }
+  }
+}
+}
