@@ -1,9 +1,22 @@
+//ユーザー関連ページの部分テンプレートのプロパティ
 .user-container{
   .header{
+    position: relative;
     .under-row{
       display: none;
     }
   }
+  .header-wide{
+    position: relative;
+    box-shadow: none;
+  }
+}
+@media screen and (max-width: 767px){
+.user-container{
+  .aside{
+    display: none;
+  }
+}
 }
 // パンくずリスト
 .bread-crumbs{
