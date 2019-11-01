@@ -1,6 +1,7 @@
 -# ページのヘッダー部分
 .common-container
-  = render "signup-header"
+  %header.common-header
+    = render "shared/signup-header"
   -# 登録方法選択画面
   %main.contents-main
     %section.contents-container
@@ -18,4 +19,4 @@
             = image_tag "googlelogo.png"
             Googleで登録する
     -# ページのフッダー部分
-  = render 'signup-footer'
+  = render 'shared/signup-footer'
