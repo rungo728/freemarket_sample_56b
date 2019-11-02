@@ -91,6 +91,7 @@
               box-sizing: border-box;
               div{
                 background: #fff;
+                box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
                 .items-link{
                   width: 100%;
                   cursor: pointer;
@@ -148,7 +149,7 @@
                     padding: 0 8px;
                     box-sizing: border-box;
                     color: #222;
-                    line-height: 1.4rem;
+                    line-height: 1.3rem;
                     white-space: normal;
                     word-break: break-word;
                     span{
