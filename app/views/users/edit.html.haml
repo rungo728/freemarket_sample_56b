@@ -1,38 +1,43 @@
 -# プロフィール編集画面
-.header
-%nav.bread-crumbs
-  // パンくずリスト
-  %ul
-    %li
-      = link_to do
+.user-container
+  = render partial: 'shared/main_header'
+  %nav.bread-crumbs
+    // パンくずリスト
+    %ul
+      %li
+        = link_to do
+          %span
+            メルカリ
+        = fa_icon "chevron-right"
+      %li
+        = link_to do
+          %span
+            マイページ
+        = fa_icon "chevron-right"
+      %li
         %span
-          メルカリ
-      = fa_icon "chevron-right"
-    %li
-      = link_to do
-        %span
-          マイページ
-      = fa_icon "chevron-right"
-    %li
-      %span
-        プロフィール
+          プロフィール
 
-.l-container.cleafix
-  .l-content
-    %section.l-chapter-container
-      %h2.l-chapter-head プロフィール
-      %form{:action => "", :method => "POST"}
-        %input{:name => "__csrf_value", :type => "hidden", :value => "0ee9b933761fd5cc41065da1969d19cf8f2f85ed4f18225a01dc05f4081f9bb50b4244aa1ee100f87c5fc97bcdb6608de83a2e62f3fa088af8052d42a2504583d", class: "input-default"}/
-        .setting-profile-icon
-          %figure
-            %img{:height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
-          %input{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => "",  class: "input-default"}/
-        .setting-profile-content
-          %textarea.textarea-default{:name => "introduction", :placeholder => "例）こんにちは"}
-          %button{:type => "submit", class: "btn-default btn-red"} 変更する
+  .l-container.cleafix
+    .l-content
+      %section.l-chapter-container
+        %h2.l-chapter-head プロフィール
+        %form{:action => "", :method => "POST"}
+          %input{:name => "__csrf_value", :type => "hidden", :value => "0ee9b933761fd5cc41065da1969d19cf8f2f85ed4f18225a01dc05f4081f9bb50b4244aa1ee100f87c5fc97bcdb6608de83a2e62f3fa088af8052d42a2504583d", class: "input-default"}/
+          .setting-profile-icon
+            %figure
+              %img{:height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+            %input{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => "",  class: "input-default"}/
+          .setting-profile-content
+            %textarea.textarea-default{:name => "introduction", :placeholder => "例）こんにちは"}
+            %button{:type => "submit", class: "btn-default btn-red"} 変更する
 
-  = render partial: "side_menu"  
+    = render partial: "side_menu"  
 
-//出品ボタンのテンプレート呼びだし
-= render partial: "sell_btn"
+  //バナーのテンプレートを挿入
+  = render partial: "shared/main_aside"
+  //フッターのテンプレートを挿入
+  = render partial: "shared/main_footer"
+  //出品ボタンのテンプレート呼びだし
+  = render partial: "shared/sell_btn"
 
