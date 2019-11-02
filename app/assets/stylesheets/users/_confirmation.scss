@@ -1,8 +1,6 @@
-body{
-  background-color: #f5f5f5;
-}
 .single-container{
   padding: 0 0 220px;
+  background-color: #f5f5f5;
   .single-header{
     height: 128px;
     text-align: center;
@@ -14,7 +12,6 @@ body{
   margin: 0 auto;
   .l-single-container{
     display: block;
-  }
     .l-single-head{
       line-height: 1.5;
       font-size: 22px;
@@ -120,6 +117,7 @@ body{
             }
           }
         }
+      }
           .has-error-text {
             color: #ea352d;
             font-size: 14px;
@@ -138,9 +136,6 @@ body{
           }
        }
     }
-    
-      }
-
     .buy-user-info{
       transition: all ease-out .3s;
       margin: 40px 0 0;
@@ -186,21 +181,13 @@ body{
           font-size: 100%;
           font: inherit;
           vertical-align: baseline;
+        }
         address{
           display: block;
           margin-top: 8px;
           font-size: 14px;
           line-height: 1.4;
-          br{
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
-          br{
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
-          }
-          }
+        }
         .buy-user-info-text{
           margin: 8px 0 0;
           font-size: 14px;
@@ -209,25 +196,6 @@ body{
         .buy-user-info-fix{
           display: block;
           text-align: right;
-          span{
-            vertical-align: middle;
-          .icon-arrow-right{
-            vertical-align: middle;
-            margin: 0 0 0 8px;
-            font-size: 10px;
-            display: inline-block;
-            font-family: 'icon-font';
-            speak: none;
-            font-style: normal;
-            font-weight: 400;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-          }
-          }
-        }
-        }
         }
       }
     }
@@ -263,14 +231,7 @@ body{
         .buy-user-info-fix{
           display: block;
           text-align: right;
-          span{
-            vertical-align: middle;
-            .fa-chevron-right{
-              vertical-align: middle;
-              margin: 0 0 0 8px;
-              font-size: 10px;
-            }
           }
         }
       }
-    }
+  }
