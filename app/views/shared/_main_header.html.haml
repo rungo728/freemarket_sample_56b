@@ -1,0 +1,85 @@
+.header
+  .upper-row
+    = link_to '#' do
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4194600336", alt: "merucari", class: 'mercari-icon'
+    //ログイン時
+    .upper-row__user
+      .user-information
+        = link_to '#' do
+          = fa_icon 'bell', class: 'icon'
+      .user-information
+        = link_to '#' do 
+          = fa_icon 'check', class: 'icon'
+      .user-information
+        = link_to '#', class: 'userpage-link' do
+          = image_tag 'mrkr-icon.png', class: 'user-icon', size: '32x32'
+    //未ログイン
+    -# .upper-row__user
+    -#   = link_to '新規会員', '#',class: "upper-row__user__registration" 
+      
+    -#   = link_to 'ログイン', '#',class: "upper-row__user__login"
+    
+  .center-row__search
+    %form
+      %input.center-row__search--input{name: "search", placeholder: "何をお探しですか？", type: "search", style: "width: 100%; height: 40px;"}
+      %button.center-row__search--button{title: "検索", type: "submit" }
+        = fa_icon 'search'
+  %nav.under-row
+    = link_to '#', class: "under-row__list" do
+      = fa_icon 'list'
+      %span
+        カテゴリーから探す
+    = link_to '#', class: "under-row__list" do
+      = fa_icon 'tag'
+      %span
+        ブランドから探す
+
+// 横に広がった時のヘッダー
+.header-wide
+  .header-wide__inner
+    .upper-row
+      .mercari-logo
+        = link_to '#' do
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4194600336", alt: "merucari"
+      %form.upper-row__search
+        %input.upper-row__search--input{name: "search", placeholder: "何かお探しですか？", type: "search", style: "width: 100%; height: 40px;"}
+        %button.upper-row__search--button{title: "検索", type: "submit" }
+          = fa_icon 'search'
+    .under-row
+      .under-row__links
+        .under-row__links__content
+          = link_to '#' do
+            = fa_icon 'list'
+            %span
+              カテゴリーから探す
+        .under-row__links__content
+          = link_to '#' do
+            = fa_icon 'tag'
+            %span
+              ブランドから探す
+      
+      %ul.under-row__lists
+        %li.list
+          = link_to '#' do
+            = fa_icon 'heart', class: 'icon'
+            いいね！一覧
+        %li.list
+          = link_to '#' do
+            = fa_icon 'bell', class: 'icon'
+            お知らせ
+        %li.list
+          = link_to '#' do 
+            = fa_icon 'check', class: 'icon'
+            やることリスト
+        %li.list
+          = link_to '#' do
+            = image_tag 'mrkr-icon.png'
+            マイページ
+      // 未ログイン時
+      -# .under-row__user
+      -#   .under-row__user__registration
+      -#     = link_to '#' do
+      -#       新規会員登録
+      -#   .under-row__user__login    
+      -#     = link_to '#' do
+      -#       ログイン

@@ -1,1 +1,669 @@
-ここにトップページ
+.toppage-container
+  = render partial: 'shared/main_header'
+  .main-content
+    .middle
+      .middle__content
+        .link-list
+          .slider
+            %img.slider-image{src: ""}
+            %img.slider-image{src: ""}
+              .slider-image__application
+                = link_to "#" do
+                  .apple-link
+                    アップル
+                = link_to "#" do
+                  .google-link
+                    google
+    
+    .popular
+      %h2.popular__title.bold
+        人気のカテゴリー
+      .popular__box
+        %ul.popular__box--lists
+          %li.list
+            = link_to "レディース"
+          %li.list
+            = link_to "メンズ"
+          %li.list
+            = link_to "家電・スマホ・カメラ"
+          %li.list
+            = link_to "おもちゃ・ホビー・グッズ"
+    .popular-items
+      .popular-header
+        .popular-header__item
+          %h3.popular-header__item__title
+            レディース新着アイテム
+          = link_to "#" do
+            もっと見る
+            = fa_icon "chevron-right"
+        .popular-content
+          .popular-content__items
+            %ul.popular-content__items--list
+              // データベースから並べる時に使用
+              -# - @ladyes.each do |lady|
+              -#   %li.popular-content__item
+              -#     %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#       = link_to "", class: "items-link" do
+              -#         .item-box
+              -#           %span
+              -#             ¥
+              -#             = lady.price
+              -#           = image_tag 'viton.jpeg'
+              -#         .item-name
+              -#           %span
+              -#             = lady.name
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        レディース
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        レディース
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        レディース
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        レディース
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        レディース
+
+      .popular-header
+        .popular-header__item
+          %h3.popular-header__item__title
+            メンズ新着アイテム
+          = link_to "#" do
+            もっと見る
+            = fa_icon "chevron-right"
+        .popular-content
+          .popular-content__items
+            %ul.popular-content__items--list
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        メンズ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        メンズ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        メンズ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        メンズ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        メンズ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        メンズ
+
+      .popular-header
+        .popular-header__item
+          %h3.popular-header__item__title
+            家電・スマホ・カメラ新着アイテム
+          = link_to "#" do
+            もっと見る
+            = fa_icon "chevron-right"
+        .popular-content
+          .popular-content__items
+            %ul.popular-content__items--list
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'apple.jpg'
+                    .item-name
+                      %span
+                        家電
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'apple.jpg'
+                    .item-name
+                      %span
+                        家電
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'apple.jpg'
+                    .item-name
+                      %span
+                        家電
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'apple.jpg'
+                    .item-name
+                      %span
+                        家電
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'apple.jpg'
+                    .item-name
+                      %span
+                        家電
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'apple.jpg'
+                    .item-name
+                      %span
+                        家電
+      
+      .popular-header
+        .popular-header__item
+          %h3.popular-header__item__title
+            おもちゃ・ホビー・グッズ新着アイテム
+          = link_to "#" do
+            もっと見る
+            = fa_icon "chevron-right"
+        .popular-content
+          .popular-content__items
+            %ul.popular-content__items--list
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'toy.jpg'
+                    .item-name
+                      %span
+                        おもちゃ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'toy.jpg'
+                    .item-name
+                      %span
+                        おもちゃ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'toy.jpg'
+                    .item-name
+                      %span
+                        おもちゃ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'toy.jpg'
+                    .item-name
+                      %span
+                        おもちゃ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'toy.jpg'
+                    .item-name
+                      %span
+                        おもちゃ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'toy.jpg'
+                    .item-name
+                      %span
+                        おもちゃ
+    
+    .popular
+      %h2.popular__title.bold
+        人気のブランド
+      .popular__box
+        %ul.popular__box--lists
+          %li.list
+            = link_to "シャネル"
+          %li.list
+            = link_to "ルイヴィトン"
+          %li.list
+            = link_to "シュプリーム"
+          %li.list
+            = link_to "ナイキ"
+
+    .popular-items
+      .popular-header
+        .popular-header__item
+          %h3.popular-header__item__title
+            シャネル新着アイテム
+          = link_to "#" do
+            もっと見る
+            = fa_icon "chevron-right"
+        .popular-content
+          .popular-content__items
+            %ul.popular-content__items--list
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'chanel.png'
+                    .item-name
+                      %span
+                        シャネル
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'chanel.png'
+                    .item-name
+                      %span
+                        シャネル
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'chanel.png'
+                    .item-name
+                      %span
+                        シャネル
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'chanel.png'
+                    .item-name
+                      %span
+                        シャネル
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'chanel.png'
+                    .item-name
+                      %span
+                        シャネル
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'chanel.png'
+                    .item-name
+                      %span
+                        シャネル
+      
+      .popular-header
+        .popular-header__item
+          %h3.popular-header__item__title
+            ルイヴィトン新着アイテム
+          = link_to "#" do
+            もっと見る
+            = fa_icon "chevron-right"
+        .popular-content
+          .popular-content__items
+            %ul.popular-content__items--list
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        ルイヴィトン
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        ルイヴィトン
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        ルイヴィトン
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        ルイヴィトン
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        ルイヴィトン
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'viton.jpeg'
+                    .item-name
+                      %span
+                        ルイヴィトン
+
+      .popular-header
+        .popular-header__item
+          %h3.popular-header__item__title
+            シュプリーム新着アイテム
+          = link_to "#" do
+            もっと見る
+            = fa_icon "chevron-right"
+        .popular-content
+          .popular-content__items
+            %ul.popular-content__items--list
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'supreme.jpg'
+                    .item-name
+                      %span
+                        シュプリーム
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'supreme.jpg'
+                    .item-name
+                      %span
+                        シュプリーム
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'supreme.jpg'
+                    .item-name
+                      %span
+                        シュプリーム
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'supreme.jpg'
+                    .item-name
+                      %span
+                        シュプリーム
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'supreme.jpg'
+                    .item-name
+                      %span
+                        シュプリーム
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'supreme.jpg'
+                    .item-name
+                      %span
+                        シュプリーム
+      
+      .popular-header
+        .popular-header__item
+          %h3.popular-header__item__title
+            ナイキ新着アイテム
+          = link_to "#" do
+            もっと見る
+            = fa_icon "chevron-right"
+        .popular-content
+          .popular-content__items
+            %ul.popular-content__items--list
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'nike.jpg'
+                    .item-name
+                      %span
+                        ナイキ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'nike.jpg'
+                    .item-name
+                      %span
+                        ナイキ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'nike.jpg'
+                    .item-name
+                      %span
+                        ナイキ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'nike.jpg'
+                    .item-name
+                      %span
+                        ナイキ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'nike.jpg'
+                    .item-name
+                      %span
+                        ナイキ
+              %li.popular-content__item
+                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                  = link_to "", class: "items-link" do
+                    .item-box
+                      %span
+                        ¥
+                        1000
+                      = image_tag 'nike.jpg'
+                    .item-name
+                      %span
+                        ナイキ
+    
+  = render partial: 'shared/main_aside'
+
+  = render partial: 'shared/main_footer'
+
+  = render partial: 'shared/sell_btn'

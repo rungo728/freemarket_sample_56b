@@ -1,0 +1,74 @@
+%footer.main-footer
+  %nav
+    .merucari-overview.footer-top.footer-contents
+      %h2.footer-contents__title
+        メルカリについて
+      %ul.footer-contents__lists
+        %li.list
+          = link_to "会社概要（運営会社)"
+        %li.list
+          = link_to "採用情報"
+        %li.list
+          = link_to "プレスリリース"
+        %li.list
+          = link_to "公式ブログ"
+        %li.list
+          = link_to "メルカリロゴ利用ガイドライン"
+        = link_to "#", class:"merucari-overview__btn twitter" do
+          = fa_icon 'twitter' 
+        = link_to "#", class:"merucari-overview__btn facebook" do
+          = fa_icon 'facebook-square'
+    .merucari-guide.footer-top.footer-contents
+      %h2.footer-contents__title
+        ヘルプ＆ガイド
+      %ul.footer-contents__lists
+        %li.list
+          = link_to "メルカリガイド"
+        %li.list
+          = link_to "らくらくメルカリ便"
+        %li.list
+          = link_to "ゆうゆうメルカリ便"
+        %li.list
+          = link_to "大型メルカリ便"
+        %li.list
+          = link_to "車体取引ガイド"
+        %li.list
+          = link_to "メルカリあんしん・あんぜん宣言！"
+        %li.list
+          = link_to "偽ブランド品撲滅への取り組み"
+        %li.list
+          = link_to "メルカリボックス"
+    .merucari-privacy.footer-contents
+      %h2.footer-contents__title
+        プライバシーと利用規約
+      .merucari-privacy__1
+        %ul
+          %li.list
+            = link_to "プライバシーポリシー"
+          %li.list
+            = link_to "メルカリ利用規約"
+          %li.list
+            = link_to "あんしんスマホサポート制度に関する利用規約"
+          %li.list
+            = link_to "コンプライアンスポリシー"
+      .merucari-privacy__2
+        %ul
+          %li.list
+            = link_to "個人データの安全管理に係る基本方針"
+          %li.list
+            = link_to "特定商取引に関する表記"
+          %li.list
+            = link_to "資金決済法に基づく表示"
+          %li.list
+            = link_to "法令順守と犯罪抑止のために"
+    .merucari-country.footer-contents
+      %h2.merucari-country__title
+        国
+      %ul.merucari-country__lists
+        %li.list
+          = link_to "日本", "", class: "country-link"
+          = link_to "United States", class: "country-link"
+  .bottom-row
+    = link_to "#" do
+      %img{ class:"bottom-row__lists", src:"//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?2482339763" }
+    %span.bottom-row__lists__name  @2019 Merucari

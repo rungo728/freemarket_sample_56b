@@ -1,3 +1,23 @@
+//ユーザー関連ページの部分テンプレートのプロパティ
+.user-container{
+  .header{
+    position: relative;
+    .under-row{
+      display: none;
+    }
+  }
+  .header-wide{
+    position: relative;
+    box-shadow: none;
+  }
+}
+@media screen and (max-width: 767px){
+.user-container{
+  .aside{
+    display: none;
+  }
+}
+}
 // パンくずリスト
 .bread-crumbs{
   height: 49px;
@@ -381,18 +401,3 @@
     text-align: center;
   }
 }
-
-
-// 仮プロパティ(のちに消去)
-
-.header{
-  height: 100px;
-  width: 100%;
-  background-color: gray;
-}
-
-.footer{
-  height: 200px;
-  background: pink;
-}
-

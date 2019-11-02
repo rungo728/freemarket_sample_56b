@@ -1,124 +1,123 @@
 //ユーザーマイページ
-.header
-  // ヘッダーの部分テンプレートを挿入
-%nav.bread-crumbs
-  // パンくずリスト
-  %ul
-    %li
-      = link_to do
+.user-container
+  = render partial: "shared/main_header"
+  %nav.bread-crumbs
+    // パンくずリスト
+    %ul
+      %li
+        = link_to do
+          %span
+            メルカリ
+        = fa_icon "chevron-right"
+      %li
         %span
-          メルカリ
-      = fa_icon "chevron-right"
-    %li
-      %span
-        マイページ
+          マイページ
 
-%main.l-container.clearfix
-  .l-content
-    %section.mypage__user-iconbox
-      = link_to '' do
-        %figure
-          = image_tag 'mrkr-icon.png', size: "60x60"
-        %h2.crrent-user__name.bold
-          testuser
-        .current-user__numbers
-          .current-user__evaluation
-            評価
-            %span.bold
-              5
-          .current-user__items
-            出品数
-            %span.bold
-              10
+  %main.l-container.clearfix
+    .l-content
+      %section.mypage__user-iconbox
+        = link_to '' do
+          %figure
+            = image_tag 'mrkr-icon.png', size: "60x60"
+          %h2.crrent-user__name.bold
+            testuser
+          .current-user__numbers
+            .current-user__evaluation
+              評価
+              %span.bold
+                5
+            .current-user__items
+              出品数
+              %span.bold
+                10
 
-    %section.mypage__informations
-      %ul.mypage__informations__tab
-        // タブが切り替わるようになっており、jsで参照したいコンテンツにactiveクラスを付与する。
-        %li.active
-          %h3
-            = link_to 'お知らせ'
-        %li
-          %h3
-            = link_to 'やることリスト'
-      .mypage__tab-content
-        %ul#mypage__tab-notification.mypage__list.tab-pane.active
+      %section.mypage__informations
+        %ul.mypage__informations__tab
+          // タブが切り替わるようになっており、jsで参照したいコンテンツにactiveクラスを付与する。
+          %li.active
+            %h3
+              = link_to 'お知らせ'
           %li
-            = link_to do
-              %figure
-                = image_tag 'mercari_profile.png', size: "48x48"
-              .mypage__list__body
-                .mypage__list__content
-                  お知らせテストお知らせテストお知らせテストお知らせテストお知らせテストお知らせテストお知らせテスト
-                .mypage__list__time.time
-                  = fa_icon "clock-o"
-                  %span
-                    2 時間前
-              = fa_icon "chevron-right"
+            %h3
+              = link_to 'やることリスト'
+        .mypage__tab-content
+          %ul#mypage__tab-notification.mypage__list.tab-pane.active
+            %li
+              = link_to do
+                %figure
+                  = image_tag 'mercari_profile.png', size: "48x48"
+                .mypage__list__body
+                  .mypage__list__content
+                    お知らせテストお知らせテストお知らせテストお知らせテストお知らせテストお知らせテストお知らせテスト
+                  .mypage__list__time.time
+                    = fa_icon "clock-o"
+                    %span
+                      2 時間前
+                = fa_icon "chevron-right"
+            %li
+              = link_to do
+                %figure
+                  = image_tag 'mercari_profile.png', size: "48x48"
+                .mypage__list__body
+                  .mypage__list__content
+                    テスト
+                  .mypage__list__time.time
+                    = fa_icon "clock-o"
+                    %span
+                      3 時間前
+                = fa_icon "chevron-right"
+            %li.mypage__go-list
+              = link_to '一覧を見る'
+          %ul#mypage__tab-todo.mypage__list.tab-pane
+            // リストがある場合とない場合で分ける必要がある
+            .mypage__list-not-found.bold
+              =image_tag "mrkr-gray.png", size: "90x90"
+              .mypage__list-not-found__text
+                現在、やることリストはありません
+
+      %section.mypage__transaction
+        %h2.mypage__transaction__tab-head
+          購入した商品
+        %ul.mypage__transaction__tab
+          //jsでactiveクラスを付与する
+          %li.active
+            %h3
+              = link_to '取引中'
           %li
-            = link_to do
-              %figure
-                = image_tag 'mercari_profile.png', size: "48x48"
-              .mypage__list__body
-                .mypage__list__content
-                  テスト
-                .mypage__list__time.time
-                  = fa_icon "clock-o"
-                  %span
-                    3 時間前
-              = fa_icon "chevron-right"
-          %li.mypage__go-list
-            = link_to '一覧を見る'
-        %ul#mypage__tab-todo.mypage__list.tab-pane
-          // リストがある場合とない場合で分ける必要がある
-          .mypage__list-not-found.bold
-            =image_tag "mrkr-gray.png", size: "90x90"
-            .mypage__list-not-found__text
-              現在、やることリストはありません
-
-    %section.mypage__transaction
-      %h2.mypage__transaction__tab-head
-        購入した商品
-      %ul.mypage__transaction__tab
-        //jsでactiveクラスを付与する
-        %li.active
-          %h3
-            = link_to '取引中'
-        %li
-          %h3
-            = link_to '過去の取引'
-      .mypage__tab-content
-        // タブが切り替わるようになっており、jsで参照したいコンテンツにactiveクラスを付与する。
-        %ul#mypage__tab-trading.mypage__list.tab-pane.active
-          // リストの有無で条件分岐
-          .mypage__list-not-found.bold
-            =image_tag "mrkr-gray.png", size: "90x90"
-            .mypage__list-not-found__text
-              取引中の商品がありません
-        %ul#mypage__tab-traded.mypage__list.tab-pane
-          // リストの有無で条件分岐
-          %li
-            = link_to do
-              %figure
-                = image_tag 'mrkr-icon.png'
-              .mypage__list__body
-                .mypage__list__content
-                  「〇〇」を購入しました。
-                  %span
-                    取引が完了しました
-                .mypage__list__content__status.done.bold
-                  取引完了
-              = fa_icon "chevron-right"
-          %li.mypage__go-list
-            = link_to '一覧を見る'
-  
-  // 部分テンプレートのサイドメニューを呼び出し
-  = render partial: "side_menu"
+            %h3
+              = link_to '過去の取引'
+        .mypage__tab-content
+          // タブが切り替わるようになっており、jsで参照したいコンテンツにactiveクラスを付与する。
+          %ul#mypage__tab-trading.mypage__list.tab-pane.active
+            // リストの有無で条件分岐
+            .mypage__list-not-found.bold
+              =image_tag "mrkr-gray.png", size: "90x90"
+              .mypage__list-not-found__text
+                取引中の商品がありません
+          %ul#mypage__tab-traded.mypage__list.tab-pane
+            // リストの有無で条件分岐
+            %li
+              = link_to do
+                %figure
+                  = image_tag 'mrkr-icon.png'
+                .mypage__list__body
+                  .mypage__list__content
+                    「〇〇」を購入しました。
+                    %span
+                      取引が完了しました
+                  .mypage__list__content__status.done.bold
+                    取引完了
+                = fa_icon "chevron-right"
+            %li.mypage__go-list
+              = link_to '一覧を見る'
+    
+    // 部分テンプレートのサイドメニューを呼び出し
+    = render partial: "side_menu"
 
 
-.app-banner
   //バナーのテンプレートを挿入
-.footer
+  = render partial: "shared/main_aside"
   //フッターのテンプレートを挿入
-
-//出品ボタンのテンプレート呼びだし
-= render partial: "sell_btn"
+  = render partial: "shared/main_footer"
+  //出品ボタンのテンプレート呼びだし
+  = render partial: "shared/sell_btn"

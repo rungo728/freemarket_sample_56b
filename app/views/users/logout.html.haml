@@ -1,40 +1,39 @@
 //ユーザーログアウトページ
-.header
-  // ヘッダーの部分テンプレートを挿入
-%nav.bread-crumbs
-  // パンくずリスト
-  %ul
-    %li
-      = link_to do
+.user-container
+  = render partial: "shared/main_header"
+  %nav.bread-crumbs
+    // パンくずリスト
+    %ul
+      %li
+        = link_to do
+          %span
+            メルカリ
+        = fa_icon "chevron-right"
+      %li
+        = link_to do
+          %span
+            マイページ
+        = fa_icon "chevron-right"
+      %li
         %span
-          メルカリ
-      = fa_icon "chevron-right"
-    %li
-      = link_to do
-        %span
-          マイページ
-      = fa_icon "chevron-right"
-    %li
-      %span
-        ログアウト
-  
-%main.l-container.clearfix
-  .l-content
-    .l-chapter-container
-      %form{action: "", method: "POST", class: "l-single-inner", novalidate: "novalidate"}
-        .l-single-content
-          %button{type: "submit", class: "btn-default btn-red"}
-            ログアウト
+          ログアウト
+    
+  %main.l-container.clearfix
+    .l-content
+      .l-chapter-container
+        %form{action: "", method: "POST", class: "l-single-inner", novalidate: "novalidate"}
+          .l-single-content
+            %button{type: "submit", class: "btn-default btn-red"}
+              ログアウト
 
-  // 部分テンプレートのサイドメニューを呼び出し
-  = render partial: "side_menu"
-  
+    // 部分テンプレートのサイドメニューを呼び出し
+    = render partial: "side_menu"
+    
 
 
-.app-banner
   //バナーのテンプレートを挿入
-.footer
+  = render partial: "shared/main_aside"
   //フッターのテンプレートを挿入
-
-//出品ボタンのテンプレート呼びだし
-= render partial: "sell_btn"
+  = render partial: "shared/main_footer"
+  //出品ボタンのテンプレート呼びだし
+  = render partial: "shared/sell_btn"
