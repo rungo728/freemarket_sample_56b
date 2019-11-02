@@ -1,0 +1,64 @@
+.single-container
+  %header
+    //ヘッダーの部分テンプレート
+  %main.single-main
+    %section.l-single-container.buy-item-container
+      %h2.l-single-head
+        購入内容の確認
+      %section.buy-content.buy-item
+        .buy-content-inner
+          %h3.buy-item-image
+            = image_tag "mrkr.icon.png", class: "lazyloaded"
+          %p.buy-item-name.bold
+            購入商品テスト
+          %form{action: "", mathod: "POST", novalidate: "novalidate"}
+            %p.buy-price-ja.bold
+              ¥10,000
+              %span.item-shipping-fee.f14.bold
+                送料込み
+            %ul.buy-accordion.not-have
+              //ポイントがある場合とない場合で分ける
+              %li.accordion-parent
+                .accordion-toggle
+                  ポイントはありません
+            %ul.buy-price-table
+              %li.buy-price-row.buy-you-pay.bold
+                .buy-price-cell
+                  支払い金額
+                .buy-price-cell
+                  %span{"data-buy-pay" => "10000"}
+                    ￥10,000
+            %p.has-error-text
+              配送先と支払い方法の入力を完了してください。
+            %button{type: "submit", class: "btn-default btn-red bold", disabled: "disabled"}
+              購入する
+      %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3
+            配送先
+          %address.buy-user-info-text
+            〒000-0000
+            %br
+            東京都 渋谷区 〇〇
+            %br
+            テスト 太郎
+          %p.buy-user-info-text
+          %a.buy-user-info-fix
+            %span
+              変更する
+            = fa_icon "chevron-right"
+      %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
+        .buy-content-inner
+          %h3
+            支払い方法
+          %p.buy-user-info-text
+            %br /
+          %figure
+            %p
+            %a.buy-user-info-fix
+              %span
+                変更する
+              = fa_icon "chevron-right"
+  %footer
+    //フッターの部分テンプレート
+
