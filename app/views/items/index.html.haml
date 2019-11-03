@@ -119,72 +119,74 @@
         .popular-content
           .popular-content__items
             %ul.popular-content__items--list
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpg'
-                    .item-name
-                      %span
-                        メンズ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpg'
-                    .item-name
-                      %span
-                        メンズ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        メンズ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        メンズ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        メンズ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        メンズ
+              - @mens.each do |men|
+                %li.popular-content__item
+                  %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                    = link_to "", class: "items-link" do
+                      .item-box
+                        %span
+                          ¥
+                          = men.price
+                        - men.photos.each do |photo|
+                          = image_tag photo.photo
+                      .item-name
+                        %span
+                          = men.name
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpg'
+              -#       .item-name
+              -#         %span
+              -#           メンズ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           メンズ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           メンズ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           メンズ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           メンズ
 
       .popular-header
         .popular-header__item
