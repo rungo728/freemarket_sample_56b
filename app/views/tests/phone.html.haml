@@ -1,0 +1,44 @@
+.common-container
+  %header.common-header
+    = render "shared/signup-header"
+    -# active_redは赤丸表示、afterはactiveより後（右側）の線を定義、beforeはactiveより前（左側）
+    -# thoughはすでに入力完了したページ部分、赤丸表示とactive_redまでの横線を赤く表示
+    %nav.signup-bar.progress-bar
+      %ol.clearfix
+        %li.through
+          会員情報
+          .progress-status
+        %li.active_red
+          電話番号認証
+          .progress-status
+        %li
+          お届け先住所入力
+          .progress-status
+        %li
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+  %main.step2-main
+    %section.l-step2-container
+      %h2.l-chapter-head.registration
+        電話番号の確認
+      %form{action: "", method: "POST", class: "l-step2-inner registration-form", novalidate: "novalidate"}
+        .l-step2-content
+          .form-group
+            %label{for: "phone_number"}
+              携帯電話の番号
+            %input{type: "tel", value: "", name: "phone-number", placeholder: "携帯電話の番号を入力", class: "input-default"}
+          %p
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          %button{type: "submit", class: "btn-default btn-red"}
+            SMSを送信する
+          %p
+            ※携帯電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .form-group.text-right
+            = link_to '', target: '_blank' do
+              電話番号の確認が必要な理由
+              =fa_icon "chevron-right"
+
+  = render 'shared/signup-footer'
