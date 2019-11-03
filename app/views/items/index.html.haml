@@ -450,72 +450,74 @@
         .popular-content
           .popular-content__items
             %ul.popular-content__items--list
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        ルイヴィトン
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        ルイヴィトン
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        ルイヴィトン
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        ルイヴィトン
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        ルイヴィトン
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'viton.jpeg'
-                    .item-name
-                      %span
-                        ルイヴィトン
+              - @vitons.each do |viton|
+                %li.popular-content__item
+                  %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                    = link_to "", class: "items-link" do
+                      .item-box
+                        %span
+                          ¥
+                          = viton.price
+                        - viton.photos.each do |photo|
+                          = image_tag photo.photo
+                      .item-name
+                        %span
+                          = viton.name
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           ルイヴィトン
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           ルイヴィトン
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           ルイヴィトン
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           ルイヴィトン
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'viton.jpeg'
+              -#       .item-name
+              -#         %span
+              -#           ルイヴィトン
 
       .popular-header
         .popular-header__item

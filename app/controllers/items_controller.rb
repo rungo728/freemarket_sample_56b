@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     @toys = Item.includes(:photos).where(category_id: 685..797).order("id DESC").limit(10)
     #ブランドごとに並べる
     @chanels = Item.includes(:photos).where(brand_id: 0).order("id DESC").limit(10)
+    @vitons = Item.includes(:photos).where(brand_id: 1).order("id DESC").limit(10)
   end
 
   def confirmation
