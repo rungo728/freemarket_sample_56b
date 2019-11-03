@@ -11,4 +11,6 @@ class TestsController < ApplicationController
   def phone
   end
   
+  def address
+  end
 end
