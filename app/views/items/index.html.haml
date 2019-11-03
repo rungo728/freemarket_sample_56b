@@ -277,72 +277,74 @@
         .popular-content
           .popular-content__items
             %ul.popular-content__items--list
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'toy.jpg'
-                    .item-name
-                      %span
-                        おもちゃ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'toy.jpg'
-                    .item-name
-                      %span
-                        おもちゃ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'toy.jpg'
-                    .item-name
-                      %span
-                        おもちゃ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'toy.jpg'
-                    .item-name
-                      %span
-                        おもちゃ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'toy.jpg'
-                    .item-name
-                      %span
-                        おもちゃ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'toy.jpg'
-                    .item-name
-                      %span
-                        おもちゃ
+              - @toys.each do |toy|
+                %li.popular-content__item
+                  %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                    = link_to "", class: "items-link" do
+                      .item-box
+                        %span
+                          ¥
+                          = toy.price
+                        - toy.photos.each do |photo|
+                          = image_tag photo.photo
+                      .item-name
+                        %span
+                          = toy.name
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'toy.jpg'
+              -#       .item-name
+              -#         %span
+              -#           おもちゃ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'toy.jpg'
+              -#       .item-name
+              -#         %span
+              -#           おもちゃ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'toy.jpg'
+              -#       .item-name
+              -#         %span
+              -#           おもちゃ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'toy.jpg'
+              -#       .item-name
+              -#         %span
+              -#           おもちゃ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'toy.jpg'
+              -#       .item-name
+              -#         %span
+              -#           おもちゃ
     
     .popular
       %h2.popular__title.bold
