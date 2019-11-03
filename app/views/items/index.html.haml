@@ -198,72 +198,74 @@
         .popular-content
           .popular-content__items
             %ul.popular-content__items--list
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'apple.jpg'
-                    .item-name
-                      %span
-                        家電
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'apple.jpg'
-                    .item-name
-                      %span
-                        家電
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'apple.jpg'
-                    .item-name
-                      %span
-                        家電
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'apple.jpg'
-                    .item-name
-                      %span
-                        家電
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'apple.jpg'
-                    .item-name
-                      %span
-                        家電
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'apple.jpg'
-                    .item-name
-                      %span
-                        家電
+              - @phones.each do |phone|
+                %li.popular-content__item
+                  %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                    = link_to "", class: "items-link" do
+                      .item-box
+                        %span
+                          ¥
+                          = phone.price
+                        - phone.photos.each do |photo|
+                          = image_tag photo.photo
+                      .item-name
+                        %span
+                          = phone.name
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'apple.jpg'
+              -#       .item-name
+              -#         %span
+              -#           家電
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'apple.jpg'
+              -#       .item-name
+              -#         %span
+              -#           家電
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'apple.jpg'
+              -#       .item-name
+              -#         %span
+              -#           家電
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'apple.jpg'
+              -#       .item-name
+              -#         %span
+              -#           家電
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'apple.jpg'
+              -#       .item-name
+              -#         %span
+              -#           家電
       
       .popular-header
         .popular-header__item
