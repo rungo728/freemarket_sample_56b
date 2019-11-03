@@ -608,72 +608,74 @@
         .popular-content
           .popular-content__items
             %ul.popular-content__items--list
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'nike.jpg'
-                    .item-name
-                      %span
-                        ナイキ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'nike.jpg'
-                    .item-name
-                      %span
-                        ナイキ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'nike.jpg'
-                    .item-name
-                      %span
-                        ナイキ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'nike.jpg'
-                    .item-name
-                      %span
-                        ナイキ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'nike.jpg'
-                    .item-name
-                      %span
-                        ナイキ
-              %li.popular-content__item
-                %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                  = link_to "", class: "items-link" do
-                    .item-box
-                      %span
-                        ¥
-                        1000
-                      = image_tag 'nike.jpg'
-                    .item-name
-                      %span
-                        ナイキ
+              - @nikes.each do |nike|
+                %li.popular-content__item
+                  %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+                    = link_to "", class: "items-link" do
+                      .item-box
+                        %span
+                          ¥
+                          = nike.price
+                        - nike.photos.each do |photo|
+                          = image_tag photo.photo
+                      .item-name
+                        %span
+                          = nike.name
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'nike.jpg'
+              -#       .item-name
+              -#         %span
+              -#           ナイキ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'nike.jpg'
+              -#       .item-name
+              -#         %span
+              -#           ナイキ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'nike.jpg'
+              -#       .item-name
+              -#         %span
+              -#           ナイキ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'nike.jpg'
+              -#       .item-name
+              -#         %span
+              -#           ナイキ
+              -# %li.popular-content__item
+              -#   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
+              -#     = link_to "", class: "items-link" do
+              -#       .item-box
+              -#         %span
+              -#           ¥
+              -#           1000
+              -#         = image_tag 'nike.jpg'
+              -#       .item-name
+              -#         %span
+              -#           ナイキ
     
   = render partial: 'shared/main_aside'
 

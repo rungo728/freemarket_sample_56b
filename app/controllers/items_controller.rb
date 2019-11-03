@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
     @chanels = Item.includes(:photos).where(brand_id: 0).order("id DESC").limit(10)
     @vitons = Item.includes(:photos).where(brand_id: 1).order("id DESC").limit(10)
     @supremes = Item.includes(:photos).where(brand_id: 2).order("id DESC").limit(10)
+    @nikes = Item.includes(:photos).where(brand_id: 3).order("id DESC").limit(10)
   end
 
   def confirmation
