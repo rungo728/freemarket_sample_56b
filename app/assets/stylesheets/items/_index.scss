@@ -91,7 +91,6 @@
               box-sizing: border-box;
               div{
                 background: #fff;
-                box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
                 .items-link{
                   width: 100%;
                   cursor: pointer;
@@ -100,6 +99,7 @@
                   text-decoration: none;
                   vertical-align: top;
                   color: inherit;
+                  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
                   .item-box{
                     height: 0;
                     overflow: hidden;
