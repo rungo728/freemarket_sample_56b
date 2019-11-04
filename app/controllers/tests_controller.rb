@@ -13,4 +13,8 @@ class TestsController < ApplicationController
   
   def address
   end
+
+  def payment
+    
+  end
 end
