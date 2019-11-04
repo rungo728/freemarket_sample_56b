@@ -1,0 +1,293 @@
+.common-container{
+  .common-header{
+    h1{
+      display: inline-block;
+      margin: 11px 0 12px;
+    }
+    //現在ページ情報のバー
+    .progress-bar{
+      font-size: 0;
+      text-align: center;
+    }
+    .signup-bar.progress-bar{
+      padding: 16px 0;
+      border-top: 1px solid #eee;
+      ol{
+        margin: 0;
+        li{
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          color: #888;
+          .progress-status{
+            width: 12px;
+            height: 12px;
+            margin: 8px auto 0;
+            background: #ccc;
+            border-radius: 50%;
+          }
+          .progress-status:before{
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+            right: 50%;
+          }
+          .progress-status:after{
+            position: absolute;
+            bottom: 5px;
+            z-index: -1;
+            display: block;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+            position: absolute;
+            left: 50%;
+          }
+        }
+        li.through{
+          .progress-status{
+            background: #ea352d;
+          }
+          .progress-status:before{
+            background: #ea352d;
+          }
+          .progress-status:after{
+            background: #ea352d;
+          }
+        }
+        li.active_red{
+          font-weight: 600;
+          color: #ea352d;
+          .progress-status{
+            background: #ea352d;
+          }
+          .progress-status{
+            background: #ea352d;
+          }
+          .progress-status:before{
+            background: #ea352d;
+          }
+          .progress-status:after{
+            background: #ccc;
+          }
+        }
+        li:first-child{
+          .progress-status:before{
+            background: none;
+          }
+        }
+        li:last-child{
+          .progress-status:after{
+            background: none;
+          }
+        }
+      }
+    }
+  }
+  .contents__form__require{
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    background: #ea352d;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .select-default{
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    width: 100%;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .l-step4-container{
+    margin: 24px auto 0;
+    padding: 0 0 40px;
+    .l-step4-content{
+      width: 100%;
+      .l-chapter-container:first-child{
+        margin: 0;
+      }  
+      .l-chapter-container{
+        background: #fff;
+        h2{
+          padding: 12px 4%;
+          border-bottom: 1px solid #f5f5f5;
+          text-align: center;
+          font-size: 18px;
+
+        }
+        form{
+          padding: 24px 16px 40px;
+        }
+        .l-step4-inner{
+          border-top: 1px solid #f5f5f5;
+        }
+        .l-step4-content{
+          max-width: 343px;
+          margin: 0 auto;
+        }
+        .form-group{
+          margin: 24px 0 0;
+
+          label{
+            font-weight: 600;
+            display: inline-block;
+
+          }
+          .signup-card-list{
+            margin: 8px 0 0;
+            font-size: 0;
+          }
+          li:first-child{
+            margin: 0;
+          }
+          li{
+            display: inline-block;
+            margin: 0 0 0 8px;
+            vertical-align: middle;
+          }
+        }
+        .signup-form-expire{
+          margin: 24px 0 0;
+          select{
+            width: calc(100% - 38px);
+          }
+          .select-wrap{
+            margin: 8px 0 0;
+          }
+          .half{
+            display: inline-block;
+            width: calc(50% - 2px);
+
+          }
+        }
+        .signup-seqcode{
+          position: relative;
+          margin: 8px 0 0;
+          .signup-seqcode-text{
+            text-align: right;
+            color: #0099e8;
+            .form-question{
+              display: inline-block;
+              width: 14px;
+              height: 14px;
+              background: #0099e8;
+              color: #fff;
+              border-radius: 50%;
+              line-height: 14px;
+              font-size: 12px;
+              text-align: center;
+
+            }
+          }
+          // jsで表示するimgタグの部分（あとで設定する）
+          .signup-seqcode-info{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 28px;
+            z-index: 1;
+            padding: 16px;
+            border-radius: 6px;
+            background: #eee;
+            color: #333;
+            line-height: 1.5;
+            text-align: center;
+            visibility: hidden;
+            opacity: 0;
+          }
+        }
+        p{
+          margin: 8px 0 0;
+          line-height: 1.5;
+        }
+        .btn-red{
+          margin: 24px 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px){
+.common-container{
+  .common-header{
+    height: 128px;
+    h1{
+      margin: 40px 0 0;
+      a{
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        img{
+          width: 185px;
+          height: 49px;
+        }
+      }
+    }
+    .signup-bar.progress-bar{
+      padding: 40px 0 0 44px;
+      border: 0;
+      ol{
+        li{
+          margin: 0 40px 0 0;
+          min-width: 60px;
+        }
+        li:last-child{
+          margin: 0;
+        }  
+      }
+    }  
+    .progress-bar{
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+  .l-step4-container{
+    width: 700px;
+    margin: 24px auto 0;
+    .l-step4-content{
+      float: none;
+      width: 700px;
+      section{
+        .h2{
+          font-size: 24px;
+          padding: 8px 24px;    
+        }
+      }
+    }  
+  }
+  .common-footer{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    nav{
+      ul{
+        li{
+          display: inline-block;
+          margin:0 0 0 16px;
+        }
+      }
+    }
+  }
+} 
+} 
