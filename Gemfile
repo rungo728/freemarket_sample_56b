@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
