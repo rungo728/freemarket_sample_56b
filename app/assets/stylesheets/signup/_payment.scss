@@ -1,9 +1,5 @@
 .common-container{
   .common-header{
-    h1{
-      display: inline-block;
-      margin: 11px 0 12px;
-    }
     //現在ページ情報のバー
     .progress-bar{
       font-size: 0;
@@ -93,15 +89,7 @@
       }
     }
   }
-  .contents__form__require{
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    background: #ea352d;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
-  }
+
   .select-default{
     position: relative;
     z-index: 2;
