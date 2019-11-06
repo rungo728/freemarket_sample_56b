@@ -1,6 +1,6 @@
-.single-container
-  %header
-    //ヘッダーの部分テンプレート
+.common-container
+  %header.common-header
+    = render "shared/signup-header"
   %main.single-main
     %section.l-single-container.buy-item-container
       %h2.l-single-head
@@ -59,6 +59,6 @@
               %span
                 変更する
               = fa_icon "chevron-right"
-  %footer
     //フッターの部分テンプレート
+  = render 'shared/signup-footer'
 
