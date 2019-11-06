@@ -1,0 +1,113 @@
+.common-container
+  %header.common-header
+    = render 'shared/signup-header' 
+    -# active_redは赤丸表示、afterはactiveより後（右側）の線を定義、beforeはactiveより前（左側）
+    -# thoughはすでに入力完了したページ部分、赤丸表示とactive_redまでの横線を赤く表示
+    %nav.progress-bar.signup-bar
+      %ol.clearfix
+        %li.through
+          会員情報
+          .progress-status
+        %li.through
+          電話番号認証
+          .progress-status
+        %li.through
+          お届け先住所入力
+          .progress-status
+        %li.active_red
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+  %main.l-step4-container.clearfix
+    .l-step4-content
+      %section.l-chapter-container
+        %h2.l-chapter-head
+          支払い方法
+        = form_for "", url: "", method: :get, html: {class: 'l-step4-inner registration-form'} do |f|
+          .l-step4-inner
+            %input{type: "hidden", name: "csrf_value", value: ""}
+          .l-step4-content
+            .form-group
+              %label カード番号
+              %span.contents__form__require 必須
+              %input{type: "text", id:"payment_card_no", placeholder:"半角数字のみ", maxlength:"19",class: "input-default"}
+              %ul{id:"card-no-error-wrapper",class:"has-error-text"}
+              %ul.signup-card-list
+                %li
+                  %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?465897195", width:"49", height:"20"}
+                %li  
+                  %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?465897195", width:"34", height:"20"}
+                %li
+                  %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?465897195", width:"30", height:"20"}
+                %li
+                  %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?465897195", width:"32", height:"20"}
+                %li
+                  %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?465897195", width:"21", height:"20"}
+                %li
+                  %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?465897195", width:"32", height:"20"}
+                %li
+                  %img{src:"//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?465897195", width:"32", height:"20"}
+            .form-group.signup-form-expire
+              %label 有効期限
+              %span.contents__form__require 必須
+              %br
+              .select-wrap.half
+                %select{id:"payment_card_expire_mm",class:"select-default"}
+                  %option{value: ""} --
+                  %option{value: "1"}01
+                  %option{value: "2"}02
+                  %option{value: "3"}03
+                  %option{value: "4"}04
+                  %option{value: "5"}05
+                  %option{value: "6"}06
+                  %option{value: "7"}07
+                  %option{value: "8"}08
+                  %option{value: "9"}09
+                  %option{value: "10"}10
+                  %option{value: "11"}11
+                  %option{value: "12"}12
+                = fa_icon "icon-arrow-bottom"
+                %span 月
+              .select-wrap.half
+                %select{id:"payment_card_expire_yy",class:"select-default"}
+                  %option{value: ""} --
+                  %option{value: "2019"}19
+                  %option{value: "2020"}20
+                  %option{value: "2021"}21
+                  %option{value: "2022"}22
+                  %option{value: "2023"}23
+                  %option{value: "2024"}24
+                  %option{value: "2025"}25
+                  %option{value: "2026"}26
+                  %option{value: "2027"}27
+                  %option{value: "2028"}28
+                  %option{value: "2029"}29
+                = fa_icon "icon-arrow-bottom"
+                %span 年
+                %ul{id:"expire-mm-error-wrapper",class:"has-error-text"}
+                %ul{id:"expire-yy-error-wrapper",class:"has-error-text"}
+            .form-group
+              %label セキュリティコード
+              %span.contents__form__require 必須
+              %input{type: "text", id:"payment_card_security_code", placeholder:"カード背面4桁もしくは3桁の番号",class: "input-default"}
+              %ul{id:"security-code-error-wrapper",class:"has-error-text"}
+              .signup-seqcode
+                .signup-seqcode-text
+                  %span.form-question ? 
+                  カード裏面の番号とは？
+                  -# jsでテキストをクリックした時にイメージが発火するようにする場所
+                .signup-seqcode-info
+                -# jsでテキストをクリックした時にイメージが発火するようにする場所
+                  -# カードの裏面をご参照ください。
+                  -# %br
+                    -# %img{src:"//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?465897195"}
+            %input{type: "hidden", name:"user_id", id:"user_id"}
+            %input{type: "hidden", name:"encrypted_card_data", id:"encrypted_card_data"}
+            %p{id:"primary-error",class:"has-error-text"}
+            %input{type: "hidden", name:"after_save_callback"}
+            %button{type: "submit", class: "btn-default btn-red"}
+              次へ進む
+  = render  "shared/signup-footer"
+

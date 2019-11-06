@@ -44,7 +44,15 @@ h2{
   font-size: 16px;
   box-sizing: border-box;
 }
-
+.contents__form__require{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  background: #ea352d;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
 .textarea-default {
   display: block;
   width: 100%;
