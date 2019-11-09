@@ -95,8 +95,6 @@
                 text-align: right;
                 span{
                   font-size: 28px;
-
-                  // text-align: left;
                 }
               }
             }
@@ -105,14 +103,8 @@
             color: #ea352d;
             font-size: 14px;
           }
-          .btn-default{
+          .btn-default:disabled {
             margin-top: 16px;
-            display: block;
-            width: 100%;
-            line-height: 48px;
-            font-size: 15px;
-            transition: all ease-out .3s;
-            text-align: center;
             border: 1px solid #888;
             background: #888;
             color: #fff;
@@ -201,12 +193,6 @@
           line-height: 1.4;
           height: 38px;
           font-style: normal;
-          br{
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
-            font-size: 14px;
-          }
         }
         figure{
           background-repeat: no-repeat;
@@ -221,9 +207,9 @@
             margin: 0 0 0 8px;
             font-size: 10px;
           }
-          }
         }
       }
+    }
   }
 
 @media screen and (min-width: 768px){
