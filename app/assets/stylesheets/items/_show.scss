@@ -290,7 +290,6 @@
         margin-right: 20px;
         height: 25px;
         line-height: 25px;
-        
         border-radius: 5px;
         background-color: #F2F2F2;
         display: flex;
@@ -299,6 +298,9 @@
         }
         .information-item_like {
           width: 70px;
+        }
+        .information-item_like-number {
+          width: 40px;
         }
       }
 
