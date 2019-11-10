@@ -1,4 +1,4 @@
-footer{
+.main-footer{
   background-color:rgb(34, 34, 34);
   color: rgb(255, 255, 255);
   padding: 0px 20px 10px;
@@ -142,7 +142,7 @@ footer{
  
 
 @media screen and (min-width: 768px){  
-footer{
+.main-footer{
   nav{
     width: 700px;
     margin: 0px auto;
@@ -169,7 +169,7 @@ footer{
 }
 
 @media screen and (min-width: 1068px){
-footer{
+.main-footer{
   nav{
     width: 1020px;
     .footer-contents{
