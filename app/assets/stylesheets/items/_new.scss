@@ -27,11 +27,6 @@ select {
   width: 100vw;
   
   @media screen and (min-width: 768px) {
-  .exhibit-header2 {
-    display: none;
-  }
-
-
   .exhibit-content {
     background-color: white;
     margin: 0 auto;
@@ -356,61 +351,10 @@ select {
       }
     }
   }
-  .exhibit-footerddd {
-    width: 100vw;
-    padding-bottom: 15px;
-    a {
-      color: black;
-    }
-    &__upper-row {
-      width: 450px;
-      margin: 0 auto;
-      margin-top: 40px;
-      &--first-row {
-        float: left;
-        font-size: 12px;
-        margin: 0 50px 0 0;
-      }
-      &--second-row {
-        float: left;
-        font-size: 12px;
-        margin: 0 50px 0 0;
-      }
-      &--third-row {
-        font-size: 12px;
-      }
-    }
-    &__icon {
-      display: block;
-      margin-top: 10px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    &__bottom {
-      width: 100vw;
-      margin-top: 5px;
-      &--box {
-        width: 130px;
-        margin: 0 auto;
-        .exhibit-footerddd_icon {
-          float: left;
-        }
-      }
-    }
-  }
   }
 
 
   @media screen and (max-width: 767px) {
-  .exhibit-header{
-    display: none;
-  }
-
-  .exhibit-header2{
-    height: 60px;
-    width: 100vw;
-  }
-
   .exhibit-content {
     background-color: white;
     margin: 0 auto;
@@ -753,47 +697,6 @@ select {
           height: 60px;
           text-align: center;
           line-height: 60px;
-        }
-      }
-    }
-  }
-  
-  .exhibit-footerddd {
-    width: 100vw;
-    text-align: center;
-    padding-bottom: 15px;
-    a {
-      color: black;
-    }
-    &__upper-row {
-      margin-top: 40px;
-      &--first-row {
-        font-size: 12px;
-        padding-bottom: 10px;
-      }
-      &--second-row {
-        font-size: 12px;
-        padding-bottom: 10px;
-      }
-      &--third-row {
-        font-size: 12px;
-        padding-bottom: 10px;
-      }
-    }
-    &__icon {
-      display: block;
-      margin-top: 10px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    &__bottom {
-      width: 100vw;
-      margin-top: 5px;
-      &--box {
-        width: 130px;
-        margin: 0 auto;
-        .exhibit-footerddd_icon {
-          float: left;
         }
       }
     }

@@ -1,11 +1,6 @@
 
 .exhibit-screen
-      
-  .exhibit-header
-    %img.exhibit-header_image{src: "/images/shuppin.png", style: "width: 750px; height:150px; margin: auto; display: block;"}
-  
-  .exhibit-header2
-    %img.exhibit-header_image{src: "/images/merucari-syou.png", style: "width: 200px; height:60px; margin: auto; display: block;"}
+  = render partial: 'shared/signup-header'
   
   %form.exhibit-content
     .exhibit-content__title
@@ -244,23 +239,4 @@
             もどる
   
   
-  .exhibit-footerddd
-    .exhibit-footerddd__upper-row
-      .exhibit-footerddd__upper-row--first-row
-        = link_to '#' do
-          プライバシーポリシー
-      .exhibit-footerddd__upper-row--second-row
-        = link_to '#' do
-          メルカリ利用規約
-      .exhibit-footerddd__upper-row--third-row
-        = link_to '#' do
-          特定商取引に関する表記
-    = link_to '#' do
-      %img.exhibit-footerddd__icon{src: "/images/merucari.png", style: "height: 70px; width: 70px;"}
-    
-    .exhibit-footerddd__bottom
-      .exhibit-footerddd__bottom--box
-        .exhibit-footerddd_icon
-          = fa_icon 'copyright'
-        .exhibit-footerddd_title-merucari
-          2019 Merucari
+  = render partial: 'shared/signup-footer'

@@ -27,15 +27,15 @@
               るる（example）
             .information-detail_first-row__seller--like
               .seller-like_good
-                %i.fas.fa-laugh
+                = fa_icon 'fa-smile-o', class: 'fa-smile-o'
                 .seller-like_good__number
                   400
               .seller-like_common
-                %i.fas.fa-meh
+                = fa_icon 'fa-meh-o', class: 'fa-meh-o'
                 .seller-like_common__number
                   200
               .seller-like_bad
-                %i.fas.fa-frown
+                = fa_icon 'fa-frown-o', class: 'fa-frown-o'
                 .seller-like_bad__number
                   100
         
@@ -120,23 +120,23 @@
     .information-item_content__bottom
       .information-item_content__bottom--like
         .information-item_heart-icon
-          %i.far.fa-heart
+          = fa_icon 'heart', class: 'fa-heart'
         .information-item_like
           いいね！
       .information-item_content__bottom--report
         .information-item_flag-icon
-          %i.far.fa-flag
+          = fa_icon 'flag', class: 'fa-flag'
         .information-item_report
           不適切な商品の報告
       .information-item_content__bottom--safe
         .information-item_lock-icon
-          %i.fas.fa-key
+          = fa_icon 'lock', class: 'fa_lock'
         .information-item_safe
           あんしん・あんぜんへの取り組み
     
     .safe_effort
       .information-item_lock-icon
-        %i.fas.fa-key
+        = fa_icon 'lock', class: 'fa_lock'
       .information-item_safe
         あんしん・あんぜんへの取り組み
 
@@ -155,21 +155,21 @@
             コメント内容
           .information-item_user-comment__bottom
             .information-item_user-comment__bottom--days
-              %i.far.fa-clock
+              = fa_icon 'clock', class: 'fa-clock-o'
               .information-item_clock-right
                 300日前
-            %i.far.fa-flag
+            = fa_icon 'flag', class: 'fa-flag'
 
     
     .information-item_comment__note
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     
     %form.information-item_comment__input
-      %input.information-item_comment__input--text{type: "text", style: "width: 710px; height: 120px;"}
+      %textarea.information-item_comment__input--text{type: "text", style: "width: 710px; height: 120px;"}
       %input.information-item_comment__input--send{type: "submit", value: "コメントする", style: "width: 710px; height: 50px;"}
 
     %form.information-item_comment__input2
-      %input.information-item_comment__input2--text{type: "text", style: "width: 90vw; height: 120px;"}
+      %textarea.information-item_comment__input2--text{type: "text", style: "width: 90vw; height: 120px;"}
       %input.information-item_comment__input2--send{type: "submit", value: "コメントする", style: "width: 90vw; height: 50px;"}
 
   .information-item_link
@@ -190,13 +190,11 @@
     .information-item_share
       //共有の仕方を調べる
       .information-item_share__facebook
-        %i.fab.fa-facebook-square
+        = fa_icon 'facebook-square', class: 'fa-facebook-square'
       .information-item_share__twitter
-        %i.fab.fa-twitter-square
-      .information-item_share__line
-        %i.fab.fa-line
+        = fa_icon 'twitter-square', class: 'fa-twitter-square'
       .information-item_share__pinterest
-        %i.fab.fa-pinterest-square
+        = fa_icon 'pinterest-square', class: 'fa-pinterest-square'
 
   
   .information-item_other-item
@@ -212,7 +210,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -223,7 +221,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -234,7 +232,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -245,7 +243,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -256,7 +254,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -267,7 +265,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
     
@@ -312,7 +310,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
         
@@ -324,7 +322,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -335,7 +333,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -346,7 +344,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -357,7 +355,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
       .other-item_list
@@ -368,7 +366,7 @@
           .other-item_list__value--price
             ¥3,000
           .other-item_list__value--heart
-            %i.far.fa-heart
+            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
             .heart-number
               18
 

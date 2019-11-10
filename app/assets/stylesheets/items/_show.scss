@@ -1,9 +1,10 @@
-.example-header {
-  height: 13vh;
-  width: 100vw;
-  background-color: aliceblue;
+@media screen and (max-width: 767px) {
+.header {
+  .under-row {
+    display: none;
+  }
 }
-
+}
 
   
 @media screen and (min-width: 768px) {
@@ -63,7 +64,7 @@
               .seller-like_good {
                 margin-right: 10px;
                 display: flex;
-                .fa-laugh {
+                .fa-smile-o {
                   color: #EE5599;
                   margin-right: 3px;
                 }
@@ -71,14 +72,14 @@
               .seller-like_common {
                 display: flex;
                 margin-right: 10px;
-                .fa-meh {
+                .fa-meh-o {
                   margin-right: 3px;
                   color: #DEB732;
                 }
               }
               .seller-like_bad {
                 display: flex;
-                .fa-frown {
+                .fa-frown-o {
                   margin-right: 3px;
                   color: #1E90FF;
                 }
@@ -319,7 +320,7 @@
       &--safe {
         display: flex;
         .information-item_lock-icon {
-          .fa-key {
+          .fa-lock {
             color: #0088CC;
             padding-right: 5px;
           }
@@ -370,16 +371,17 @@
             display: flex;
             &--days {
               width: 590px;
-              .fa-clock {
+              .fa-clock-o {
                 float: left;
                 padding-right: 5px;
               }
             }
+            .fa-flag {
+              color: #c0c0c0;
+            }
           }
         }
-
       }
-
     }
 
     &__note {
@@ -463,14 +465,6 @@
           font-size: 45px;
         }
       }
-      &__line {
-        padding-right: 10px;
-        float: left;
-        .fa-line {
-          color: #13bf00;
-          font-size: 45px;
-        }
-      }
       &__pinterest {
         .fa-pinterest-square {
           color: #BD081C;
@@ -509,7 +503,7 @@
           }
           &--heart {
             display: flex;
-            .fa-heart {
+            .fa-heart-o {
               color: #9FA0A0;
               padding-right: 5px;
             }
@@ -557,14 +551,16 @@
         display: flex;
         width: 250px;
         margin: 0 auto;
+        height: 60px;
         .information-item_content-price {
           font-size: 30px;
           font-weight: bold;
-          margin: 0 10px 0 0;
+          margin: 0 5px 0 0;
+          line-height: 60px;
         }
         .information-item_content-detail {
           font-size: 5px;
-          margin: 30px 0 0 0;
+          margin: 30px 0 10px 0;
           vertical-align: text-bottom;
         }
         .information-item_content-detail2 {
@@ -590,7 +586,7 @@
           &__seller {
             width: 220px;
             &--name {
-              margin: 5px 0 0 5px;
+              margin: 13px 0 0 5px;
               color: #0088CC;
             }
             &--like {
@@ -599,7 +595,7 @@
               .seller-like_good {
                 margin-right: 10px;
                 display: flex;
-                .fa-laugh {
+                .fa-smile-o {
                   color: #EE5599;
                   margin-right: 3px;
                 }
@@ -607,14 +603,14 @@
               .seller-like_common {
                 display: flex;
                 margin-right: 10px;
-                .fa-meh {
+                .fa-meh-o {
                   margin-right: 3px;
                   color: #DEB732;
                 }
               }
               .seller-like_bad {
                 display: flex;
-                .fa-frown {
+                .fa-frown-o {
                   margin-right: 3px;
                   color: #1E90FF;
                 }
@@ -842,7 +838,7 @@
       padding: 0 0 30px 20px;
       display: flex;
       .information-item_lock-icon {
-        .fa-key {
+        .fa-lock {
           color: #0088CC;
           padding-right: 5px;
         }
@@ -887,10 +883,13 @@
             display: flex;
             &--days {
               width: 70vw;
-              .fa-clock {
+              .fa-clock-o {
                 float: left;
                 padding-right: 5px;
               }
+            }
+            .fa-flag {
+              color: #c0c0c0;
             }
           }
         }
@@ -978,14 +977,6 @@
           font-size: 45px;
         }
       }
-      &__line {
-        padding-right: 10px;
-        float: left;
-        .fa-line {
-          color: #13bf00;
-          font-size: 45px;
-        }
-      }
       &__pinterest {
         .fa-pinterest-square {
           color: #BD081C;
@@ -1021,9 +1012,11 @@
         width: 25vw;
         background-color: white;
         &__image {
+          z-index: 1;
           &--price  {
             margin-top: -40px;
             color: white;
+            padding-left: 5px;
             font-size: 12px;
             height: 3vh;
             line-height: 3vh;
