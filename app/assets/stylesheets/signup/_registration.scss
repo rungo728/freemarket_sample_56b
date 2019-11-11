@@ -1,5 +1,22 @@
 .common-container{
   .common-header{
+    text-align: center;
+    h1{
+      display: inline-block;
+      margin: 11px 0 12px;    
+      // ヘッダーロゴの部分
+      a{
+        display:inline-block;
+        width: 125px;
+        height: 33px;
+        margin: 0 8px 0 0;
+        line-height: 33px;
+        img{
+          width: 125px;
+          height: 33px;
+        }
+      }  
+    }
     nav{
       border-top: 1px solid #eee;
       padding: 16px 0;
@@ -184,6 +201,15 @@
     height: 128px;
     h1{
       margin:40px 0 0;
+      a{
+        width: 180px;
+        height: 49px;
+        line-height: 49px;
+        img{
+          width: 180px;
+          height: 49px;
+        }
+      }
     }
     nav{
       padding: 44px 0 0 44px;
