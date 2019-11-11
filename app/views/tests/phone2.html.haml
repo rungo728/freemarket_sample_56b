@@ -1,0 +1,39 @@
+.common-container
+  = render "shared/phone-header"
+  %main.step2-main
+    %section.l-step2-container
+      %h2.l-chapter-head.registration
+        電話番号認証
+      %form{action: "", method: "POST", class: "l-step2-inner registration-form", novalidate: "novalidate"}
+        .l-step2-content
+          .form-group
+            %label{for: "phone_number"}
+              認証番号
+            %input{type: "tel", value: "", name: "phone-number", placeholder: "認証番号を入力", class: "input-default"}
+          %p
+            SMSで届いた認証番号を入力してください
+          %button{type: "submit", class: "btn-default btn-red"}
+            認証して完了
+        %input{type: "hidden", name: "csrf_value", value: ""}
+      %form{action: "", method: "POST", class: "l-step2-inner registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name:"after_save_callback", value: ""}
+        .l-step2-content
+          %h3.l-chapter-sub-head
+            30秒たっても認証番号が届かない方へ
+          %p.l-step2-text
+            電話で認証番号を聞くこともできます。
+          %button{type: "submit", class: "btn-default btn-red"}
+            電話で認証番号を聞く（通話無料）
+        %input{type: "hidden", name: "csrf_value", value: ""}
+        %input{type: "hidden", name: "id", value: ""}
+      .l-step2-inner.registration-form
+        .l-step2-content
+          %h3.l-chapter-sub-head
+            認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+          %p
+            = link_to "電話番号を再度入力する"
+          %p
+            ※SMSが届かない場合は
+            = link_to "SMS受信設定"
+            を確認して、もう一度電話番号を入力してください。
+  = render 'shared/signup-footer'
