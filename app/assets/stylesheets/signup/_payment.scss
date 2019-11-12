@@ -1,10 +1,6 @@
 .common-container{
   .common-header{
     //現在ページ情報のバー
-    .progress-bar{
-      font-size: 0;
-      text-align: center;
-    }
     .signup-bar.progress-bar{
       padding: 16px 0;
       border-top: 1px solid #eee;
@@ -89,7 +85,6 @@
       }
     }
   }
-
   .select-default{
     position: relative;
     z-index: 2;

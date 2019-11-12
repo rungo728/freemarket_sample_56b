@@ -5,10 +5,6 @@
       margin: 11px 0 12px;
     }
     //現在ページ情報のバー
-    .progress-bar{
-      font-size: 0;
-      text-align: center;
-    }
     .signup-bar.progress-bar{
       padding: 16px 0;
       border-top: 1px solid #eee;
@@ -94,55 +90,57 @@
     font-size: 14px;
     font-weight: bold;
   }
-  .l-step2-container{
-    background: #fff;
-    .l-chapter-head.registration{
-      padding: 16px;
-    }
-    .l-chapter-head{
-      padding: 12px 4%;
-      border-bottom: 1px solid #f5f5f5;
-      text-align: center;
-      font-size: 18px;
-    }
-    .l-step2-inner.registration-form{
-      padding: 24px 16px 40px;
-      .l-step2-content{
-        max-width: 343px;
-        margin: 0 auto;
-        .form-group:first-child{
-          margin: 0;
-        }
-        .form-group{
-          margin: 24px 0 0;
-          label{
-            font-weight: 600;
-            display: inline-block;
+  .step2-main{
+    .l-step2-container{
+      background: #fff;
+      .l-chapter-head.registration{
+        padding: 16px;
+      }
+      .l-chapter-head{
+        padding: 12px 4%;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        font-size: 18px;
+      }
+      .l-step2-inner.registration-form{
+        padding: 24px 16px 40px;
+        .l-step2-content{
+          max-width: 343px;
+          margin: 0 auto;
+          .form-group:first-child{
+            margin: 0;
+          }
+          .form-group{
+            margin: 24px 0 0;
+            label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+            .input-default{
+              width: 100%;
+              margin: 8px 0 0;
+            }
+          }
+          p{
+            margin: 8px 0 0;
+            line-height: 1.5;
             font-size: 14px;
           }
-          .input-default{
-            width: 100%;
-            margin: 8px 0 0;
+          .btn-red{
+            margin: 24px 0 0;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+
           }
         }
-        p{
-          margin: 8px 0 0;
-          line-height: 1.5;
-          font-size: 14px;
-        }
-        .btn-red{
-          margin: 24px 0 0;
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: #fff;
-
-        }
+      }
+      .l-step2-inner{
+        border-top: 1px solid #f5f5f5;
       }
     }
-    .l-step2-inner{
-      border-top: 1px solid #f5f5f5;
-    }
-  }
+  }  
 }
 @media screen and (min-width: 768px){
 .common-container{
@@ -181,7 +179,7 @@
   .l-chapter-sub-head{
     font-size: 16px;
   }
-  main{
+  .step2-main{
     .l-step2-container{
       width: 700px;
       margin: 0 auto; 
