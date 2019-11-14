@@ -30,9 +30,9 @@
       %form{action: "", method: "POST", class: "l-step2-inner registration-form", novalidate: "novalidate"}
         .l-step2-content
           .form-group
-            %label{for: "phone_number"}
+            %label{for: "captcha"}
               認証番号
-            %input{type: "tel", value: "", name: "phone-number", placeholder: "認証番号を入力", class: "input-default"}
+            %input{type: "text", value: "", name: "captcha", placeholder: "認証番号を入力", class: "input-default"}
           %p
             SMSで届いた認証番号を入力してください
           %button{type: "submit", class: "btn-default btn-red"}
