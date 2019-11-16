@@ -20,10 +20,14 @@
     -#   = link_to 'ログイン', '#',class: "upper-row__user__login"
     
   .center-row__search
-    %form
-      %input.center-row__search--input{name: "search", placeholder: "何をお探しですか？", type: "search", style: "width: 100%; height: 40px;"}
-      %button.center-row__search--button{title: "検索", type: "submit" }
+    = search_form_for @q, url: search_items_path do |f|
+      = f.search_field :name_cont, class: "center-row__search--input", placeholder: "何をお探しですか？", style: "width: 100%; height: 40px;"
+      = f.button :submit, class: "center-row__search--button" do
         = fa_icon 'search'
+    -# %form
+    -#   %input.center-row__search--input{name: "search", placeholder: "何をお探しですか？", type: "search", style: "width: 100%; height: 40px;"}
+    -#   %button.center-row__search--button{title: "検索", type: "submit" }
+    -#     = fa_icon 'search'
   %nav.under-row
     = link_to '#', class: "under-row__list" do
       = fa_icon 'list'
@@ -41,10 +45,14 @@
       .mercari-logo
         = link_to '#' do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4194600336", alt: "merucari"
-      %form.upper-row__search
-        %input.upper-row__search--input{name: "search", placeholder: "何かお探しですか？", type: "search", style: "width: 100%; height: 40px;"}
-        %button.upper-row__search--button{title: "検索", type: "submit" }
+      = search_form_for @q, url: search_items_path do |f|
+        = f.search_field :name_cont, class: "upper-row__search--input", placeholder: "何をお探しですか？", style: "width: 100%; height: 40px;"
+        = f.button :submit, class: "upper-row__search--button" do
           = fa_icon 'search'
+      -# %form.upper-row__search
+      -#   %input.upper-row__search--input{name: "search", placeholder: "何かお探しですか？", type: "search", style: "width: 100%; height: 40px;"}
+      -#   %button.upper-row__search--button{title: "検索", type: "submit" }
+      -#     = fa_icon 'search'
     .under-row
       .under-row__links
         .under-row__links__content
