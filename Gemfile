@@ -83,3 +83,7 @@ gem 'fog-aws'
 gem 'font-awesome-rails'
 # レコードを追加するためのgem
 gem 'seed-fu'
+# ページネーションを作るためのgem
+gem 'kaminari'
+# 検索を容易にするためのgem
+gem 'ransack'
