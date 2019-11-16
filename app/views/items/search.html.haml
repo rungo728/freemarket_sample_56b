@@ -1,1 +1,301 @@
-テスト
+.search-container
+  = render partial: "shared/main_header"
+  .l-container.search-container.clearfix
+    .l-content
+      .hidden-large.search-nav.clearfix
+        .search-option
+          = fa_icon 'sort'
+          .search-nav-sort
+            並び替え
+        .search-option
+          = fa_icon 'search'
+          .search-detail
+            詳細検索
+      %section.item-box-container.clearfix
+        - unless @items.length == @itemsall.length
+          - unless @items.length == 0
+            %h2.search-result-head
+              = @q.name_cont
+              %span.search-result-head__text
+                の検索結果
+            .search-result-number
+              = @items.length
+              件表示
+            .items-box-content.clearfix
+              - @items.each do |item|
+                %section.items-box
+                  = link_to '' do
+                    - item.photos.each do |photo|
+                      %figure.items-box-photo
+                        = image_tag photo.photo, class: "is-higher-width"
+                    .items-box-body
+                      %h3.items-box-name.font-2
+                        = item.name
+                      .items-box-num
+                        .items-box-price.font-5
+                          ¥
+                          = item.price
+                        //いいねがない場合非表示
+                        .font-2
+                          = fa_icon 'heart-o'
+                          %span
+                            3
+          - else
+            %h2.search-result-head
+              = @q.name_cont
+              %span.search-result-head__text
+                の検索結果
+            %p.search-result-description
+              該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+            %h3.search-result-nothing
+              新着商品
+            .items-box-content.clearfix
+              - @itemsall.each do |item|
+                %section.items-box
+                  = link_to '' do
+                    - item.photos.each do |photo|
+                      %figure.items-box-photo
+                        = image_tag photo.photo, class: "is-higher-width"
+                    .items-box-body
+                      %h3.items-box-name.font-2
+                        = item.name
+                      .items-box-num
+                        .items-box-price.font-5
+                          ¥
+                          = item.price
+                        //いいねがない場合非表示
+                        .font-2
+                          = fa_icon 'heart-o'
+                          %span
+                            3
+        - else
+          %h3.search-result-nothing
+            新着商品
+          .items-box-content.clearfix
+            - @itemsall.each do |item|
+              %section.items-box
+                = link_to '' do
+                  - item.photos.each do |photo|
+                    %figure.items-box-photo
+                      = image_tag photo.photo, class: "is-higher-width"
+                  .items-box-body
+                    %h3.items-box-name.font-2
+                      = item.name
+                    .items-box-num
+                      .items-box-price.font-5
+                        ¥
+                        = item.price
+                      //いいねがない場合非表示
+                      .font-2
+                        = fa_icon 'heart-o'
+                        %span
+                          3
+            
+      //ページネーション
+      = paginate(@items)
+
+    //サイドバー(小さくなると消える)
+    .l-side
+      %form.search-extend-container.search-extend-form
+        .search-sort
+          .form-group
+            .select-wrap
+              = fa_icon 'chevron-down'
+              %select{name: "sort-order", class: "select-default"}
+                %option{value: ""} 並び替え
+        .search-dropdown-content.search-extend
+          %h3.visible-large
+            詳細検索
+          //キーワード検索
+          .form-group
+            %label
+              = fa_icon 'plus'
+              %span
+                キーワードを追加する
+            %input{type: "text", value: "", name: "keyword", placeholder: "例)値下げ", class: "input-default"}
+          
+          //カテゴリー検索
+          .form-group
+            %label
+              = fa_icon 'list'
+              %span
+                カテゴリーを選択する
+            // 選んだカテゴリによってその子要素のカテゴリ選択が表示される
+            .select-wrap{data:{search: "parent"}}
+              = fa_icon 'chevron-down'
+              %select{name: "category_root", class: "select-default"}
+                %option{value: ""}すべて
+            %div{data:{search: "child"}}
+              .select-wrap.select-category-child.is-show{data:{root:{id: "1"}}}
+                = fa_icon 'chevron-down'
+                %select.select-default{name: "category-child"}
+                  %option{value: ""}すべて
+              // 親カテゴリごとに子のクラスを作る
+              -# .select-wrap.select-category-child{data:{root:{id: ""}}}
+              -# .select-wrap.select-category-child{data:{root:{id: ""}}}
+            %div{data:{search: "grand-child"}}
+              .select-category-grand-child.is-show{data:{child:{id: ""}}}
+                .checkbox-default
+                  %input{type: "checkbox"}
+                  = fa_icon 'check'
+                  %label カテゴリ
+                    
+                .checkbox-default
+                  %input{type: "checkbox"}
+                  = fa_icon 'check'
+                  %label カテゴリ
+
+          //ブランド検索
+          .form-group.search-extend-brand
+            //インクリメンタルサーチ使用
+            %label
+              = fa_icon 'tag'
+              %span
+                ブランド名から探す
+            %input{type: "text", name: "brand_name", value: "", placeholder: "例) シャネル", class: "input-default", data:{search: "brand"}}
+            %input{type: "hidden", name: "brand_id"}
+            %ul{data:{search: "brand-dom"}}
+
+          //サイズ検索
+          .form-group
+            %label
+              = fa_icon 'arrows-alt'
+              %span
+                サイズを指定する
+            .select-wrap
+              = fa_icon 'chevron-down'
+              %select.select-default{name: "size_group"}
+                %option{value: ""}すべて
+            %div{data:{search: "child"}}
+              //サイズのあるカテゴリからそれぞれサイズが割り振られている
+              .select-category-child.is-show{data:{root:{id: ""}}}
+                .checkbox-default
+                  %input{type: "checkbox"}
+                  = fa_icon 'check'
+                  %label サイズ
+          //価格検索
+          .form-group.search-price
+            %label
+              = fa_icon 'money'
+              %span
+                価格
+            .select-wrap
+              = fa_icon 'chevron-down'
+              %select{class: "select-default", data:{search: "price"}}
+                %option{value: ""}
+                  選択してください
+                %option{value: "300-1000"}300~1000
+                %option{value: "1000-5000"}1000~5000
+                %option{value: "5000-10000"}5000~10000
+                %option{value: "10000-30000"}10000~30000
+                %option{value: "30000-50000"}30000~50000
+                %option{value: "50000"}50000~
+            %input{type: "text", name: "price_min", value: "", placeholder: "¥ Min", class: "input-default", data:{search: "price-min"}}
+            %span.tilde ~
+            %input{type: "text", name: "price_max", value: "", placeholder: "¥ Max", class: "input-default", data:{search: "price-max"}}
+          
+          //商品の状態で検索
+          .form-group.clearfix
+            %label
+              = fa_icon 'star'
+              %span
+                商品の状態
+            %div
+              .checkbox-default
+                %input{type: "checkbox"}
+                %label
+                  すべて
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  新品、未使用
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  未使用に近い
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  目立った傷や汚れなし
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  やや傷や汚れあり
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  傷や汚れあり
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  全体的に状態が悪い
+        
+          //配送料の負担
+          .form-group.clearfix
+            %label
+              = fa_icon 'truck'
+              %span
+                配送料の負担
+            %div
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  すべて
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  着払い(購入者負担)
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  送料込み(出品者負担)
+
+          //販売状況
+          .form-group.clearfix
+            %label
+              = fa_icon 'shopping-cart'
+              %span
+                販売状況
+            %div
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  すべて
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  販売中
+              .checkbox-default
+                %input{type: "checkbox"}
+                = fa_icon 'check'
+                %label
+                  売り切れ
+
+          .search-extend-btn-empty
+          .search-extend-btn.clearfix
+            .btn-default.btn-gray{data:{search: "reset"}}
+              クリア
+            %button.btn-default.btn-red{type: "submit"}
+              完了
+
+  %nav.bread-crumbs.pos-bottom
+    %ul
+      %li
+        = link_to root_path do
+          %span
+            メルカリ
+        = fa_icon 'chevron-right'
+      %li.bread-crumbs-overflow
+        %span
+          検索結果

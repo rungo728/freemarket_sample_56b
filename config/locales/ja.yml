@@ -1,0 +1,5 @@
+ja:
+  views:
+    pagination:
+      next:  <i class="fa fa-chevron-right"></i>
+      last:  <i class="fa fa-angle-double-right"></i>
