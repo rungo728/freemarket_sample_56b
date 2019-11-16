@@ -11,9 +11,9 @@
           = fa_icon 'search'
           .search-detail
             詳細検索
-      %section.item-box-container.clearfix
-        - unless @items.length == @itemsall.length
-          - unless @items.length == 0
+      - unless @items.length == @itemsall.length
+        - unless @items.length == 0
+          %section.item-box-container.clearfix
             %h2.search-result-head
               = @q.name_cont
               %span.search-result-head__text
@@ -40,7 +40,10 @@
                           = fa_icon 'heart-o'
                           %span
                             3
-          - else
+          //ページネーション
+          = paginate(@items)
+        - else
+          %section.item-box-container.clearfix
             %h2.search-result-head
               = @q.name_cont
               %span.search-result-head__text
@@ -68,7 +71,10 @@
                           = fa_icon 'heart-o'
                           %span
                             3
-        - else
+          //ページネーション
+          = paginate(@itemsall)
+      - else
+        %section.item-box-container.clearfix
           %h3.search-result-nothing
             新着商品
           .items-box-content.clearfix
@@ -90,9 +96,8 @@
                         = fa_icon 'heart-o'
                         %span
                           3
-            
-      //ページネーション
-      = paginate(@items)
+        //ページネーション
+        = paginate(@itemsall)
 
     //サイドバー(小さくなると消える)
     .l-side
