@@ -1,0 +1,242 @@
+
+.exhibit-screen
+  = render partial: 'shared/signup-header'
+  
+  %form.exhibit-content
+    .exhibit-content__title
+      商品の情報を入力
+    .exhibit-content__image
+      .exhibit-image_upper-row
+        %h3.exhibit-image_upper-row__title
+          出品画像
+        .required-character
+          .required-character__chara
+            必須
+      .exhibit-image_middle-row
+        最大10枚までアップロードできます
+      .exhibit-image_bottom-row
+        .exhibit-image_bottom-row__content
+          = fa_icon 'camera', class: 'fa-camera'
+          %p.exhibit-image_bottom-row__content--chara
+            ドラックアンドドロップ
+          %p.exhibit-image_bottom-row__content--chara2
+            またはクリックしてファイルをアップロード
+    .exhibit-content__item
+      .exhibit-item_upper-row
+        .exhibit-item_upper-row__title
+          %h4.exhibit-item_upper-row__title--name
+            商品名
+          .required-character
+            必須
+        %input.exhibit-item_upper-row__name{type: "text", placeholder: "商品名 (必須40字まで)", style: "width: 670px; height: 50px;"}
+        %input.exhibit-item_upper-row__name2{type: "text", placeholder: "商品名 (必須40字まで)", style: "width: 85vw; height: 50px;"}
+          //= form_for '#' doふオームタグを使う
+      
+      .exhibit-item_bottom-row
+        .exhibit-item_bottom-row__title
+          %h4.exhibit-item_bottom-row__title--name
+            商品の説明
+          .required-character
+            必須
+        .exhibit-item_bottom-row__description
+          %textarea.exhibit-item_bottom-row__description--box{type: "text", name: "name", placeholder: placeholder="商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", style: "width: 670px; height: 130px; padding: 10px 5px;", rows: "5"}
+          %textarea.exhibit-item_bottom-row__description--box2{type: "text", name: "name", placeholder: placeholder="商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", style: "width: 85vw; height: 130px; padding: 10px 5px;", rows: "5"}
+    
+    
+    .exhibit-content__detail
+      .exhibit-detail_first-row
+        .exhibit-detail_first-row__chara
+          商品の詳細
+      .exhibit-detail_second-row
+        .exhibit-detail_second-row__title
+          %h4.exhibit-detail_second-row__title--name
+            カテゴリー
+          .required-character
+            必須
+        .exhibit-detail_second-row__category
+          %select.exhibit-detail_second-row__category--box{style: "width: 450px; height: 50px;"}
+            %option.exhibit-category1
+              &#8722;&#8722;&#8722;
+            %option.exhibit-category2
+              アイウエオおおお
+            %option.exhibit-category3
+              アイウエオおおお
+            %option.exhibit-category4
+              アイウエオおおお
+          %select.exhibit-detail_second-row__category--box2{style: "width: 85vw; height: 50px;"}
+            %option.exhibit-category11
+              &#8722;&#8722;&#8722;
+            %option.exhibit-category22
+              アイウエオおおお
+            %option.exhibit-category33
+              アイウエオおおお
+            %option.exhibit-category44
+              アイウエオおおお
+      
+      .exhibit-detail_third-row
+        .exhibit-detail_third-row__title
+          %h4.exhibit-detail_second-row__title--name
+            商品の状態
+          .required-character
+            必須
+        .exhibit-detail_third-row__status
+          %select.exhibit-detail_third-row__status--box{style: "width: 450px; height: 50px;"}
+            %option.exhibit-detail1
+              &#8722;&#8722;&#8722;
+            %option.exhibit-detail2
+              アイウエオおおお
+            %option.exhibit-detail3
+              アイウエオおおお
+            %option.exhibit-detail4
+              アイウエオおおお
+          %select.exhibit-detail_third-row__status--box2{style: "width: 85vw; height: 50px;"}
+            %option.exhibit-detail11
+              &#8722;&#8722;&#8722;
+            %option.exhibit-detail22
+              アイウエオおおお
+            %option.exhibit-detail33
+              アイウエオおおお
+            %option.exhibit-detail44
+              アイウエオおおお
+    
+    
+    .exhibit-content__option
+      .exhibit-option_first-row
+        .exhibit-option_first-row__name
+          配送について
+          = link_to '#' do
+            = fa_icon 'question-circle', class: 'question-icon'
+      .exhibit-option_second-row
+        .exhibit-option_second-row__title
+          %h4.exhibit-option_second-row__title--name
+            配送料の負担(配送方法にぶんき）
+          .required-character
+            必須
+        .exhibit-option_second-row__field
+          %select.exhibit-option_second-row__field--box{style: "width: 450px; height: 50px;"}
+            %option.exhibit-option1
+              &#8722;&#8722;&#8722;
+            %option.exhibit-option2
+              アイウエオおおお
+            %option.exhibit-option3
+              アイウエオおおお
+            %option.exhibit-option4
+              アイウエオおおお
+          %select.exhibit-option_second-row__field--box2{style: "width: 85vw; height: 50px;"}
+            %option.exhibit-option1
+              &#8722;&#8722;&#8722;
+            %option.exhibit-option2
+              アイウエオおおお
+            %option.exhibit-option3
+              アイウエオおおお
+            %option.exhibit-option4
+              アイウエオおおお
+      
+      .exhibit-option_third-row
+        .exhibit-option_third-row__title
+          %h4.exhibit-option_third-row__title--name
+            発送元の地域
+          .required-character
+            必須
+        .exhibit-option_third-row__field
+          %select.exhibit-option_third-row__field--box{style: "width: 450px; height: 50px;"}
+            %option.exhibit-option1
+              &#8722;&#8722;&#8722;
+            %option.exhibit-option2
+              アイウエオおおお
+            %option.exhibit-option3
+              アイウエオおおお
+            %option.exhibit-option4
+              アイウエオおおお
+          %select.exhibit-option_third-row__field--box2{style: "width: 85vw; height: 50px;"}
+            %option.exhibit-option1
+              &#8722;&#8722;&#8722;
+            %option.exhibit-option2
+              アイウエオおおお
+            %option.exhibit-option3
+              アイウエオおおお
+            %option.exhibit-option4
+              アイウエオおおお
+      .exhibit-option_fourth-row
+        .exhibit-option_fourth-row__title
+          %h4.exhibit-option_fourth-row__title--name
+            発送までの日数
+          .required-character
+            必須
+        .exhibit-option_fourth-row__field
+          %select.exhibit-option_fourth-row__field--box{style: "width: 450px; height: 50px;"}
+            %option.exhibit-option1
+              &#8722;&#8722;&#8722;
+            %option.exhibit-option2
+              アイウエオおおお
+            %option.exhibit-option3
+              アイウエオおおお
+            %option.exhibit-option4
+              アイウエオおおお
+          .exhibit-option_fourth-row__field
+          %select.exhibit-option_fourth-row__field--box2{style: "width: 85vw; height: 50px;"}
+            %option.exhibit-option1
+              &#8722;&#8722;&#8722;
+            %option.exhibit-option2
+              アイウエオおおお
+            %option.exhibit-option3
+              アイウエオおおお
+            %option.exhibit-option4
+              アイウエオおおお
+    
+    .exhibit-content__value
+      .exhibit-value_first-row
+        .exhibit-value_first-row__name
+          販売価格(300~9,999,999)
+          = link_to '#' do
+            = fa_icon 'question-circle', class: 'question-icon'
+      .exhibit-value_second-row
+        .value_upper-row
+          .value_upper-row__title
+            %h4.value_upper-row__title--name
+              価格
+            .required-character
+              必須
+          .value_upper-row__title--value
+            ¥
+            %input.exhibit_value-box{type: "text", placeholder: "例) 300", style: "width: 150px; height: 50px;"}
+            %input.exhibit_value-box2{type: "text", placeholder: "例) 300", style: "width: 30vw; height: 50px;"}
+        .value_middle-row
+          .value_middle-row__title
+            販売手数料(10%)
+          .value_middle-row__cost
+            &#8722;
+        .value_bottom-row
+          .value_bottom-row__title
+            販売利益
+          .value_bottom-row__price
+            &#8722;&#8722;&#8722;
+      
+    .exhibit-content__bottom
+      .exhibit-content__bottom--box
+        .exhibit-bottom_note1
+          = link_to '#' do
+            禁止されている出品
+          、
+          = link_to '#' do
+            行為
+          を必ずご確認ください。
+          %br
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to '#' do
+            偽ブランドの販売
+          は犯罪であり処罰される可能性があります。
+          %br
+          また、出品をもちまして
+          = link_to '#' do
+            加盟店規約
+          に同意したことになります。
+        
+        %input.exhibit-bottom_submit{type: "submit", value: "出品",}
+        
+        = link_to '#' do
+          .exhibit-bottom_return
+            もどる
+  
+  
+  = render partial: 'shared/signup-footer'
