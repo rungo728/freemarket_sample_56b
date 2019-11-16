@@ -1,6 +1,6 @@
 .search-container
   = render partial: "shared/main_header"
-  .l-container.search-container.clearfix
+  .l-container.search-content.clearfix
     .l-content
       .hidden-large.search-nav.clearfix
         .search-option
@@ -304,3 +304,9 @@
       %li.bread-crumbs-overflow
         %span
           検索結果
+
+  = render partial: 'shared/main_aside'
+
+  = render partial: 'shared/main_footer'
+
+  = render partial: 'shared/sell_btn'
