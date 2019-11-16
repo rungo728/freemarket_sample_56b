@@ -1,0 +1,7 @@
+ja:
+  views:
+    pagination:
+      next:  <i class="fa fa-chevron-right"></i>
+      last:  <i class="fa fa-angle-double-right"></i>
+      previous:  <i class="fa fa-chevron-left"></i>
+      first:  <i class="fa fa-angle-double-left"></i>

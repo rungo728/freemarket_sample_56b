@@ -15,4 +15,13 @@ describe ItemsController, type: :controller do
       expect(assigns(:items)).to match(items.sort{|a, b| b.id <=> a.id})
     end
   end
+
+  describe 'GET #search' do
+    it "renders the :search template" do
+      items = create_list(:item, 3)
+      get :search, params: { q:{name_cont: '商品'} }
+      expect(assigns(:items)).to eq items
+    end
+
+  end
 end

@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+
+  before_action :set_search
+  
   def index
     #テストで用いた記述
     @items = Item.all.order("id DESC").limit(10)
@@ -14,6 +17,12 @@ class ItemsController < ApplicationController
     @nikes = Item.includes(:photos).where(brand_id: 3).order("id DESC").limit(10)
   end
 
+  def search
+    @q = Item.includes(:photos).ransack(search_params)
+    @items = @q.result(distinct: true).page(params[:page]).per(10).limit(20)
+    @itemsall = Item.all.order("id DESC").limit(20)
+  end
+
   def confirmation
   end
 
@@ -23,4 +32,13 @@ class ItemsController < ApplicationController
   def new
   end
 
+  private
+  
+  def set_search
+    @q = Item.search(params[:q])
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont)
+  end
 end
