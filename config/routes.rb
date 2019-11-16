@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'registration', to: 'tests#registration'
   get 'address', to: 'tests#address'
   get 'payment', to: 'tests#payment'
+  get 'phone2', to: 'tests#phone2'
+  get 'complete', to: 'tests#complete'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

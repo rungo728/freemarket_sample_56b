@@ -5,10 +5,6 @@
       margin: 11px 0 12px;
     }
     //現在ページ情報のバー
-    .progress-bar{
-      font-size: 0;
-      text-align: center;
-    }
     .signup-bar.progress-bar{
       padding: 16px 0;
       border-top: 1px solid #eee;
@@ -93,76 +89,30 @@
       }
     }
   }
-  .contents__form__require{
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    background: #ea352d;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
-  }
-  .contents__form__arbitrary{
-    background: #ccc;
-    color: #fff;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    font-size: 12px;
-    vertical-align: top;
-
-  }
-  .l-step3-container{
-    display: block;
-    .l-step3-content{
-      width: 100%;
-      .l-chapter-container{
-        background: #fff;
-        margin: 0;
-        h2{
-          padding: 12px 4%;
-          text-align: center;
-          font-size: 18px;
-          border-bottom: 1px solid #f5f5f5;
-        }
-        form{
-          padding: 24px 16px 40px;
-
-        }
-        .l-step3-inner{
-          border-top: 1px solid #f5f5f5;
-
-        }
-        .l-step3-content{
+  .step5-main{
+    .l-step5-container{
+      text-align: center;
+      background: #fff;
+      .l-chapter-head{
+        padding: 16px;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: center;
+      }  
+      .l-step5-inner{
+        padding: 24px 16px 40px;
+        border-top: 1px solid #f5f5f5;
+        .l-step5-content{
           max-width: 343px;
           margin: 0 auto;
-          .form-group:first-child{
+          p:first-child{
             margin: 0;
+            padding: 0;
           }
-          .form-group{
-            margin: 24px 0 0;
-            label{
-              font-weight: 600;
-              display: inline-block;
-            }
-            .select-wrap{
-              margin: 8px 0 0;
-              position: relative;
-              select{
-                position: relative;
-                z-index: 2;
-                height: 48px;
-                width: 100%;
-                padding: 0 16px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                background: #fff;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
-
-              }
-            }
+          p{
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
           }
           .btn-red{
             margin: 24px 0 0;
@@ -171,10 +121,22 @@
             color: #fff;
           }
         }
+      }    
+      a{
+        display: block;
+        img{
+          width: 100%;
+        }
+        .step5-banner-sp{
+          max-width: 375px;
+        } 
+        .step5-banner-pc{
+          display: none;
+        }
       }
-    }
+    } 
   }
-}
+}  
 @media screen and (min-width: 768px){
 .common-container{
   .common-header{
@@ -209,19 +171,23 @@
       vertical-align: top;
     }
   }
-  .l-step3-container{
-    width: 700px;
-    margin: 24px auto 0;
-    .l-step3-content{
-      float: none;
+  .step5-main{
+    .l-step5-container{
       width: 700px;
-      section{
-        .h2{
-          font-size: 24px;
-          padding: 8px 24px;    
+      margin: 0 auto;
+      .l-chapter-head{
+        padding: 32px;
+        font-size: 22px;
+      }  
+      a{
+        .step5-banner-sp{
+          display: none;
+        }
+        .step5-banner-pc{
+          display: inline;
         }
       }
-    }  
+    }    
   }
   .common-footer{
     width: 456px;
@@ -236,5 +202,5 @@
       }
     }
   }
-} 
-} 
+}
+}

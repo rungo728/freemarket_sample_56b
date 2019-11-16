@@ -5,10 +5,6 @@
       margin: 11px 0 12px;
     }
     //現在ページ情報のバー
-    .progress-bar{
-      font-size: 0;
-      text-align: center;
-    }
     .signup-bar.progress-bar{
       padding: 16px 0;
       border-top: 1px solid #eee;
@@ -57,9 +53,6 @@
           .progress-status{
             background: #ea352d;
           }
-          .progress-status:before{
-            background: #ea352d;
-          }
           .progress-status:after{
             background: #ea352d;
           }
@@ -70,7 +63,7 @@
           .progress-status{
             background: #ea352d;
           }
-          .progress-status{
+          li.progress-status{
             background: #ea352d;
           }
           .progress-status:before{
@@ -93,47 +86,22 @@
       }
     }
   }
-  .contents__form__require{
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    background: #ea352d;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
+  .l-chapter-sub-head{
+    font-size: 14px;
+    font-weight: bold;
   }
-  .contents__form__arbitrary{
-    background: #ccc;
-    color: #fff;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    font-size: 12px;
-    vertical-align: top;
-
-  }
-  .l-step3-container{
-    display: block;
-    .l-step3-content{
-      width: 100%;
-      .l-chapter-container{
-        background: #fff;
-        margin: 0;
-        h2{
-          padding: 12px 4%;
-          text-align: center;
-          font-size: 18px;
-          border-bottom: 1px solid #f5f5f5;
-        }
-        form{
-          padding: 24px 16px 40px;
-
-        }
-        .l-step3-inner{
-          border-top: 1px solid #f5f5f5;
-
-        }
-        .l-step3-content{
+  .step2-main{
+    .l-step2-container{
+      background: #fff;
+      .l-chapter-head{
+        padding: 12px 4%;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+        font-size: 18px;
+      }
+      .l-step2-inner{
+        padding: 24px 16px 40px;
+        .l-step2-content{
           max-width: 343px;
           margin: 0 auto;
           .form-group:first-child{
@@ -144,36 +112,32 @@
             label{
               font-weight: 600;
               display: inline-block;
+              font-size: 14px;
             }
-            .select-wrap{
+            .input-default{
+              width: 100%;
               margin: 8px 0 0;
-              position: relative;
-              select{
-                position: relative;
-                z-index: 2;
-                height: 48px;
-                width: 100%;
-                padding: 0 16px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                background: #fff;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
-
-              }
             }
+          }
+          p{
+            margin: 8px 0 0;
+            line-height: 1.5;
+            font-size: 14px;
           }
           .btn-red{
             margin: 24px 0 0;
             background: #ea352d;
             border: 1px solid #ea352d;
             color: #fff;
+
           }
         }
       }
+      .l-step2-inner{
+        border-top: 1px solid #f5f5f5;
+      }
     }
-  }
+  }  
 }
 @media screen and (min-width: 768px){
 .common-container{
@@ -209,32 +173,18 @@
       vertical-align: top;
     }
   }
-  .l-step3-container{
-    width: 700px;
-    margin: 24px auto 0;
-    .l-step3-content{
-      float: none;
+  .l-chapter-sub-head{
+    font-size: 16px;
+  }
+  .step2-main{
+    .l-step2-container{
       width: 700px;
-      section{
-        .h2{
-          font-size: 24px;
-          padding: 8px 24px;    
-        }
-      }
-    }  
-  }
-  .common-footer{
-    width: 456px;
-    height: 220px;
-    margin: 0 auto;
-    nav{
-      ul{
-        li{
-          display: inline-block;
-          margin:0 0 0 16px;
-        }
-      }
+      margin: 0 auto; 
+      .l-chapter-head{
+        font-size: 22px;
+        padding: 32px;
+      }  
     }
-  }
-} 
-} 
+  }  
+}
+}
