@@ -41,7 +41,7 @@
                           %span
                             3
           //ページネーション
-          = paginate(@items)
+          = paginate @items, window: 2
         - else
           %section.item-box-container.clearfix
             %h2.search-result-head
@@ -71,8 +71,7 @@
                           = fa_icon 'heart-o'
                           %span
                             3
-          //ページネーション
-          = paginate(@itemsall)
+
       - else
         %section.item-box-container.clearfix
           %h3.search-result-nothing
@@ -96,8 +95,6 @@
                         = fa_icon 'heart-o'
                         %span
                           3
-        //ページネーション
-        = paginate(@itemsall)
 
     //サイドバー(小さくなると消える)
     .l-side

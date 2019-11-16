@@ -19,8 +19,8 @@ class ItemsController < ApplicationController
 
   def search
     @q = Item.includes(:photos).ransack(search_params)
-    @items = @q.result(distinct: true).page(params[:page]).per(10)
-    @itemsall = Item.all.order("id DESC").page(params[:page]).per(10)
+    @items = @q.result(distinct: true).page(params[:page]).per(10).limit(20)
+    @itemsall = Item.all.order("id DESC").limit(20)
   end
 
   def confirmation
