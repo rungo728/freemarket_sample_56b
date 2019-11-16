@@ -14,6 +14,9 @@ class ItemsController < ApplicationController
     @nikes = Item.includes(:photos).where(brand_id: 3).order("id DESC").limit(10)
   end
 
+  def search
+  end
+
   def confirmation
   end
 

@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   #仮のルーティング
   root 'items#index'
-  get '/items/new', to: 'items#new'
-  get '/items/show', to: 'items#show'
+  resources :items do
+    collection{ get "search"}
+  end
   get 'users/show', to: 'users#show'
   get 'user/edit', to: 'users#edit'
   get 'items/confirmation', to: 'items#confirmation'
