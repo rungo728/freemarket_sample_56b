@@ -87,3 +87,4 @@ gem 'seed-fu'
 gem 'kaminari'
 # 検索を容易にするためのgem
 gem 'ransack'
+

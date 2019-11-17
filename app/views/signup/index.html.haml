@@ -8,7 +8,7 @@
         新規会員登録
       .contents.registration-form
         .contents-select
-          = link_to "/signup/step1",class:"contents__btn mail-address" do
+          = link_to registration_signup_index_path ,class:"contents__btn mail-address" do
             = fa_icon 'envelope'
             メールアドレスで登録する
           = link_to "#",class:"contents__btn facebook" do
