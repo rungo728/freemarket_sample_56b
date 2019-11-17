@@ -33,16 +33,16 @@
           .form-group
             %label ニックネーム
             %span.contents__form__require 必須
-            = f.text_field :nickname, name: "nickname", placeholder: "例）メルカリ太郎", class: "input-default"
+            = f.text_field :nickname, placeholder: "例）メルカリ太郎", class: "input-default"
           .form-group
             %label メールアドレス
             %span.contents__form__require 必須
-            = f.email_field :email, name: "email", placeholder: "PC・携帯どちらでも可", class: "input-default"
+            = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "input-default"
           %input{type: "hidden", name: "login_type"}
           .form-group
             %label パスワード
             %span.contents__form__require 必須
-            = f.password_field :password, name: "password", placeholder: "7文字以上", class: "input-default"
+            = f.password_field :password, placeholder: "7文字以上", class: "input-default"
           .form-group
             %label パスワード(確認)
             %span.contents__form__require 必須
@@ -56,14 +56,14 @@
             %div
               %label お名前（全角）
               %span.contents__form__require 必須
-            = f.text_field :last_name, name: "family_name_kanji", placeholder: "例) 山田", class: "input-default half"
-            = f.text_field :first_name, name: "first_name_kanji", placeholder: "例) 彩", class: "input-default half"
+            = f.text_field :last_name, placeholder: "例) 山田", class: "input-default half"
+            = f.text_field :first_name, placeholder: "例) 彩", class: "input-default half"
           .form-group
             %div
               %label お名前カナ(全角)
               %span.contents__form__require 必須
-            = f.text_field :last_name_kana, name: "family_name_kana", placeholder: "例) ヤマダ", class: "input-default half"
-            = f.text_field :first_name_kana, name: "first_name_kana", placeholder: "例) アヤ", class: "input-default half"
+            = f.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "input-default half"
+            = f.text_field :first_name_kana, placeholder: "例) アヤ", class: "input-default half"
           .form-group
             %div
               %label 生年月日

@@ -33,7 +33,8 @@
           .form-group
             %label{for: "phone_number"}
               携帯電話の番号
-            = f.text_field :phone_number, name: "phone-number", placeholder: "携帯電話の番号を入力", class: "input-default"
+            -# = f.text_field :phone_number, name: "phone-number", placeholder: "携帯電話の番号を入力", class: "input-default"
+            = f.text_field :phone_number, placeholder: "携帯電話の番号を入力", class: "input-default"
           %p
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           = f.submit "SMSを送信する", class: "btn-default btn-red"

@@ -29,13 +29,14 @@
         電話番号認証
       -# %form{action: "", method: "POST", class: "l-step2-inner registration-form", novalidate: "novalidate"}
             -# = form_for @authentication, url: step3_signup_index_path, method: :post, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
-      = form_for "", url: address_signup_index_path, method: :get, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
+      = form_for @authentication, url: address_signup_index_path, method: :get, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
         .l-step2-content
           .form-group
             %label{for: "captcha"}
               認証番号
             -# %input{type: "text", value: "", name: "captcha", placeholder: "認証番号を入力", class: "input-default"}
-            = f.text_field :secure_code, name: "captcha", placeholder: "認証番号を入力", class: "input-default"
+            = f.text_field :secure_code, placeholder: "認証番号を入力", class: "input-default"
+            -# = f.text_field name: "secure_code", placeholder: "認証番号を入力", class: "input-default"
           %p
             SMSで届いた認証番号を入力してください
           -# %button{type: "submit", class: "btn-default btn-red"}
