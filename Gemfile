@@ -87,4 +87,7 @@ gem 'seed-fu'
 gem 'kaminari'
 # 検索を容易にするためのgem
 gem 'ransack'
-
+# reCAPTCHAを使用するためのgem
+gem 'recaptcha', require: "recaptcha/rails"
+# 環境変数を簡単に設定するためのgem
+gem 'dotenv-rails'
