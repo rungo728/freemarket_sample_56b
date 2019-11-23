@@ -35,6 +35,9 @@
         width: 300px;
         margin: 0 20px 10vh 40px;
         background-color: #F2F2F2;
+        .information-item_content-image2{
+          display: none;
+        }
       }
       
       &--price {
@@ -553,9 +556,11 @@
         width: 300px;
         height: 450px;
         margin: 0 auto;
-        padding-top: 20px;
         background-color: #F2F2F2;
         margin-bottom: 30px;
+        .information-item_content-image {
+          display: none;
+        }
       }
       &--price {
         display: flex;

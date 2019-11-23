@@ -7,8 +7,8 @@
 
     .information-item_content__detail
       .information-item_content__detail--image
-        %img.information-item_content-image{src: "#{@photo.photo}", style: "width: 300px; height: 280px;"}
-      
+        %img.information-item_content-image{src: "#{@photo.photo}", style: "width: 300px; height: 250px;"}
+        %img.information-item_content-image2{src: "#{@photo.photo}", style: "width: 300px; height: 330px;"}
       .information-item_content__detail--price
         .information-item_content-money
           ¥
@@ -214,7 +214,7 @@
       - @user_items.each do |user_item|
         = link_to item_path(user_item) do
           .other-item_list
-            %img.other-item_list__image{src: "#{@photos.photo}", style: "width: 230px; height:230px;"}
+            %img.other-item_list__image{src: "#{@user_item_photo.photo}", style: "width: 230px; height:230px;"}
             %h6.other-item_list__name
               = user_item.name
             .other-item_list__value
@@ -231,7 +231,7 @@
         = link_to item_path(user_item) do
           .other-item_list
             .information-item_sample-box
-              %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
+              %img.information-item_sample-box__image{src: "#{@user_item_photo.photo}", style: "width: 100%; height:100%;"}
               .information-item_sample-box__price
                 ¥
                 = user_item.price
@@ -246,7 +246,7 @@
       - @category_items.each do |category_item|
         = link_to item_path(category_item) do
           .other-item_list
-            %img.other-item_list__image{src: "#", style: "width: 230px; height: 230px;"}
+            %img.other-item_list__image{src: "#{@category_item_photo.photo}", style: "width: 230px; height: 230px;"}
             %h6.other-item_list__name
               = category_item.name
             .other-item_list__value
@@ -264,7 +264,7 @@
         - @category_items.each do |category_item|
           = link_to item_path(category_item) do
             .information-item_sample-box
-              %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
+              %img.information-item_sample-box__image{src: "#{@category_item_photo.photo}", style: "width: 100%; height:100%;"}
               .information-item_sample-box__price
                 ¥
                 = category_item.price

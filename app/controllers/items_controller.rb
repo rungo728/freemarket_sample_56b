@@ -34,9 +34,12 @@ class ItemsController < ApplicationController
     @category = Category.find_by(id: @item.category_id)
     @user_items = Item.where(saler_id: @user.id).order("id DESC").limit(6)
     @user_items.each do |user_item|
-      @photos = Photo.find_by(item_id: user_item.id)
+      @user_item_photo = Photo.find_by(item_id: user_item.id)
     end
     @category_items = Item.includes(:photos).where(category_id: @category.id).order("id DESC").limit(6)
+    @category_items.each do |category_item|
+      @category_item_photo = Photo.find_by(item_id: category_item.id)
+    end
     # @category_children = Category.find_by(name: @category.name, ancestry: nil).children
   end
 
