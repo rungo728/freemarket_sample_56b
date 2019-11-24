@@ -30,7 +30,8 @@
           支払い方法
         -# = form_for "", url: "", method: :get, html: {class: 'l-step4-inner registration-form'} do |f|
         -# = form_tag(complete_signup_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-        = form_tag(complete_signup_index_path, method: :get, html: {class: 'l-step4-inner registration-form'}, id: 'charge-form', name: "inputForm") do
+        -# = form_tag(complete_signup_index_path, method: :get, html: {class: 'l-step4-inner registration-form'}, id: 'charge-form', name: "inputForm") do
+        = form_tag(pay_cards_path, method: :post, html: {class: 'l-step4-inner registration-form'}, id: 'charge-form', name: "inputForm") do
           .l-step4-inner
             %input{type: "hidden", name: "csrf_value", value: ""}
           .l-step4-content
@@ -120,6 +121,7 @@
             %input{type: "hidden", name:"after_save_callback"}
             -# %button{type: "submit", class: "btn-default btn-red"}
               次へ進む
+            #card_token
             = submit_tag "次へ進む", id: "token_submit", class: "btn-default btn-red"
   = render  "shared/signup-footer"
 

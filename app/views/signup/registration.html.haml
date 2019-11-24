@@ -33,7 +33,13 @@
           .form-group
             %label ニックネーム
             %span.contents__form__require 必須
-            = f.text_field :nickname, placeholder: "例）メルカリ太郎", class: "input-default"
+            - if @user.errors.messages[:nickname].any?
+              = f.text_field :nickname, placeholder: "例）メルカリ太郎", class: "input-default user_nickname_error"
+              %ul.contents__errors__message
+                - @user.errors.full_messages_for(:nickname).each do |message|
+                  %li= message
+            - else
+              = f.text_field :nickname, placeholder: "例）メルカリ太郎", class: "input-default"
           .form-group
             %label メールアドレス
             %span.contents__form__require 必須
@@ -52,29 +58,30 @@
               本人確認
             %p
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          .form-group
-            %div
-              %label お名前（全角）
-              %span.contents__form__require 必須
-            = f.text_field :last_name, placeholder: "例) 山田", class: "input-default half"
-            = f.text_field :first_name, placeholder: "例) 彩", class: "input-default half"
-          .form-group
-            %div
-              %label お名前カナ(全角)
-              %span.contents__form__require 必須
-            = f.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "input-default half"
-            = f.text_field :first_name_kana, placeholder: "例) アヤ", class: "input-default half"
-          .form-group
-            %div
-              %label 生年月日
-              %span.contents__form__require 必須
-              .birthday-select
-                .select-wrap
-                  != sprintf(f.date_select(:birthday, prefix:'birthday', prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
-            %input{type: "hidden", name: "csrf_value", value: ""}
-            %div{class: "clearfix"}
-            %p
-              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          = f.fields_for :personal do |pe|
+            .form-group
+              %div
+                %label お名前（全角）
+                %span.contents__form__require 必須
+              = pe.text_field :last_name, placeholder: "例) 山田", class: "input-default half"
+              = pe.text_field :first_name, placeholder: "例) 彩", class: "input-default half"
+            .form-group
+              %div
+                %label お名前カナ(全角)
+                %span.contents__form__require 必須
+              = pe.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "input-default half"
+              = pe.text_field :first_name_kana, placeholder: "例) アヤ", class: "input-default half"
+            .form-group
+              %div
+                %label 生年月日
+                %span.contents__form__require 必須
+                .birthday-select
+                  .select-wrap
+                    != sprintf(pe.date_select(:birthday, prefix:'birthday', prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+              %input{type: "hidden", name: "csrf_value", value: ""}
+              %div{class: "clearfix"}
+              %p
+                ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .l-step1-content
           %input{type: "hidden", name: "after_save_callback", value: ""}
           .form-group

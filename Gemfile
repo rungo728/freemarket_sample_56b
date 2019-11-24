@@ -91,3 +91,5 @@ gem 'ransack'
 gem 'recaptcha', require: "recaptcha/rails"
 # 環境変数を簡単に設定するためのgem
 gem 'dotenv-rails'
+# クレジットカード処理を実現するためのgem
+gem 'payjp'

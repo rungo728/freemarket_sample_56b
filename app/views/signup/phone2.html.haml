@@ -29,7 +29,8 @@
         電話番号認証
       -# %form{action: "", method: "POST", class: "l-step2-inner registration-form", novalidate: "novalidate"}
             -# = form_for @authentication, url: step3_signup_index_path, method: :post, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
-      = form_for @authentication, url: address_signup_index_path, method: :get, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
+      -# = form_for @authentication, url: address_signup_index_path, method: :get, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
+      = form_for @authentication, url: phone2_signup_index_path, method: :post, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
         .l-step2-content
           .form-group
             %label{for: "captcha"}
