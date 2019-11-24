@@ -27,8 +27,7 @@
     %section.l-step2-container
       %h2.l-chapter-head.registration
         電話番号の確認
-      -# = form_for @user, url: phone_signup_index_path, method: :post, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
-      = form_for @phone, url: phone2_signup_index_path, method: :get, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
+      = form_for @phone, url: phone_signup_index_path, method: :post, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
         .l-step2-content
           .form-group
             %label{for: "phone_number"}

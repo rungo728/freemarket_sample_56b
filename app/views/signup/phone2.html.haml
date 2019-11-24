@@ -27,9 +27,6 @@
     %section.l-step2-container
       %h2.l-chapter-head.registration
         電話番号認証
-      -# %form{action: "", method: "POST", class: "l-step2-inner registration-form", novalidate: "novalidate"}
-            -# = form_for @authentication, url: step3_signup_index_path, method: :post, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
-      -# = form_for @authentication, url: address_signup_index_path, method: :get, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
       = form_for @authentication, url: phone2_signup_index_path, method: :post, html: {class: "l-step2-inner registration-form", novalidate: "novalidate"} do |f|
         .l-step2-content
           .form-group
@@ -40,8 +37,6 @@
             -# = f.text_field name: "secure_code", placeholder: "認証番号を入力", class: "input-default"
           %p
             SMSで届いた認証番号を入力してください
-          -# %button{type: "submit", class: "btn-default btn-red"}
-            認証して完了
           = f.submit "認証して完了", class: "btn-default btn-red"
         %input{type: "hidden", name: "csrf_value", value: ""}
       %form{action: "", method: "POST", class: "l-step2-inner registration-form", novalidate: "novalidate"}

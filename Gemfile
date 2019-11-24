@@ -93,3 +93,7 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'dotenv-rails'
 # クレジットカード処理を実現するためのgem
 gem 'payjp'
+# SMS送信を可能にするためのgem
+gem 'twilio-ruby'
+# SMS送信の正規化を行うためのgem
+gem 'phony_rails'

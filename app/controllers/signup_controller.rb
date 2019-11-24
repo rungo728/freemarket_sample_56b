@@ -1,9 +1,10 @@
 class SignupController < ApplicationController
 
   require 'payjp'
+  require 'twilio-ruby'
 
   before_action :validates_registration, only: :phone # 新規会員登録画面の入力項目チェック
-  before_action :validates_phone, only: :phone2       # 電話番号の確認画面の入力項目チェック
+  before_action :validates_phone, only: :send_sms     # 電話番号の確認画面の入力項目チェック
   before_action :validates_address, only: :payment    # 発送先・お届け先住所入力画面の入力項目チェック
 
 
@@ -30,25 +31,78 @@ class SignupController < ApplicationController
     @phone = Phone.new
   end
 
+  def send_sms
+    if phone_params[:phone_number].present?
+      # 電話番号が取得できた場合
+      # 取得した電話番号を+81にフォーマット
+      phone_number = PhonyRails.normalize_number phone_params[:phone_number], country_code:'JP'
+      binding.pry
+      # 認証番号（ランダムな4桁の整数）を生成し、sessionに格納
+      session[:secure_code] = rand(1000..9999)
+
+      # SMS送信を行うための設定
+      client = Twilio::REST::Client.new(ENV["TWILIO_ACCOUNT_SID"],ENV["TWILIO_AUTH_TOKEN"])
+      binding.pry
+      # 送信処理
+      begin
+        # 送信元、送信先、メッセージ文を設定し送信する
+        client.messages.create(
+          from: ENV["TWILIO_NUMBER"],
+          to:   phone_number,
+          # body: "認証番号：#{session[:secure_code]} この番号を電話番号認証画面で入力してください。"
+          body: "#{session[:secure_code]}"
+        )
+        binding.pry
+      rescue
+        #送信失敗時
+        redirect_to phone_signup_index_path
+        return false
+      end
+      #送信成功時
+      binding.pry
+      # # step2で入力された値をsessionに保存
+      # session[:phone_number] = phone_params[:phone_number]
+      # 新規インスタンス作成
+      # @user = User.new
+      redirect_to phone2_signup_index_path
+    else
+      # 電話番号が取得できなかった場合
+      redirect_to phone_signup_index_path
+    end
+  end
+  
   # ---------------
   # 電話番号認証画面
   # ---------------
   def phone2
-    # phoneで入力された値をsessionに保存
-    session[:phone_number] = phone_params[:phone_number]
-
     # 新規インスタンス作成
     @authentication = SmsAuthenticationForm.new
   end
 
   def check_sms
-    @phone = Phone.new(
-      # sessionに保存された値をインスタンスに渡す
-      user_id:      session[:user_id],
-      phone_number: session[:phone_number]
-    )
-    render '/signup/phone2' unless @phone.save!
-    redirect_to address_signup_index_path
+    if params[:sms_authentication_form][:secure_code].present?
+      # 認証番号が取得出来た場合
+      if session[:secure_code] === params[:sms_authentication_form][:secure_code].to_i
+        binding.pry
+        # 生成された認証番号と入力された認証番号が一致した場合
+        @phone = Phone.new(
+          # sessionに保存された値をインスタンスに渡す
+          user_id:      session[:user_id],
+          phone_number: session[:phone_number]
+        )
+        # binding.pry
+        render '/signup/phone2' unless @phone.save!
+        redirect_to address_signup_index_path
+      else
+        binding.pry
+        # 生成された認証番号と入力された認証番号が一致しなかった場合
+        redirect_to phone2_signup_index_path
+      end
+    else
+      binding.pry
+      # 認証番号が取得出来なかった場合
+      redirect_to phone2_signup_index_path
+    end
   end
 
   # ---------------
