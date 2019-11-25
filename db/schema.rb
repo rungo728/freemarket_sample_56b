@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191123110133) do
+ActiveRecord::Schema.define(version: 20191125192314) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",          null: false
@@ -51,17 +51,6 @@ ActiveRecord::Schema.define(version: 20191123110133) do
     t.datetime "updated_at", null: false
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
-  end
-
-  create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "number",        null: false
-    t.string   "month",         null: false
-    t.string   "year",          null: false
-    t.string   "security_code", null: false
-    t.integer  "user_id",       null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["user_id"], name: "index_credits_on_user_id", using: :btree
   end
 
   create_table "evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -151,7 +140,6 @@ ActiveRecord::Schema.define(version: 20191123110133) do
   add_foreign_key "addresses", "prefectures"
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
-  add_foreign_key "credits", "users"
   add_foreign_key "evaluations", "users"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"

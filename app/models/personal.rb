@@ -1,5 +1,6 @@
 class Personal < ApplicationRecord
   belongs_to :user
+  belongs_to :prefecture, optional: true
 
   validates :last_name, presence: true, length:{ maximum: 30}
   validates :first_name, presence: true, length:{ maximum: 30}
