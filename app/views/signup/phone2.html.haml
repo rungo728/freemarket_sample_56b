@@ -32,9 +32,7 @@
           .form-group
             %label{for: "captcha"}
               認証番号
-            -# %input{type: "text", value: "", name: "captcha", placeholder: "認証番号を入力", class: "input-default"}
             = f.text_field :secure_code, placeholder: "認証番号を入力", class: "input-default"
-            -# = f.text_field name: "secure_code", placeholder: "認証番号を入力", class: "input-default"
           %p
             SMSで届いた認証番号を入力してください
           = f.submit "認証して完了", class: "btn-default btn-red"
