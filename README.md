@@ -62,6 +62,8 @@ Things you may want to cover:
 |address|string||
 |building|string||
 
+### Association
+
 - belongs_to :user
 - belongs_to :prefecture
 
@@ -69,6 +71,9 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |phone_number|string|null: false|
+
+
+### Association
 
 - belongs_to :user
 
@@ -85,6 +90,9 @@ Things you may want to cover:
 |address|string|null: false|
 |building|string||
 |phone_number_sub|string||
+
+
+### Association
 
 - belongs_to :user
 - belongs_to :prefecture
@@ -189,14 +197,12 @@ Things you may want to cover:
 
 
 
-## creditsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|number|string|null: false|
-|month|string|null: false|
-|year|string|null: false|
-|security_code|string|null: false|
-|user_id|integer|null: false, foreign_key|
+|user_id|integer|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 
