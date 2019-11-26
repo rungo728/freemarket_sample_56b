@@ -19,7 +19,6 @@ document.addEventListener(
           exp_year: document.getElementById("exp_year").value
         };
 
-        console.log(card);
         // トークンを生成する
         Payjp.createToken(card, (status, response) => {
           if (status === 200) {
