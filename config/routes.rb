@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'payment', to: 'tests#payment'
   get 'phone2', to: 'tests#phone2'
   get 'complete', to: 'tests#complete'
-
+  get 'categories/index', to: 'categories#index'
+  get 'categories/show', to: 'categories#show'
+  resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
