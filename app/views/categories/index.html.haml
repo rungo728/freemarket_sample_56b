@@ -1,0 +1,85 @@
+.category-container
+  = render partial: "shared/main_header"
+  %nav.bread-crumbs
+    // パンくずリスト
+    %ul
+      %li
+        = link_to do
+          %span
+            メルカリ
+        = fa_icon "chevron-right"
+      %li
+        %span
+          カテゴリー一覧
+  .category-index.l-single-container
+    //小さい画面の時の画面(JS必須)
+    .category-content
+      .category-index-title.clearfix
+        %h2.clearfix
+          カテゴリー一覧
+      .category-list-nav
+        %ul.clearfix
+          - @parents.each do |parent|
+            %li.accordion-parent{id: "accordion#{parent.id}"}
+              %h3.accordion-taggle
+                %div
+                  = parent.name
+                = fa_icon 'plus'
+              %ul.accordion-child{id: "accordion#{parent.id}"}
+                %li
+                  = link_to category_path(parent) do
+                    .search-category-child
+                      すべて
+                    = fa_icon 'chevron-right'
+                - parent.children.each do |child|
+                  %li
+                    .search-category-child{id: "accordion-child#{child.id}"}
+                      = child.name
+                    = fa_icon 'plus'
+                  %ul.accordion-grandchild{id: "accordion-child#{child.id}"}
+                    - child.children.each do |grandchild|
+                      %li
+                        = link_to category_path(grandchild) do
+                          .search-category-grandchild{id: "accordion-grandchild#{grandchild.id}"}
+                            = grandchild.name
+                          = fa_icon 'chevron-right'
+ 
+    .category-content
+    //大きくした時の画面
+    .category-content-wide
+      .category-index-title
+        %h2
+          カテゴリー一覧
+      .category-list-nav.clearfix
+        - @parents.each do |parent|
+          = link_to '', class: "category-root-link-name" do
+            .category-name
+              = parent.name
+      .category-list-box
+        - @parents.each do |parent|
+          .category-list-individual-box.clearfix
+            .category-list-individual-box__root-category-name
+              %h3
+                = parent.name
+            .category-list-individual-box__inner-box
+              %p
+                = link_to 'すべて'
+              - parent.children.each do |child|
+                .category-list-individual-box-child-category-name
+                  %h4
+                    = child.name
+                .category-list-individual-box-grandchild-category-box.clearfix
+                  .category-list-individual-box-grandchild-category-name
+                    %p
+                      = link_to 'すべて' 
+                  - child.children.each do |grandchild|
+                    .category-list-individual-box-grandchild-category-name
+                      %p
+                        = link_to category_path(grandchild) do
+                          = grandchild.name
+
+  = render partial: 'shared/main_aside'
+
+  = render partial: 'shared/main_footer'
+
+  = render partial: 'shared/sell_btn'
