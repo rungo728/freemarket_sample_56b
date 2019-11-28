@@ -1,0 +1,95 @@
+.category-container
+  = render partial: "shared/main_header"
+  %nav.bread-crumbs
+    // パンくずリスト
+    %ul
+      %li
+        = link_to do
+          %span
+            メルカリ
+        = fa_icon "chevron-right"
+      %li
+        = link_to do
+          %span
+            カテゴリ一覧
+        = fa_icon "chevron-right"
+      %li
+        = link_to do
+          %span
+            レディース(例)
+        = fa_icon "chevron-right"
+      %li
+        = link_to do
+          %span
+            トップス(例)
+        = fa_icon "chevron-right"
+      %li
+        %span
+          テーラードジャケット(例)
+  .l-container.clearfix
+    .l-content.category-show
+      %section.item-box-container.clearfix
+        %h1.item-box-head
+          = @category.name
+          の商品一覧
+        .item-box-content.clearfix
+          - @items.each do |item|
+            %section.items-box
+              =link_to item_path(item) do
+                %figure.items-box-photo 
+                  = image_tag item.photos.first.photo
+                .items-box-body
+                  %h3.items-box-name
+                    = item.name
+                  .items-box-num
+                    .items-box-price
+                      ¥
+                      = item.price
+                    .font-2
+                      = fa_icon 'heart-o'
+                      %span
+                        3
+            %section.items-box
+              =link_to "" do
+                %figure.items-box-photo 
+                  = image_tag item.photos.first.photo
+                .items-box-body
+                  %h3.items-box-name
+                    テスト
+                  .items-box-num
+                    .items-box-price
+                      ¥
+                      テスト
+                    .font-2
+                      = fa_icon 'heart-o'
+                      %span
+                        3
+            %section.items-box
+              =link_to "" do
+                %figure.items-box-photo 
+                  = image_tag item.photos.first.photo
+                .items-box-body
+                  %h3.items-box-name
+                    テスト
+                  .items-box-num
+                    .items-box-price
+                      ¥
+                      テスト
+                    .font-2
+                      = fa_icon 'heart-o'
+                      %span
+                        3
+      = paginate(@items)
+      .special-description
+        .special-description-title
+          %h3
+            = @category.name
+        .special-description-text
+          %p
+            おすすめ！
+     
+  = render partial: 'shared/main_aside'
+
+  = render partial: 'shared/main_footer'
+
+  = render partial: 'shared/sell_btn'
