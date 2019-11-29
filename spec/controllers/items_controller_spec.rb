@@ -24,4 +24,17 @@ describe ItemsController, type: :controller do
     end
 
   end
+
+  describe 'GET #show' do
+    it "renders the :show template" do
+      item = create(:item)
+      user = create(:user)
+      get :show, id: item
+      expect(response).to render_template :show
+    end
+
+    it "the variable is correct" do
+    end
+
+  end
 end

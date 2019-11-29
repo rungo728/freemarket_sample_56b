@@ -35,6 +35,9 @@
         width: 300px;
         margin: 0 20px 10vh 40px;
         background-color: #F2F2F2;
+        .information-item_content-image2{
+          display: none;
+        }
       }
       
       &--price {
@@ -247,6 +250,10 @@
       width: 300px;
       margin: 0 auto;
       padding-bottom: 10px;
+      .information-item_content-money {
+        font-size: 35px;
+        font-weight: bold;
+      }
       &--price {
         font-size: 35px;
         font-weight: bold;
@@ -398,7 +405,6 @@
     &__input {
       padding: 20px 0 0 20px;
       &--text {
-
       }
       &--send {
         background-color: #9fa0a0;
@@ -482,6 +488,9 @@
     width: 750px;
     margin: 0 auto;
     padding: 50px 0 10px 0;
+    a {
+      color: black;
+    }
     &__name {
       font-size: 22px;
       color: #0088CC;
@@ -501,6 +510,7 @@
         &__value {
           display: flex;
           margin: 5px 10px;
+          padding-bottom: 5px;
           &--price {
             padding-right: 100px;
           }
@@ -546,15 +556,21 @@
         width: 300px;
         height: 450px;
         margin: 0 auto;
-        padding-top: 20px;
         background-color: #F2F2F2;
         margin-bottom: 30px;
+        .information-item_content-image {
+          display: none;
+        }
       }
       &--price {
         display: flex;
         width: 250px;
         margin: 0 auto;
-        height: 60px;
+        .information-item_content-money {
+          font-size: 30px;
+          font-weight: bold;
+          line-height: 60px;
+        }
         .information-item_content-price {
           font-size: 30px;
           font-weight: bold;
@@ -634,6 +650,7 @@
             width: 120px;
           }
           &__category {
+            width: 177.5px;
             &--1 {
               color: #0088CC;
               margin: 5px 0 0 10px;
