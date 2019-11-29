@@ -87,3 +87,13 @@ gem 'seed-fu'
 gem 'kaminari'
 # 検索を容易にするためのgem
 gem 'ransack'
+# reCAPTCHAを使用するためのgem
+gem 'recaptcha', require: "recaptcha/rails"
+# 環境変数を簡単に設定するためのgem
+gem 'dotenv-rails'
+# クレジットカード処理を実現するためのgem
+gem 'payjp'
+# SMS送信を可能にするためのgem
+gem 'twilio-ruby'
+# SMS送信の正規化を行うためのgem
+gem 'phony_rails'

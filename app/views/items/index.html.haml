@@ -43,7 +43,7 @@
               - @ladies.each do |lady|
                 %li.popular-content__item
                   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    = link_to "", class: "items-link" do
+                    = link_to item_path(lady), class: "items-link" do
                       .item-box
                         %span
                           ¥
@@ -67,7 +67,7 @@
               - @mens.each do |men|
                 %li.popular-content__item
                   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    = link_to "", class: "items-link" do
+                    = link_to item_path(men), class: "items-link" do
                       .item-box
                         %span
                           ¥
@@ -91,7 +91,7 @@
               - @phones.each do |phone|
                 %li.popular-content__item
                   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    = link_to "", class: "items-link" do
+                    = link_to item_path(phone), class: "items-link" do
                       .item-box
                         %span
                           ¥
@@ -115,7 +115,7 @@
               - @toys.each do |toy|
                 %li.popular-content__item
                   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    = link_to "", class: "items-link" do
+                    = link_to item_path(toy), class: "items-link" do
                       .item-box
                         %span
                           ¥
@@ -154,7 +154,7 @@
               - @chanels.each do |chanel|
                 %li.popular-content__item
                   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    = link_to "", class: "items-link" do
+                    = link_to item_path(chanel), class: "items-link" do
                       .item-box
                         %span
                           ¥
@@ -178,7 +178,7 @@
               - @vitons.each do |viton|
                 %li.popular-content__item
                   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    = link_to "", class: "items-link" do
+                    = link_to item_path(viton), class: "items-link" do
                       .item-box
                         %span
                           ¥
@@ -202,7 +202,7 @@
               - @supremes.each do |supreme|
                 %li.popular-content__item
                   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    = link_to "", class: "items-link" do
+                    = link_to item_path(supreme), class: "items-link" do
                       .item-box
                         %span
                           ¥
@@ -226,7 +226,7 @@
               - @nikes.each do |nike|
                 %li.popular-content__item
                   %div{style: "visibility: visible; transition: all 0.5s ease 0s; opacity: 1;"}
-                    = link_to "", class: "items-link" do
+                    = link_to item_path(nike), class: "items-link" do
                       .item-box
                         %span
                           ¥

@@ -10,12 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191027094748) do
+ActiveRecord::Schema.define(version: 20191125192314) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",          null: false
+    t.string   "last_name",        null: false
+    t.string   "first_name",       null: false
+    t.string   "last_name_kana",   null: false
+    t.string   "first_name_kana",  null: false
+    t.string   "postcode",         null: false
+    t.integer  "prefecture_id",    null: false
+    t.string   "city",             null: false
+    t.string   "address",          null: false
+    t.string   "building"
+    t.string   "phone_number_sub"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id", using: :btree
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -24,17 +51,6 @@ ActiveRecord::Schema.define(version: 20191027094748) do
     t.datetime "updated_at", null: false
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
-  end
-
-  create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "number",        null: false
-    t.string   "month",         null: false
-    t.string   "year",          null: false
-    t.string   "security_code", null: false
-    t.integer  "user_id",       null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["user_id"], name: "index_credits_on_user_id", using: :btree
   end
 
   create_table "evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,6 +82,32 @@ ActiveRecord::Schema.define(version: 20191027094748) do
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id", using: :btree
   end
 
+  create_table "personals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",         null: false
+    t.string   "last_name",       null: false
+    t.string   "first_name",      null: false
+    t.string   "last_name_kana",  null: false
+    t.string   "first_name_kana", null: false
+    t.date     "birthday",        null: false
+    t.string   "postcode"
+    t.integer  "prefecture_id"
+    t.string   "city"
+    t.string   "address"
+    t.string   "building"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["prefecture_id"], name: "index_personals_on_prefecture_id", using: :btree
+    t.index ["user_id"], name: "index_personals_on_user_id", using: :btree
+  end
+
+  create_table "phones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",      null: false
+    t.string   "phone_number", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_phones_on_user_id", using: :btree
+  end
+
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "photo",      limit: 65535, null: false
     t.integer  "item_id",                  null: false
@@ -84,18 +126,6 @@ ActiveRecord::Schema.define(version: 20191027094748) do
     t.string   "nickname",                                          null: false
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
-    t.string   "last_name",                                         null: false
-    t.string   "first_name",                                        null: false
-    t.string   "last_name_kana",                                    null: false
-    t.string   "first_name_kana",                                   null: false
-    t.date     "birthday",                                          null: false
-    t.string   "phone_number",                                      null: false
-    t.string   "postcode",                                          null: false
-    t.integer  "prefecture_id",                                     null: false
-    t.string   "city",                                              null: false
-    t.string   "address",                                           null: false
-    t.string   "building"
-    t.string   "phone_number_sub"
     t.text     "profile",                limit: 65535
     t.integer  "point",                                             null: false
     t.string   "reset_password_token"
@@ -104,15 +134,18 @@ ActiveRecord::Schema.define(version: 20191027094748) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["prefecture_id"], name: "index_users_on_prefecture_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "credits", "users"
+  add_foreign_key "addresses", "prefectures"
+  add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "evaluations", "users"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "prefectures"
+  add_foreign_key "personals", "prefectures"
+  add_foreign_key "personals", "users"
+  add_foreign_key "phones", "users"
   add_foreign_key "photos", "items"
-  add_foreign_key "users", "prefectures"
 end

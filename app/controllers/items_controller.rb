@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = User.find_by(id: @item.saler_id)
+    @user_items = Item.where(saler_id: @user.id).order("id DESC").limit(6)
+    @category_items = Item.where(category_id: @item.category.id).order("id DESC").limit(6)
   end
 
   def new

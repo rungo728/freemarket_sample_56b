@@ -3,15 +3,19 @@
 .information-item
   .information-item_content
     .information-item_content__title
-      ワンピースネイビー（example）商品の名前
+      = @item.name
 
     .information-item_content__detail
       .information-item_content__detail--image
-        なんか画像
-      
+        .information-item_content-image
+          = image_tag @item.photos.first.photo, style: "width: 300px; height: 250px;"
+        .information-item_content-image2
+          = image_tag @item.photos.first.photo, style: "width: 300px; height: 330px;"
       .information-item_content__detail--price
+        .information-item_content-money
+          ¥
         .information-item_content-price
-          ¥2,500
+          = @item.price
         .information-item_content-detail
           .zeikomi_chara
             (税込)
@@ -24,7 +28,7 @@
             出品者
           .information-detail_first-row__seller
             .information-detail_first-row__seller--name
-              るる（example）
+              = @user.nickname
             .information-detail_first-row__seller--like
               .seller-like_good
                 = fa_icon 'fa-smile-o', class: 'fa-smile-o'
@@ -44,41 +48,48 @@
             カテゴリー
           .information-detail_second-row__category
             .information-detail_second-row__category--1
-              レディース
+              = @item.category.root.name
             .information-detail_second-row__category--2
-              ＞靴
+              >
+              = @item.category.parent.name
             .information-detail_second-row__category--3
-              ＞ブーツ
+              >
+              = @item.category.name
         
         .information-detail_third-row
           .information-detail_third-row__title
             ブランド
           .information-detail_third-row__brand
-            ブランド情報
+            - unless @item.brand_id.nil?
+              = @item.brand.name
+            - else
+              -
+              
+            
         
         .information-detail_fourth-row
           .information-detail_fourth-row__title
             商品のサイズ
           .information-detail_fourth-row__size
-            サイズ情報
+            = @item.size
         
         .information-detail_fifth-row
           .information-detail_fifth-row__title
             商品の状態
           .information-detail_fifth-row__status
-            商品状態の情報
+            = @item.status
         
         .information-detail_sixth-row
           .information-detail_sixth-row__title
             配送料の負担
           .information-detail_sixth-row__shipping_charge
-            配送料の負担情報
+            = @item.shipping_charge
         
         .information-detail_seventh-row
           .information-detail_seventh-row__title
             配送の方法
           .information-detail_seventh-row__method
-            配送の方法の情報
+            = @item.shipping_method
         
         .information-detail_eighth-row
           .information-detail_eighth-row__title
@@ -90,11 +101,13 @@
           .information-detail_ninth-row__title
             発送日の目安
           .information-detail_ninth-row__day
-            発送日目安情報
+            = @item.days_before_shipment
       
       .information-item_content__detail--price
+        .information-item_content-money
+          ¥
         .information-item_content-price
-          ¥2,500
+          = @item.price
         .information-item_content-detail
           .zeikomi_chara
             (税込)
@@ -102,8 +115,10 @@
           送料込み
     
     .information-item_content__value
+      .information-item_content-money
+        ¥
       .information-item_content__value--price
-        ¥2,500
+        = @item.price
       .information-item_content__value--detail
         .zeikomi_chara
           (税込)
@@ -115,7 +130,7 @@
         購入画面に進む
     
     .information-item_content__description
-      説明情報
+      = @item.description
     
     .information-item_content__bottom
       .information-item_content__bottom--like
@@ -151,7 +166,7 @@
             icon画像
       .information-item_comment__content--right
         .information-item_user-name
-          名前
+          = @user.nickname
         .information-item_user-comment
           .information-item_user-comment__content
             コメント内容
@@ -176,18 +191,21 @@
 
   .information-item_link
     .information-item_link__back
-      = link_to '#' do
+      = link_to item_path(@item.previous) do
         .information-item_link__back--icon
           <
         .information-item_link__back--name
-          前の商品名
+          = @item.previous.name
     .information-item_link__after
-      = link_to '#' do
-        .information-item_link__after--name
-          後の商品名
-        .information-item_link__after--icon
-          >
-  
+      - if @item.next.nil?
+        -
+      - else
+        = link_to item_path(@item.next) do
+          .information-item_link__after--name
+            = @item.next.name
+          .information-item_link__after--icon
+            >
+
   .information-item_share-box
     .information-item_share
       //共有の仕方を調べる
@@ -202,212 +220,70 @@
   .information-item_other-item
     = link_to '#' do
       .information-item_other-item__name
-        出品者名のその他の出品
+        = @user.nickname
+        のその他出品
     .information-item_other-item__content
-      .other-item_list
-        %img.other-item_list__image{src: "/images/sample.png", style: "width: 230px; height:230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height:230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height:230px;"}
-        %h6.other-item_list__name
-          ああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height:230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height:230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "/images/kutsu.png" , style: "width: 230px; height: 230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
+      - @user_items.each do |user_item|
+        = link_to item_path(user_item) do
+          .other-item_list
+            .other-item_list__image
+              = image_tag user_item.photos.first.photo, style: "width: 230px; height:230px;"
+            %h6.other-item_list__name
+              = user_item.name
+            .other-item_list__value
+              .other-item_list__value--price
+                ¥
+                = user_item.price
+              .other-item_list__value--heart
+                = fa_icon 'fa-heart-o', class: 'fa-heart-o'
+                .heart-number
+                  18
     
     .information-item_other-item__content2
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-  
+      - @user_items.each do |user_item|
+        = link_to item_path(user_item) do
+          .other-item_list
+            .information-item_sample-box
+              .information-item_sample-box__image
+                = image_tag user_item.photos.first.photo, style: "width: 100%; height:100%;"
+              .information-item_sample-box__price
+                ¥
+                = user_item.price
+
   
   .information-item_other-item
     = link_to '#' do
       .information-item_other-item__name
-        カテゴリー名 その他の商品
+        = @item.category.name
+        その他の商品
     .information-item_other-item__content
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height: 230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-        
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height: 230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height:230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height: 230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height: 230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
-      .other-item_list
-        %img.other-item_list__image{src: "#", style: "width: 230px; height: 230px;"}
-        %h6.other-item_list__name
-          あああ
-        .other-item_list__value
-          .other-item_list__value--price
-            ¥3,000
-          .other-item_list__value--heart
-            = fa_icon 'fa-heart-o', class: 'fa-heart-o'
-            .heart-number
-              18
+      - @category_items.each do |category_item|
+        = link_to item_path(category_item) do
+          .other-item_list
+            .other-item_list__image
+              = image_tag category_item.photos.first.photo, style: "width: 230px; height: 230px;"
+            %h6.other-item_list__name
+              = category_item.name
+            .other-item_list__value
+              .other-item_list__value--price
+                ¥
+                = category_item.price
+              .other-item_list__value--heart
+                = fa_icon 'fa-heart-o', class: 'fa-heart-o'
+                .heart-number
+                  18
+
 
     .information-item_other-item__content2
       .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
-      .other-item_list
-        .information-item_sample-box
-          %img.information-item_sample-box__image{src: "/images/sample.png", style: "width: 100%; height:100%;"}
-          .information-item_sample-box__price
-            ¥3,000
+        - @category_items.each do |category_item|
+          = link_to item_path(category_item) do
+            .information-item_sample-box
+              .information-item_sample-box__image{src: "#{category_item.photos.first.photo}", style: "width: 100%; height:100%;"}
+                = image_tag category_item.photos.first.photo, style: "width: 100%; height:100%;"
+              .information-item_sample-box__price
+                ¥
+                = category_item.price
 
 
 = render partial: 'shared/main_aside'
