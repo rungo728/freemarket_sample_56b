@@ -30,13 +30,16 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'users/show', to: 'users#show'
-  get 'user/edit', to: 'users#edit'
+  resources :users, only: [:show, :edit] do
+    collection do
+      get 'login', to: 'users#login'
+      get 'logout', to: 'users#logout'
+      get 'card', to: 'users#card'
+    end
+  end
+
   get 'item/confirmation', to: 'items#confirmation'
   get 'identification', to: 'users#identification'
-  get 'logout', to: 'users#logout'
-  get 'card', to: 'users#card'
-  get 'login', to: 'tests#login'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
