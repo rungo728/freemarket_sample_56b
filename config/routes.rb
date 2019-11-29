@@ -37,6 +37,12 @@ Rails.application.routes.draw do
   get 'logout', to: 'users#logout'
   get 'card', to: 'users#card'
   get 'login', to: 'tests#login'
-
+  get 'phone', to: 'tests#phone'
+  get 'registration', to: 'tests#registration'
+  get 'address', to: 'tests#address'
+  get 'payment', to: 'tests#payment'
+  get 'phone2', to: 'tests#phone2'
+  get 'complete', to: 'tests#complete'
+  resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
