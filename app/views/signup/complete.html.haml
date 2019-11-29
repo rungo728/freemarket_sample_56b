@@ -33,8 +33,8 @@
             ありがとうございます。
             %br 
             会員登録が完了しました。
-          %button{type: "submit", class: "btn-default btn-red"}
-            メルカリをはじめる
+          =link_to root_path(), class: "btn-default btn-red" do
+            .start-btn メルカリをはじめる
       = link_to "#" do
         %img{class:"step5-banner-sp",src:"//www-mercari-jp.akamaized.net/assets/img/signup/jp/banner-sp.jpg?2651893653"}
       = link_to "#" do

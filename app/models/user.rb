@@ -10,6 +10,18 @@ class User < ApplicationRecord
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
   belongs_to :prefecture
-  has_many :credits
   has_many :evaluations
+  has_many :cards
+
+  has_one :personal
+  accepts_nested_attributes_for :personal
+  
+  belongs_to :phone
+  has_one :address
+  accepts_nested_attributes_for :address
+
+  # registration入力項目
+  validates :nickname, presence: true, length:{ maximum: 10 }
+  validates :email, presence: true, length:{ maximum: 254 }
+  validates :password, presence: true, length:{ minimum: 7, maximum: 128 }
 end
