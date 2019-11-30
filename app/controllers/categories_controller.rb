@@ -7,6 +7,15 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.includes(:items).find(params[:id])
+    if @category.ancestry
+      if @category.children.present?
+        @family = "child" 
+      else
+        @family = "grandchild"
+      end
+    else
+      @family = "parent"
+    end
     @items = Item.includes(:photos).where(category_id: params[:id])
     @items = @items.page(params[:page])
   end
