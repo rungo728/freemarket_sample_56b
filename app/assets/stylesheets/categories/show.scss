@@ -4,11 +4,24 @@
     border-top: 1px solid #eee;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
     background: #fff;
-    ul{
-      padding: 16px;
-      font-size: 0;
-      white-space: nowrap;
+    &__line{
       overflow: auto;
+      font-size: 0;
+      padding: 16px;
+      white-space: normal;
+      .bread-crumbs-list{
+        text-overflow: ellipsis;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.2;
+        a{
+          text-decoration: none;
+          color: #333;
+        }
+        span{
+          font-weight: 600;
+        }
+      }
     }
   }
   .l-container{
@@ -161,6 +174,18 @@
 }
 @media screen and (min-width: 768px){
 .category-container{
+  .bread-crumbs{
+    &__line{
+      width: 700px;
+      margin: 0 auto;
+      overflow: visible;
+      padding: 16px 0;
+      .bread-crumbs-list{
+        text-overflow: ellipsis;
+        display: inline-block;
+      }
+    }
+  }
   .l-container{
     width: 700px;
     .l-content{
@@ -229,6 +254,11 @@
 }
 @media screen and(min-width: 1068px){
 .category-container{
+  .bread-crumbs{
+    &__line{
+      width: 1020px;
+    }
+  }
   .l-container{
     margin: 40px auto 0;
     width: 1020px;
