@@ -23,8 +23,7 @@
       .l-chapter-container
         %form{action: "", method: "POST", class: "l-single-inner", novalidate: "novalidate"}
           .l-single-content
-            %button{type: "submit", class: "btn-default btn-red"}
-              ログアウト
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-default btn-red"
 
     // 部分テンプレートのサイドメニューを呼び出し
     = render partial: "side_menu"
