@@ -252,56 +252,55 @@ $(document).on('turbolinks:load', function(){
 
     //服全般のサイズ
     if (
-      //本番とカテゴリidがずれているので修正する
-      cat == 4
-      || cat == 23 
-      || cat == 45
-      || cat == 58
-      || cat == 64 
-      || cat == 80 
-      || cat == 83
-      || cat == 89
-      || cat == 171
-      || cat == 180
-      || cat == 188
-      || cat == 198
-      || cat == 203
-      || cat == 216
-      || cat == 240
-      || cat == 272
-      || cat == 278
-      || cat == 332
-      || cat == 337
-      || cat == 342 ){
+      cat == 2
+      || cat == 21
+      || cat == 43
+      || cat == 56
+      || cat == 62 
+      || cat == 78 
+      || cat == 81
+      || cat == 87
+      || cat == 169
+      || cat == 178
+      || cat == 186
+      || cat == 196
+      || cat == 201
+      || cat == 214
+      || cat == 238
+      || cat == 270
+      || cat == 276
+      || cat == 330
+      || cat == 335
+      || cat == 340 ){
       appendClothesSize()
     //メンズ靴のサイズ
-    }else if(cat == 250){
+    }else if(cat == 248){
       appendMensShoesSize()
     //レディース靴のサイズ
-    }else if(cat == 69){
+    }else if(cat == 67){
       appendLadiesShoesSize()
     //キッズ服
     }else if(
-      cat == 379
-      || cat == 398
-      || cat == 413){
+      cat == 377
+      || cat == 396
+      || cat == 411){
       appendKidsClothesSize()
     //ベビー服
     }else if(
-      cat == 349
-      || cat == 361
-      || cat == 370){
+      cat == 347
+      || cat == 359
+      || cat == 368){
       appendBabyClothesSize()
     //キッズ靴
-    }else if(cat == 422){
+    }else if(cat == 420){
       appendKidsShoesSize()
     //テレビ
-    }else if(gcat == 934){
+    }else if(gcat == 932){
       appendTvSize()
     //カメラレンズ
     }else if(
-      gcat == 928
-      || gcat == 929){
+      gcat == 926
+      || gcat == 927){
       appendCameraLensSize()
     };
   })
