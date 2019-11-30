@@ -26,12 +26,12 @@
   border-top: 1px solid #eee;
   background-color: #fff;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  ul{
+  &__line{
     overflow: visible;
     margin: 0 auto;
     padding: 16px;
     white-space: normal;
-    li{
+    .bread-crumbs-list{
       text-overflow: ellipsis;
       display: inline-block;
       font-size: 14px;
@@ -40,14 +40,15 @@
         text-decoration: none;
         color: #333;
       }
-      .fa-chevron-right{
-        margin: 0 8px;
-        font-size: 9px;
-        color: #888;
+      span{
+        font-weight: 600;
       }
-    }
-    li:last-child{
-      font-weight: 600;
+      // 後で実装ができるかもしれないので今は保留
+      // .fa-chevron-right{
+      //   margin: 0 8px;
+      //   font-size: 9px;
+      //   color: #888;
+      // }
     }
   }
   // 画面サイズによってパンくずリストの配置を変更
