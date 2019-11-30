@@ -2,15 +2,13 @@
   = render partial: "shared/main_header"
   %nav.bread-crumbs
     // パンくずリスト
-    %ul
-      %li
-        = link_to do
-          %span
-            メルカリ
-        = fa_icon "chevron-right"
-      %li
-        %span
-          カテゴリー一覧
+    .bread-crumbs__line
+      -# config/breadcrumbs.rbに定義したcategoriesを呼び出し
+      - breadcrumb :categories
+      -# 下記を記述した箇所にパンくずリストを表示させる。
+      -# separatorはパンくずの間の区切り「&rsaquo」は出力されると「›」になる。
+      = breadcrumbs separator: " &rsaquo; ", class:"bread-crumbs-list"
+
   .category-index.l-single-container
     //小さい画面の時の画面(JS必須)
     .category-content

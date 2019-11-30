@@ -301,15 +301,13 @@
               完了
 
   %nav.bread-crumbs.pos-bottom
-    %ul
-      %li
-        = link_to root_path do
-          %span
-            メルカリ
-        = fa_icon 'chevron-right'
-      %li.bread-crumbs-overflow
-        %span
-          検索結果
+    // パンくずリスト
+    .bread-crumbs__line
+      -# config/breadcrumbs.rbに定義したitems_searchを呼び出し
+      - breadcrumb :items_search
+      -# 下記を記述した箇所にパンくずリストを表示させる。
+      -# separatorはパンくずの間の区切り「&rsaquo」は出力されると「›」になる。
+      = breadcrumbs separator: " &rsaquo; ", class:"bread-crumbs-list"
 
   = render partial: 'shared/main_aside'
 

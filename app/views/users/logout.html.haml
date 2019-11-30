@@ -3,21 +3,9 @@
   = render partial: "shared/main_header"
   %nav.bread-crumbs
     // パンくずリスト
-    %ul
-      %li
-        = link_to do
-          %span
-            メルカリ
-        = fa_icon "chevron-right"
-      %li
-        = link_to do
-          %span
-            マイページ
-        = fa_icon "chevron-right"
-      %li
-        %span
-          ログアウト
-    
+    .bread-crumbs__line
+      - breadcrumb :logout
+      = breadcrumbs separator: " &rsaquo; ", class:"bread-crumbs-list"    
   %main.l-container.clearfix
     .l-content
       .l-chapter-container

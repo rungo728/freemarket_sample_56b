@@ -2,30 +2,22 @@
   = render partial: "shared/main_header"
   %nav.bread-crumbs
     // パンくずリスト
-    %ul
-      %li
-        = link_to do
-          %span
-            メルカリ
-        = fa_icon "chevron-right"
-      %li
-        = link_to do
-          %span
-            カテゴリ一覧
-        = fa_icon "chevron-right"
-      %li
-        = link_to do
-          %span
-            レディース(例)
-        = fa_icon "chevron-right"
-      %li
-        = link_to do
-          %span
-            トップス(例)
-        = fa_icon "chevron-right"
-      %li
-        %span
-          テーラードジャケット(例)
+    .bread-crumbs__line
+      -# @familyはcontrollerで定義
+      - case @family
+      - when "parent"
+        -# config/breadcrumbs.rbに定義したcategory_showを呼び出し
+        - breadcrumb :category_show
+        -# 下記を記述した箇所にパンくずリストを表示させる。
+        -# separatorはパンくずの間の区切り「&rsaquo」は出力されると「›」になる。
+        = breadcrumbs separator: " &rsaquo; ", class:"bread-crumbs-list"
+      - when "child"
+        - breadcrumb :childCategory
+        = breadcrumbs separator: " &rsaquo; ", class:"bread-crumbs-list"
+      - when "grandchild"
+        - breadcrumb :grandchildCategory
+        = breadcrumbs separator: " &rsaquo; ", class:"bread-crumbs-list"
+
   .l-container.clearfix
     .l-content.category-show
       %section.item-box-container.clearfix
