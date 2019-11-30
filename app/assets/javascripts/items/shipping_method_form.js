@@ -54,7 +54,7 @@ $(document).on('turbolinks:load', function(){
   $('#shipping-charge-select').on('change', function(){
     
     var chargeValue = $("[id=shipping-charge-select]").val(); 
-    console.log(chargeValue)
+
     $('.shipping-charge-add-content').empty();
 
     if(chargeValue == "送料込み(出品者負担)"){

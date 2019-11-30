@@ -60,10 +60,10 @@
           .information-detail_third-row__title
             ブランド
           .information-detail_third-row__brand
-            - unless @item.brand_id.nil?
-              = @item.brand.name
+            - unless @item.brand.nil?
+              = @item.brand
             - else
-              -
+              %p -
               
             
         

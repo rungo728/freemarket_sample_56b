@@ -11,10 +11,10 @@ class ItemsController < ApplicationController
     @phones = Item.includes(:photos).where(category_id: 898..983).order("id DESC").limit(10)
     @toys = Item.includes(:photos).where(category_id: 685..797).order("id DESC").limit(10)
     #ブランドごとに並べる
-    @chanels = Item.includes(:photos).where(brand_id: 0).order("id DESC").limit(10)
-    @vitons = Item.includes(:photos).where(brand_id: 1).order("id DESC").limit(10)
-    @supremes = Item.includes(:photos).where(brand_id: 2).order("id DESC").limit(10)
-    @nikes = Item.includes(:photos).where(brand_id: 3).order("id DESC").limit(10)
+    @chanels = Item.includes(:photos).where(brand: "シャネル").order("id DESC").limit(10)
+    @vitons = Item.includes(:photos).where(brand: "ルイヴィトン").order("id DESC").limit(10)
+    @supremes = Item.includes(:photos).where(brand: "シュプリーム").order("id DESC").limit(10)
+    @nikes = Item.includes(:photos).where(brand: "ナイキ").order("id DESC").limit(10)
   end
 
   def search

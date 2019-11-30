@@ -5,7 +5,6 @@ class Item < ApplicationRecord
 
   belongs_to :prefecture
   belongs_to :category
-  belongs_to :brand
   has_many :comments
   has_many :photos
 
