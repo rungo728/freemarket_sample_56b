@@ -64,6 +64,35 @@
                   z-index: 1;
                   width: 100%;
                 }
+                figcaption{
+                  .item-sold-out-badge{
+                    .soldout{
+                      top: 10px;
+                      font-size: 13px;
+                      position: absolute;
+                      left: 0;
+                      z-index: 2;
+                      color: #fff;
+                      -webkit-transform: rotate(-45deg);
+                      transform: rotate(-45deg);
+                      letter-spacing: 2px;
+                      font-weight: 600;
+                    }
+                  }
+                  .item-sold-out-badge:after{
+                    border-color: #ea352d transparent;
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 50px 50px 0 0;
+                  }
+                }
               }
               .items-box-body{
                 height: 0;
@@ -207,6 +236,27 @@
             width: 155px;
             margin: 0 15px 20px 0;
             a{
+              .items-box-photo{
+                figcaption{
+                  .item-sold-out-badge{
+                    .soldout{
+                      top: 18px;
+                      font-size: 20px;
+                      position: absolute;
+                      left: 0;
+                      z-index: 2;
+                      color: #fff;
+                      -webkit-transform: rotate(-45deg);
+                      transform: rotate(-45deg);
+                      letter-spacing: 2px;
+                      font-weight: 600;
+                    }
+                  }
+                  .item-sold-out-badge:after{
+                    border-width: 80px 80px 0 0;
+                  }
+                }
+              }
               .items-box-body{
                 position: relative;
                 height: 58px;

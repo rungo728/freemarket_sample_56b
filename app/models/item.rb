@@ -5,9 +5,11 @@ class Item < ApplicationRecord
 
   belongs_to :prefecture
   belongs_to :category
-  belongs_to :brand
   has_many :comments
   has_many :photos
+
+  # 画像と同時に投稿するための記述
+  accepts_nested_attributes_for :photos
 
   
   def previous

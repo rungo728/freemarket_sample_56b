@@ -99,3 +99,5 @@ gem 'twilio-ruby'
 gem 'phony_rails'
 # パンくずリストを作成するためのgem
 gem "gretel"
+gem 'carrierwave'
+gem 'mini_magick'
