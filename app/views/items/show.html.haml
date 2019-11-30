@@ -9,8 +9,15 @@
       .information-item_content__detail--image
         .information-item_content-image
           = image_tag @item.photos.first.photo, style: "width: 300px; height: 250px;"
+
+          - unless @item.buyer_id.nil?
+            .item-sold-out-badge
+              .soldout SOLD
         .information-item_content-image2
           = image_tag @item.photos.first.photo, style: "width: 300px; height: 330px;"
+          - unless @item.buyer_id.nil?
+            .item-sold-out-badge
+              .soldout SOLD
       .information-item_content__detail--price
         .information-item_content-money
           ¥
@@ -21,6 +28,10 @@
             (税込)
         .information-item_content-detail2
           送料込み
+      
+      - unless @item.buyer_id.nil?
+        .item-buy-btn-desabled-small
+          売り切れました
 
       .information-item_content__detail--exhibit
         .information-detail_first-row
@@ -60,10 +71,10 @@
           .information-detail_third-row__title
             ブランド
           .information-detail_third-row__brand
-            - unless @item.brand_id.nil?
-              = @item.brand.name
+            - unless @item.brand.nil?
+              = @item.brand
             - else
-              -
+              %p -
               
             
         
@@ -124,10 +135,14 @@
           (税込)
       .information-item_content__value--detail2
         送料込み
-    
-    = link_to '#' do
-      .information-item_content__purchace
-        購入画面に進む
+
+    - if @item.buyer_id.nil?
+      = link_to '#' do
+        .information-item_content__purchace
+          購入画面に進む
+    - else
+      .item-buy-btn-desabled
+        売り切れました
     
     .information-item_content__description
       = @item.description
@@ -181,13 +196,23 @@
     .information-item_comment__note
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     
-    %form.information-item_comment__input
-      %textarea.information-item_comment__input--text{type: "text", style: "width: 710px; height: 120px;"}
-      %input.information-item_comment__input--send{type: "submit", value: "コメントする", style: "width: 710px; height: 50px;"}
+    - unless @item.buyer_id.nil?
+      %form.information-item_comment__input
+        %textarea.information-item_comment__input--text{type: "text", style: "width: 710px; height: 120px;"}
+        %input.information-item_comment__input--send{type: "submit", value: "売り切れのためコメントできません", style: "width: 710px; height: 50px;", disabled: "disabled"}
 
-    %form.information-item_comment__input2
-      %textarea.information-item_comment__input2--text{type: "text", style: "width: 90vw; height: 120px;"}
-      %input.information-item_comment__input2--send{type: "submit", value: "コメントする", style: "width: 90vw; height: 50px;"}
+      %form.information-item_comment__input2
+        %textarea.information-item_comment__input2--text{type: "text", style: "width: 90vw; height: 120px;"}
+        %input.information-item_comment__input2--send{type: "submit", value: "売り切れのためコメントできません", style: "width: 90vw; height: 50px;", disabled: "disabled"}
+
+    - else
+      %form.information-item_comment__input
+        %textarea.information-item_comment__input--text{type: "text", style: "width: 710px; height: 120px;"}
+        %input.information-item_comment__input--send{type: "submit", value: "コメントする", style: "width: 710px; height: 50px;"}
+
+      %form.information-item_comment__input2
+        %textarea.information-item_comment__input2--text{type: "text", style: "width: 90vw; height: 120px;"}
+        %input.information-item_comment__input2--send{type: "submit", value: "コメントする", style: "width: 90vw; height: 50px;"}
 
   .information-item_link
     .information-item_link__back
@@ -291,7 +316,8 @@
 = render partial: 'shared/main_footer'
 
 
-.exhibit-footer_fixed
-  = link_to '#' do
-    .exhibit-footer_fixed__purchace
-      購入画面に進む
+- if @item.buyer_id.nil?
+  .exhibit-footer_fixed
+    = link_to '#' do
+      .exhibit-footer_fixed__purchace
+        購入画面に進む

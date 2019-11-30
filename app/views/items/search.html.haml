@@ -24,10 +24,13 @@
             .items-box-content.clearfix
               - @items.each do |item|
                 %section.items-box
-                  = link_to '' do
-                    - item.photos.each do |photo|
-                      %figure.items-box-photo
-                        = image_tag photo.photo, class: "is-higher-width"
+                  = link_to item_path(item) do
+                    %figure.items-box-photo
+                      = image_tag item.photos.first.photo, class: "is-higher-width"
+                      - unless item.buyer_id.nil?
+                        %figcaption
+                          .item-sold-out-badge
+                            .soldout SOLD
                     .items-box-body
                       %h3.items-box-name.font-2
                         = item.name
@@ -55,10 +58,13 @@
             .items-box-content.clearfix
               - @itemsall.each do |item|
                 %section.items-box
-                  = link_to '' do
-                    - item.photos.each do |photo|
-                      %figure.items-box-photo
-                        = image_tag photo.photo, class: "is-higher-width"
+                  = link_to item_path(item) do
+                    %figure.items-box-photo
+                      = image_tag item.photos.first.photo, class: "is-higher-width"
+                      - unless item.buyer_id.nil?
+                        %figcaption
+                          .item-sold-out-badge
+                            .soldout SOLD
                     .items-box-body
                       %h3.items-box-name.font-2
                         = item.name
@@ -79,10 +85,13 @@
           .items-box-content.clearfix
             - @itemsall.each do |item|
               %section.items-box
-                = link_to '' do
-                  - item.photos.each do |photo|
-                    %figure.items-box-photo
-                      = image_tag photo.photo, class: "is-higher-width"
+                = link_to item_path(item) do
+                  %figure.items-box-photo
+                    = image_tag item.photos.first.photo, class: "is-higher-width"
+                    - unless item.buyer_id.nil?
+                      %figcaption
+                        .item-sold-out-badge
+                          .soldout SOLD
                   .items-box-body
                     %h3.items-box-name.font-2
                       = item.name

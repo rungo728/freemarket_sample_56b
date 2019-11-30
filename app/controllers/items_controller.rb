@@ -11,10 +11,10 @@ class ItemsController < ApplicationController
     @phones = Item.includes(:photos).where(category_id: 898..983).order("id DESC").limit(10)
     @toys = Item.includes(:photos).where(category_id: 685..797).order("id DESC").limit(10)
     #ブランドごとに並べる
-    @chanels = Item.includes(:photos).where(brand_id: 0).order("id DESC").limit(10)
-    @vitons = Item.includes(:photos).where(brand_id: 1).order("id DESC").limit(10)
-    @supremes = Item.includes(:photos).where(brand_id: 2).order("id DESC").limit(10)
-    @nikes = Item.includes(:photos).where(brand_id: 3).order("id DESC").limit(10)
+    @chanels = Item.includes(:photos).where(brand: "シャネル").order("id DESC").limit(10)
+    @vitons = Item.includes(:photos).where(brand: "ルイヴィトン").order("id DESC").limit(10)
+    @supremes = Item.includes(:photos).where(brand: "シュプリーム").order("id DESC").limit(10)
+    @nikes = Item.includes(:photos).where(brand: "ナイキ").order("id DESC").limit(10)
   end
 
   def search
@@ -34,9 +34,41 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    10.times{@item.photos.build}
+    
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def create
+    Item.create(item_params)
+    redirect_to action: 'index'
+  end
+
+  # 子カテゴリーidを取得するためのアクション
+  def get_category_children
+
+    @children = Category.find(params[:parent_id]).children
+    respond_to do |format|
+      format.html
+      format.json { render 'new', json: @children }
+    end
+  end
+
+  # 孫カテゴリーidを取得するためのアクション
+  def get_category_grandchildren
+    @grandchildren = Category.find(params[:child_id]).children
+    respond_to do |format|
+      format.html
+      format.json { render 'new', json: @grandchildren}
+    end
   end
 
   private
+
+  def item_params
+    params.require(:item).permit(:name, :description, :category_id, :size, :status, :brand, :shipping_charge, :shipping_method, :prefecture_id, :days_before_shipment, :price, photos_attributes: [:photo]).merge(saler_id: current_user.id)
+  end
   
   def set_search
     @q = Item.search(params[:q])
