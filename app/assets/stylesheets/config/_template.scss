@@ -34,6 +34,10 @@ h2{
   font-weight: bold;
 }
 
+h3{
+  font-weight: bold;
+}
+
 .input-default {
   height: 48px;
   padding: 10px 16px 8px;
@@ -65,6 +69,18 @@ h2{
   line-height: 1.5;
 }
 
+.select-default{
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
 
 .btn-default{
   display: block;
