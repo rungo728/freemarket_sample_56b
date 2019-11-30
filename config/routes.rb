@@ -3,8 +3,12 @@ Rails.application.routes.draw do
 
   #仮のルーティング
   root 'items#index'
-  resources :items, only: [:show, :new] do
+  resources :items do
     collection{ get "search"}
+    collection do
+      get 'items/get_category_children', defaults: { format: 'json' }
+      get 'items/get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
 
   resources :signup, only: [:crate] do

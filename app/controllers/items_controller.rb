@@ -34,6 +34,34 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    10.times{@item.photos.build}
+    
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def create
+    Item.create(item_params)
+    redirect_to action: 'index'
+  end
+
+  # 子カテゴリーidを取得するためのアクション
+  def get_category_children
+
+    @children = Category.find(params[:parent_id]).children
+    respond_to do |format|
+      format.html
+      format.json { render 'new', json: @children }
+    end
+  end
+
+  # 孫カテゴリーidを取得するためのアクション
+  def get_category_grandchildren
+    @grandchildren = Category.find(params[:child_id]).children
+    respond_to do |format|
+      format.html
+      format.json { render 'new', json: @grandchildren}
+    end
   end
 
   private
