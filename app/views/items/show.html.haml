@@ -284,6 +284,14 @@
               .information-item_sample-box__price
                 ¥
                 = category_item.price
+%nav.bread-crumbs
+  // パンくずリスト
+  .bread-crumbs__line
+    -# config/breadcrumbs.rbに定義したitems_nameを呼び出し
+    - breadcrumb :items_name
+    -# 下記を記述した箇所にパンくずリストを表示させる。
+    -# separatorはパンくずの間の区切り「&rsaquo」は出力されると「›」になる。
+    = breadcrumbs separator: " &rsaquo; ", class:"bread-crumbs-list"
 
 
 = render partial: 'shared/main_aside'
