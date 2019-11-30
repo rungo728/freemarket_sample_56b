@@ -8,6 +8,9 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :photos
 
+  # 画像と同時に投稿するための記述
+  accepts_nested_attributes_for :photos
+
   
   def previous
     Item.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first

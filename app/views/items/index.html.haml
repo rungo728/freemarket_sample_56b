@@ -48,8 +48,11 @@
                         %span
                           ¥
                           = lady.price
-                        - lady.photos.each do |photo|
-                          = image_tag photo.photo
+                        = image_tag lady.photos.first.photo
+                        - unless lady.buyer_id.nil?
+                          %figcaption
+                            .item-sold-out-badge
+                              .soldout SOLD
                       .item-name
                         %span
                           = lady.name
@@ -72,8 +75,11 @@
                         %span
                           ¥
                           = men.price
-                        - men.photos.each do |photo|
-                          = image_tag photo.photo
+                        = image_tag men.photos.first.photo
+                        - unless men.buyer_id.nil?
+                          %figcaption
+                            .item-sold-out-badge
+                              .soldout SOLD
                       .item-name
                         %span
                           = men.name
@@ -96,8 +102,11 @@
                         %span
                           ¥
                           = phone.price
-                        - phone.photos.each do |photo|
-                          = image_tag photo.photo
+                        = image_tag phone.photos.first.photo
+                        - unless phone.buyer_id.nil?
+                          %figcaption
+                            .item-sold-out-badge
+                              .soldout SOLD
                       .item-name
                         %span
                           = phone.name
@@ -120,8 +129,11 @@
                         %span
                           ¥
                           = toy.price
-                        - toy.photos.each do |photo|
-                          = image_tag photo.photo
+                        = image_tag toy.photos.first.photo
+                        - unless toy.buyer_id.nil?
+                          %figcaption
+                            .item-sold-out-badge
+                              .soldout SOLD
                       .item-name
                         %span
                           = toy.name
@@ -159,8 +171,11 @@
                         %span
                           ¥
                           = chanel.price
-                        - chanel.photos.each do |photo|
-                          = image_tag photo.photo
+                        = image_tag chanel.photos.first.photo
+                        - unless chanel.buyer_id.nil?
+                          %figcaption
+                            .item-sold-out-badge
+                              .soldout SOLD
                       .item-name
                         %span
                           = chanel.name
@@ -183,8 +198,11 @@
                         %span
                           ¥
                           = viton.price
-                        - viton.photos.each do |photo|
-                          = image_tag photo.photo
+                        = image_tag viton.photos.first.photo
+                        - unless viton.buyer_id.nil?
+                          %figcaption
+                            .item-sold-out-badge
+                              .soldout SOLD
                       .item-name
                         %span
                           = viton.name
@@ -207,8 +225,11 @@
                         %span
                           ¥
                           = supreme.price
-                        - supreme.photos.each do |photo|
-                          = image_tag photo.photo
+                        = image_tag supreme.photos.first.photo
+                        - unless supreme.buyer_id.nil?
+                          %figcaption
+                            .item-sold-out-badge
+                              .soldout SOLD
                       .item-name
                         %span
                           = supreme.name
@@ -231,8 +252,11 @@
                         %span
                           ¥
                           = nike.price
-                        - nike.photos.each do |photo|
-                          = image_tag photo.photo
+                        = image_tag nike.photos.first.photo
+                        - unless nike.buyer_id.nil?
+                          %figcaption
+                            .item-sold-out-badge
+                              .soldout SOLD
                       .item-name
                         %span
                           = nike.name

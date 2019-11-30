@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function(){
                   </span>
                 </div>
                 <div class = 'exhibit-detail_second-row__detail'>
-                  <input class='input-default', name='item[brand_id]', value='', placeholder='例) シャネル'>
+                  <input class='input-default', name='item[brand]', value='', placeholder='例) シャネル'>
                 </div>`;
     $('.detail-add-content2').append(brandHtml);
   };
