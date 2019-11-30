@@ -97,3 +97,5 @@ gem 'payjp'
 gem 'twilio-ruby'
 # SMS送信の正規化を行うためのgem
 gem 'phony_rails'
+# パンくずリストを作成するためのgem
+gem "gretel"
