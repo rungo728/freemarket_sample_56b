@@ -32,9 +32,5 @@ describe ItemsController, type: :controller do
       get :show, id: item
       expect(response).to render_template :show
     end
-
-    it "the variable is correct" do
-    end
-
   end
 end
