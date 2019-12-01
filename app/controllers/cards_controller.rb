@@ -54,7 +54,6 @@ class CardsController < ApplicationController
   #     redirect_to action: "new" 
   #   else
   #     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-  #     # Payjp.api_key = 'sk_test_959391e5a70a566884c0386e'
   #     customer = Payjp::Customer.retrieve(card.customer_id)
   #     @default_card_information = customer.cards.retrieve(card.card_id)
   #   end
