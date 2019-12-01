@@ -13,31 +13,31 @@ end
 
 # マイページ
 crumb :show do
-  link "マイページ", users_show_path
+  link "マイページ", root_path
   parent :root
 end
 
 # プロフィール
 crumb :edit do 
-  link "プロフィール", users_show_path
+  link "プロフィール", edit_user_path
   parent :show
 end
 
 # 本人情報の登録
 crumb :identification do 
-  link "本人情報の登録", users_show_path
+  link "本人情報の登録", identification_path
   parent :show
 end
 
 # 支払い方法
 crumb :card do 
-  link "支払い方法", users_show_path
+  link "支払い方法", card_users_path
   parent :show
 end
 
 # ログアウト
 crumb :logout do 
-  link "ログアウト", users_show_path
+  link "ログアウト", logout_users_path
   parent :show
 end
 
