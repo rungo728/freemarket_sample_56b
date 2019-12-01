@@ -1,0 +1,141 @@
+.exhibit-screen
+  = render partial: 'shared/signup-header'
+  
+  .exhibit-content
+    
+    .exhibit-content__title
+      商品の情報を入力
+    = form_for @item do |f|
+      .exhibit-content__image
+        %h3.exhibit-image_upper-row__title
+          = f.label :出品画像
+          %span 必須
+       
+        %p.exhibit-image_middle-row
+          最大10枚までアップロードできます
+        .dropzone-container.clearfix
+          = f.fields_for :photos do |i|
+            .sell_upload__area
+              = i.file_field :photo
+      
+      
+      .exhibit-content__item
+        .exhibit-item_upper-row
+          .exhibit-item_upper-row__title
+            = f.label :商品名 
+            %span 必須
+          .exhibit-item_upper-row__title-input
+            = f.text_field :name, class: "exhibit-item_upper-row__name input-default", placeholder: "商品名 (必須40字まで)"
+        
+        .exhibit-item_bottom-row
+          .exhibit-item_bottom-row__title
+            = f.label :商品の説明
+            %span 必須
+          .exhibit-item_bottom-row__description
+            = f.text_area :description, class: "exhibit-item_bottom-row__description--box textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      
+      .exhibit-content__detail.clearfix
+        %h3.sell-sub-head
+          商品の詳細
+        .exhibit-detail_second-row
+          .form-group
+            .exhibit-detail_second-row__title
+              = f.label :カテゴリー
+              %span 必須
+            .exhibit-detail_second-row__detail.category-add
+              = f.collection_select :category_id, @parents, :id, :name, {include_blank: "---"}, class: "select-default", id: "parent-form", name: "item[category_ids][]"
+        
+          .form-group.detail-add-content
+
+          .form-group.detail-add-content2
+
+          .form-group
+            .exhibit-detail_second-row__title
+              = f.label :商品の状態
+              %span 必須
+            .exhibit-detail_second-row__detail
+              = f.select :status, options_for_select([["新品、未使用", "新品、未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"]]), {prompt: "---"}, {class: "select-default"}
+      
+      
+      .exhibit-content__option.clearfix
+        %h3.sell-sub-head
+          配送について
+        = link_to '#' do
+          = fa_icon 'question-circle', class: 'question-icon'
+        .exhibit-option_second-row
+          .form-group
+            .exhibit-option_second-row__title
+              = f.label :配送料の負担
+              %span 必須
+            .exhibit-option_second-row__field
+              = f.select :shipping_charge, options_for_select([["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]]), {prompt: "---"}, {class: "select-default", id: "shipping-charge-select"}
+
+          .form-group.shipping-charge-add-content
+
+          .form-group
+            .exhibit-option_second-row__title
+              = f.label :発送元の地域
+              %span 必須
+            .exhibit-option_second-row__field
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "select-default"}
+
+          .form-group
+            .exhibit-option_second-row__title
+              = f.label :発送までの日数
+              %span 必須
+            .exhibit-option_second-row__field
+              = f.select :days_before_shipment, options_for_select([["1~2日で発送", "1~2"], ["2~3日で発送", "2~3"], ["4~7日で発送", "4~7"]]), {prompt: "---"}, {class: "select-default"}
+      
+      .exhibit-content__value.clearfix
+        %h3.sell-sub-head
+          販売価格(300~9,999,999)
+        = link_to '#' do
+          = fa_icon 'question-circle', class: 'question-icon'
+        .exhibit-value_second-row
+          .value_upper-row.clearfix
+            .value_upper-row__title.clearfix
+              = f.label :価格
+              %span 必須
+            .value_upper-row__title--value
+              ¥
+              %div
+                = f.text_field :price, class: "exhibit_value-box input-default", id: "price-setting", placeholder: "例) 300"
+          .value_middle-row.clearfix
+            .value_middle-row__title
+              販売手数料(10%)
+            .value_middle-row__cost -
+              
+          .value_bottom-row.clearfix
+            .value_bottom-row__title
+              販売利益
+            .value_bottom-row__price -
+              
+        
+      .exhibit-content__bottom
+        .exhibit-content__bottom--box
+          %p
+            = link_to '#' do
+              禁止されている出品
+            、
+            = link_to '#' do
+              行為
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to '#' do
+              偽ブランドの販売
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            = link_to '#' do
+              加盟店規約
+            に同意したことになります。
+          
+          = f.submit :変更する, class: "exhibit-bottom_submit btn-red btn-default"
+          
+          = link_to root_path do
+            .exhibit-bottom_return.btn-default.btn-gray
+              もどる
+  
+  
+  = render partial: 'shared/signup-footer'

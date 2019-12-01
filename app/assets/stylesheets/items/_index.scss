@@ -6,7 +6,16 @@
     box-sizing: border-box;
     .middle{
       position: relative;
-      overflow: hidden;
+      .link-list {
+        width: 100%;
+        background-color: #f8f4e6;
+        .slider{
+          width: 100%;
+          text-align: center;
+          font-weight: 600;
+          font-size: 25px;
+        }
+      }
     }
     .popular {
       background-color: rgb(255, 255, 255);
@@ -217,13 +226,10 @@
   display: none;
 }
 .link-list {
-  position: left;
-  width: 100vw;
   height: 170px;
-  background-color: red;
   .slider {
-    width: 100vw;
     height: 170px;
+    line-height: 170px;
     .slider-image{
       &application {
         bottom: 0;
@@ -256,12 +262,8 @@
     .middle{
       height: 290px;
       .link-list {
-        position: left;
-        width: 100vw;
-        background-color: red;
         .slider {
-          width: 100vw;
-          height: 400px;
+          line-height: 290px;
           .slider-image {
             &__application {
               float: left;
@@ -321,6 +323,13 @@
     max-width: 1020px;
     .middle{
       height: 390px;
+      .middle__content{
+        .link-list{
+          .slider{
+            line-height: 390px
+          }
+        }
+      }
     }
     .popular{
       padding: 56px 0px 30px;
