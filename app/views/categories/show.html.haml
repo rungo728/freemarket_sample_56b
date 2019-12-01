@@ -45,37 +45,37 @@
                       = fa_icon 'heart-o'
                       %span
                         3
-            -# 仮置きなので後で消す(57〜86行目)
-            %section.items-box
-              =link_to "" do
-                %figure.items-box-photo 
-                  = image_tag item.photos.first.photo
-                .items-box-body
-                  %h3.items-box-name
+          -# 仮置きなので後で消す(57〜86行目)
+          %section.items-box
+            =link_to "" do
+              %figure.items-box-photo 
+                = image_tag ''
+              .items-box-body
+                %h3.items-box-name
+                  テスト
+                .items-box-num
+                  .items-box-price
+                    ¥
                     テスト
-                  .items-box-num
-                    .items-box-price
-                      ¥
-                      テスト
-                    .font-2
-                      = fa_icon 'heart-o'
-                      %span
-                        3
-            %section.items-box
-              =link_to "" do
-                %figure.items-box-photo 
-                  = image_tag item.photos.first.photo
-                .items-box-body
-                  %h3.items-box-name
+                  .font-2
+                    = fa_icon 'heart-o'
+                    %span
+                      3
+          %section.items-box
+            =link_to "" do
+              %figure.items-box-photo 
+                = image_tag ''
+              .items-box-body
+                %h3.items-box-name
+                  テスト
+                .items-box-num
+                  .items-box-price
+                    ¥
                     テスト
-                  .items-box-num
-                    .items-box-price
-                      ¥
-                      テスト
-                    .font-2
-                      = fa_icon 'heart-o'
-                      %span
-                        3
+                  .font-2
+                    = fa_icon 'heart-o'
+                    %span
+                      3
       = paginate(@items)
       .special-description
         .special-description-title
