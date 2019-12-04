@@ -45,10 +45,31 @@ class ItemsController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    9.times{@item.photos.build}
+
+    # 最上層のカテゴリーを取得
+    @parents = Category.where(ancestry: nil)
+    # 編集する商品の最上層カテゴリーを指定
+    @root = @item.category.root_id
+    # 編集する商品の中層カテゴリーを指定
+    @children = Category.find(@root.to_s).children
+    # 編集する商品の最下層カテゴリーを指定
+    @grandchildren = Category.find(@item.category.parent_id).children
+  end
+
+  def update
+    @item = Item.find(params[:id])
+
+    @parents = Category.where(ancestry: nil)
+  end
+
   # 子カテゴリーidを取得するためのアクション
   def get_category_children
 
     @children = Category.find(params[:parent_id]).children
+    binding.pry
     respond_to do |format|
       format.html
       format.json { render 'new', json: @children }

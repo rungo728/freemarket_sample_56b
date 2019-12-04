@@ -27,6 +27,7 @@ select {
     background-color: white;
     margin: 0 auto;
     width: 100vw;
+    padding-bottom: 40px;
     &__title {
       padding: 30px 0px;
       text-align: center;
@@ -320,7 +321,7 @@ select {
     }
     
     &__bottom {
-      padding: 40px;
+      padding: 40px 40px 0 40px;
       border-top: 1px solid #eee;
       &--box {
         p {
@@ -330,12 +331,11 @@ select {
         .exhibit-bottom_submit {
           margin: 40px 0 0;
         }
-        
-        .exhibit-bottom_return {
-          width: 45%;
-          margin: 24px auto 0;
-        }
       }
+    }
+    .exhibit-bottom_return {
+      width: 45%;
+      margin: 24px auto 40px;
     }
   }
   @media screen and (min-width: 768px) {
