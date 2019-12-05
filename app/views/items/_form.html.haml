@@ -44,6 +44,8 @@
             = f.collection_select :category_id, @grandchildren , :id, :name, {include_blank: "---", selected: @item.category_id}, class: "select-default add-category category-grandchild", id: "grandchild_category", name: "item[category_id]"
 
         .form-group.detail-add-content
+          - if @item.size
+            %input{name: "size-value", type: "hidden", value: @item.size, class: 'size-value' }
           
         .form-group.detail-add-content2
           - if @item.brand
@@ -53,7 +55,6 @@
                 任意
             .exhibit-detail_second-row__detail
               = f.text_field :brand, class: 'input-default', name: 'item[brand]', placeholder: '例) シャネル'
-              %input{name: "shipping_method-value", type: "hidden", value: @item.shipping_method, class: 'shipping_method-value' }
 
 
       - else
@@ -89,6 +90,7 @@
           %span 必須
         .exhibit-option_second-row__field
           = f.select :shipping_charge, options_for_select([["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]]), {prompt: "---"}, {class: "select-default", id: "shipping-charge-select"}
+          %input{name: "shipping_method-value", type: "hidden", value: @item.shipping_method, class: 'shipping_method-value' }
 
       .form-group.shipping-charge-add-content
 

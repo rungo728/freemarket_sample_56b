@@ -47,8 +47,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    9.times{@item.photos.build}
-
+    @item.photos.build
     # 最上層のカテゴリーを取得
     @parents = Category.where(ancestry: nil)
     # 編集する商品の最上層カテゴリーを指定
@@ -69,7 +68,6 @@ class ItemsController < ApplicationController
   def get_category_children
 
     @children = Category.find(params[:parent_id]).children
-    binding.pry
     respond_to do |format|
       format.html
       format.json { render 'new', json: @children }
