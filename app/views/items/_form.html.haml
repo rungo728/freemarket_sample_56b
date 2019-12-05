@@ -44,8 +44,16 @@
             = f.collection_select :category_id, @grandchildren , :id, :name, {include_blank: "---", selected: @item.category_id}, class: "select-default add-category category-grandchild", id: "grandchild_category", name: "item[category_id]"
 
         .form-group.detail-add-content
-          - if 
+          
         .form-group.detail-add-content2
+          - if @item.brand
+            .exhibit-detail_second-row__title
+              = f.label :ブランド
+              %span.arbitarary
+                任意
+            .exhibit-detail_second-row__detail
+              = f.text_field :brand, class: 'input-default', name: 'item[brand]', placeholder: '例) シャネル'
+              %input{name: "shipping_method-value", type: "hidden", value: @item.shipping_method, class: 'shipping_method-value' }
 
 
       - else
