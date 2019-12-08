@@ -136,10 +136,14 @@
       .information-item_content__value--detail2
         送料込み
 
-    - if @item.buyer_id.nil?
-      = link_to '#' do
-        .information-item_content__purchace
-          購入画面に進む
+    - unless @user.id == current_user.id
+      - if @item.buyer_id.nil?
+        = link_to confirmation_item_path do
+          .information-item_content__purchace
+            購入画面に進む
+      - else
+        .item-buy-btn-desabled
+          売り切れました
     - else
       .item-buy-btn-desabled
         売り切れました
