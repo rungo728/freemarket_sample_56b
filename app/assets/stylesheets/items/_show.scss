@@ -79,6 +79,12 @@
             border-color: #ea352d transparent;
             border-width: 120px 120px 0 0;
           }
+          .item-images{
+            display: flex;
+            img{
+              width: 20%;
+            }
+          }
         }
         .information-item_content-image2{
           display: none;

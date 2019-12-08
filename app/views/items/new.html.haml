@@ -1,4 +1,3 @@
-
 .exhibit-screen
   = render partial: 'shared/signup-header'
   
@@ -134,9 +133,9 @@
           
           = f.submit :出品する, class: "exhibit-bottom_submit btn-red btn-default"
           
-          = link_to root_path do
-            .exhibit-bottom_return.btn-default.btn-gray
-              もどる
+    = link_to root_path do
+      .exhibit-bottom_return.btn-default.btn-gray
+        もどる
   
   
   = render partial: 'shared/signup-footer'

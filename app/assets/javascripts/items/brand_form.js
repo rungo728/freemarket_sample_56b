@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function(){
 
   $(".exhibit-detail_second-row").on('change', '#grandchild_category', function(){
     
-    $('detail-add-content2').empty()
+    $('.detail-add-content2').empty()
     //親カテゴリのidを取得
     var pcat = document.getElementById("parent-form").value;
     //子カテゴリのidを取得
@@ -37,7 +37,7 @@ $(document).on('turbolinks:load', function(){
       || pcat == 934
       || cat == 678
       || cat == 898){
-        appendBrand()
+      appendBrand()
     };
   })
 })

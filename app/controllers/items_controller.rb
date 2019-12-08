@@ -45,6 +45,29 @@ class ItemsController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    num = @item.photos.length
+    num = 10 - num
+    num.times{@item.photos.build}
+    
+    # 最上層のカテゴリーを取得
+    @parents = Category.where(ancestry: nil)
+    # 編集する商品の最上層カテゴリーを指定
+    @root = @item.category.root_id
+    # 編集する商品の中層カテゴリーを指定
+    @children = Category.find(@root.to_s).children
+    # 編集する商品の最下層カテゴリーを指定
+    @grandchildren = Category.find(@item.category.parent_id).children
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+
+    redirect_to action: 'index'
+  end
+
   # 子カテゴリーidを取得するためのアクション
   def get_category_children
 
@@ -67,6 +90,10 @@ class ItemsController < ApplicationController
   private
 
   def item_params
+    # @item = Item.find(params[:id])
+    # @photo = @item.photos.find(params[:item]['photos_attributes']['0']['id'])
+
+    binding.pry
     params.require(:item).permit(:name, :description, :category_id, :size, :status, :brand, :shipping_charge, :shipping_method, :prefecture_id, :days_before_shipment, :price, photos_attributes: [:photo]).merge(saler_id: current_user.id)
   end
   

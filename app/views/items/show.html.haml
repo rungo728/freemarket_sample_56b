@@ -13,6 +13,9 @@
           - unless @item.buyer_id.nil?
             .item-sold-out-badge
               .soldout SOLD
+          .item-images
+            - @item.photos.each do |photo|
+              = image_tag photo.photo
         .information-item_content-image2
           = image_tag @item.photos.first.photo, style: "width: 300px; height: 330px;"
           - unless @item.buyer_id.nil?
@@ -29,9 +32,10 @@
         .information-item_content-detail2
           送料込み
       
-      - unless @item.buyer_id.nil?
-        .item-buy-btn-desabled-small
-          売り切れました
+      - unless @user.id == current_user.id
+        - unless @item.buyer_id.nil?
+          .item-buy-btn-desabled-small
+            売り切れました
 
       .information-item_content__detail--exhibit
         .information-detail_first-row
@@ -136,13 +140,18 @@
       .information-item_content__value--detail2
         送料込み
 
-    - if @item.buyer_id.nil?
-      = link_to '#' do
-        .information-item_content__purchace
-          購入画面に進む
+    - unless @user.id == current_user.id
+      - if @item.buyer_id.nil?
+        = link_to '#' do
+          .information-item_content__purchace
+            購入画面に進む
+      - else
+        .item-buy-btn-desabled
+          売り切れました
     - else
-      .item-buy-btn-desabled
-        売り切れました
+      = link_to edit_item_path(@item.id) do
+        .information-item_content__edit
+          編集する
     
     .information-item_content__description
       = @item.description
@@ -324,8 +333,9 @@
 = render partial: 'shared/main_footer'
 
 
-- if @item.buyer_id.nil?
-  .exhibit-footer_fixed
-    = link_to '#' do
-      .exhibit-footer_fixed__purchace
-        購入画面に進む
+- unless @user.id == current_user.id
+  - if @item.buyer_id.nil?
+    .exhibit-footer_fixed
+      = link_to '#' do
+        .exhibit-footer_fixed__purchace
+          購入画面に進む
