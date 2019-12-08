@@ -48,7 +48,7 @@
                         %span
                           ¥
                           = lady.price
-                        = image_tag lady.photos.first.photo
+                        = image_tag lady.photos.first.photo.to_s
                         - unless lady.buyer_id.nil?
                           %figcaption
                             .item-sold-out-badge
