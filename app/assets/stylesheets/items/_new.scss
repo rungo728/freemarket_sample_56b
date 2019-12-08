@@ -62,8 +62,14 @@ select {
         width: 100%;
         background-color: #f5f5f5;
         border: 1px dashed #ccc;
+        .image-preview{
+          img{
+            float: left;
+            width: 20%;
+          }
+        }
         .sell_upload__area{
-          float: left;
+          //float: left;
         }
       }
       // UIを妥協するため一時的にコメントアウト

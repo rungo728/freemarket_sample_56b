@@ -37,7 +37,7 @@ $(document).on('turbolinks:load', function(){
       || pcat == 934
       || cat == 678
       || cat == 898){
-        appendBrand()
+      appendBrand()
     };
   })
 })

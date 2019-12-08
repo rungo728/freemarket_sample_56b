@@ -7,6 +7,14 @@
     %p.exhibit-image_middle-row
       最大10枚までアップロードできます
     .dropzone-container.clearfix
+
+      = f.fields_for :photos do |i|
+   
+   
+        .image-preview
+          = image_tag i.object.photo
+
+
       = f.fields_for :photos do |i|
         .sell_upload__area
           = i.file_field :photo

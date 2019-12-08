@@ -13,6 +13,9 @@
           - unless @item.buyer_id.nil?
             .item-sold-out-badge
               .soldout SOLD
+          .item-images
+            - @item.photos.each do |photo|
+              = image_tag photo.photo
         .information-item_content-image2
           = image_tag @item.photos.first.photo, style: "width: 300px; height: 330px;"
           - unless @item.buyer_id.nil?
