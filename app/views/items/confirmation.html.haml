@@ -32,11 +32,8 @@
                     = @item.price
             %br
           - if @address.present?||card.present?
-            -# %button{type: "submit", class: "btn-default btn-red bold"}
-            -#   購入する
             = form_tag(action: :buy, method: :post) do
               %script.payjp-button{src: "https://checkout.pay.jp/" ,type: "text/javascript" , "data-key": ENV["PAYJP_KEY"] ,"data-text": "購入する"}
-
           - else
             %p.has-error-text
               配送先と支払い方法の入力を完了してください。
