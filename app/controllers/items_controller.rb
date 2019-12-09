@@ -23,9 +23,22 @@ class ItemsController < ApplicationController
     @itemsall = Item.all.order("id DESC").limit(20)
   end
 
+  # 商品購入確認画面
   def confirmation
+    @item = Item.find(params[:id])
+    @address = Address.find_by(user_id: current_user.id)
+    card = Card.where(user_id: current_user.id).first
+    if card.present?
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    else
+    # 支払い登録していない場合はマイページの支払い方法登録画面に遷移。
+      redirect_to card_users_path, notice: "購入に進むには支払い方法の登録が必要です。画面より登録をしてください。"
+    end
   end
 
+  # 商品詳細画面
   def show
     @item = Item.find(params[:id])
     @user = User.find_by(id: @item.saler_id)
@@ -85,6 +98,25 @@ class ItemsController < ApplicationController
       format.html
       format.json { render 'new', json: @grandchildren}
     end
+  end
+
+  # 商品購入の為のpayjpに決済情報とトークンを送る際の定義を記述
+  def buy
+    @item = Item.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to action: :done
+  end
+
+  # 商品購入完了画面
+  def done
+    @item_buyer = Item.find(params[:id])
+    @item_buyer.update(buyer_id: current_user.id)
   end
 
   private
