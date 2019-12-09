@@ -40,4 +40,25 @@ $(document).on('turbolinks:load', function(){
       $('.value_bottom-row__price').append('-');
     };
   })
+
+  // 編集画面ですでに入力してある場合
+  $('#price-setting').ready(function(){
+    var inputPrice = $('#price-setting').val();
+
+    if(inputPrice >= 300){
+      $('.value_middle-row__cost').empty();
+      $('.value_bottom-row__price').empty();
+      
+      var priceFee = Math.floor(inputPrice * 0.1)
+      var profit = inputPrice - priceFee
+      
+      appendFee(priceFee)
+      appendProfit(profit)
+    }else{
+      $('.value_middle-row__cost').empty();
+      $('.value_middle-row__cost').append('-');
+      $('.value_bottom-row__price').empty();
+      $('.value_bottom-row__price').append('-');
+    };
+  })
 });

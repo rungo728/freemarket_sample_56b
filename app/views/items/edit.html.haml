@@ -1,0 +1,15 @@
+.exhibit-screen
+  = render partial: 'shared/signup-header'
+  
+  .exhibit-content
+    
+    .exhibit-content__title
+      商品の情報を入力
+    = render 'form', { item: @item}
+    
+    = link_to root_path do
+      .exhibit-bottom_return.btn-default.btn-gray
+        もどる
+  
+  
+  = render partial: 'shared/signup-footer'
