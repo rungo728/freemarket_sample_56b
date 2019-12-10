@@ -137,9 +137,14 @@
         送料込み
 
     - if @item.buyer_id.nil?
-      = link_to '#' do
-        .information-item_content__purchace
-          購入画面に進む
+      - unless @user.id == current_user.id
+        = link_to '#' do
+          .information-item_content__purchace
+            購入画面に進む
+      - else
+        = link_to item_path(@item.id), method: :delete, data: { confirm: "本当に削除しますか？" } do
+          .information-item_content__destroy
+            削除する
     - else
       .item-buy-btn-desabled
         売り切れました

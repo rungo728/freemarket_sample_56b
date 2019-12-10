@@ -45,6 +45,12 @@ class ItemsController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
+  end
+
   # 子カテゴリーidを取得するためのアクション
   def get_category_children
 

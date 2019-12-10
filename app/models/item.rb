@@ -5,8 +5,7 @@ class Item < ApplicationRecord
 
   belongs_to :prefecture
   belongs_to :category
-  has_many :comments
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
   # 画像と同時に投稿するための記述
   accepts_nested_attributes_for :photos
