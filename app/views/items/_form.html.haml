@@ -5,19 +5,25 @@
       %span 必須
     
     %p.exhibit-image_middle-row
-      最大10枚までアップロードできます
+      最大6枚までアップロードできます
     .dropzone-container.clearfix
 
-      = f.fields_for :photos do |i|
-   
-   
-        .image-preview
-          = image_tag i.object.photo
+      - if @item.photos
+        - @item.photos.each do |pt|
+          = f.fields_for :photos, pt do |i|
+            .image-box.clearfix
+              .image-preview
+                - if pt.photo.present?
+                  .image-preview__box{id: "#{i.index}"}
+                    = image_tag pt.photo
+                  .image-delete
+                    = i.check_box :_destroy
+                    = i.label :_destroy, "削除"
+                - else
+                  .image-preview__box{id: "#{i.index}"}
+              .sell_upload__area
+                = i.file_field :photo
 
-
-      = f.fields_for :photos do |i|
-        .sell_upload__area
-          = i.file_field :photo
   
   
   .exhibit-content__item
