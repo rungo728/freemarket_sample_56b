@@ -125,7 +125,6 @@ class ItemsController < ApplicationController
     # @item = Item.find(params[:id])
     # @photo = @item.photos.find(params[:item]['photos_attributes']['0']['id'])
 
-    binding.pry
     params.require(:item).permit(:name, :description, :category_id, :size, :status, :brand, :shipping_charge, :shipping_method, :prefecture_id, :days_before_shipment, :price, photos_attributes: [:photo]).merge(saler_id: current_user.id)
   end
   
