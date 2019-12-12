@@ -1,0 +1,122 @@
+.common-container{
+  .common-header{
+    h1{
+      display: inline-block;
+      margin: 11px 0 12px;
+    }
+  }
+  main{
+    .l-step5-container{
+      text-align: center;
+      background: #fff;
+      .l-chapter-head{
+        padding: 16px;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: center;
+      }  
+      .l-step5-inner{
+        padding: 24px 16px 40px;
+        border-top: 1px solid #f5f5f5;
+        .l-step5-content{
+          max-width: 343px;
+          margin: 0 auto;
+          p:first-child{
+            margin: 0;
+            padding: 0;
+          }
+          p{
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+          }
+          .btn-red{
+            margin: 24px 0 0;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+          }
+        }
+      }    
+      a{
+        display: block;
+        img{
+          width: 100%;
+        }
+        .step5-banner-sp{
+          max-width: 375px;
+        } 
+        .step5-banner-pc{
+          display: none;
+        }
+      }
+    } 
+  }
+}  
+@media screen and (min-width: 768px){
+.common-container{
+  .common-header{
+    height: 128px;
+    h1{
+      margin: 40px 0 0;
+      a{
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        img{
+          width: 185px;
+          height: 49px;
+        }
+      }
+    }
+    .signup-bar.progress-bar{
+      padding: 40px 0 0 44px;
+      border: 0;
+      ol{
+        li{
+          margin: 0 40px 0 0;
+          min-width: 60px;
+        }
+        li:last-child{
+          margin: 0;
+        }  
+      }
+    }  
+    .progress-bar{
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+  main{
+    .l-step5-container{
+      width: 700px;
+      margin: 0 auto;
+      .l-chapter-head{
+        padding: 32px;
+        font-size: 22px;
+      }  
+      a{
+        .step5-banner-sp{
+          display: none;
+        }
+        .step5-banner-pc{
+          display: inline;
+        }
+      }
+    }    
+  }
+  .common-footer{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    nav{
+      ul{
+        li{
+          display: inline-block;
+          margin:0 0 0 16px;
+        }
+      }
+    }
+  }
+}
+}
