@@ -9,6 +9,11 @@ Rails.application.routes.draw do
       get 'items/get_category_children', defaults: { format: 'json' }
       get 'items/get_category_grandchildren', defaults: { format: 'json' }
     end
+    member do
+      get 'confirmation'
+      post 'buy'
+      get 'done'
+    end
   end
 
   resources :signup, only: [:crate] do
@@ -41,8 +46,6 @@ Rails.application.routes.draw do
       get 'card', to: 'users#card'
     end
   end
-
-  get 'item/confirmation', to: 'items#confirmation'
   get 'identification', to: 'users#identification'
 
   resources :categories

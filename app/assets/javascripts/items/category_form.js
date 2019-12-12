@@ -36,9 +36,10 @@ $(document).on('turbolinks:load', function(){
     $('.category-child').remove();
     $('.category-grandchild').remove();
     $('.detail-add-content').empty();
+    $('.detail-add-content2').empty();
 
     $.ajax({
-      url: 'items/get_category_children',
+      url: '/items/items/get_category_children',
       type: "GET",
       data: {parent_id: parentValue},
       dataType: 'json'
@@ -49,6 +50,7 @@ $(document).on('turbolinks:load', function(){
       $('.category-child').remove();
       $('.category-grandchild').remove();
       $('.detail-add-content').empty();
+      $('.detail-add-content2').empty();
 
       var insertHTML = '';
       children.forEach(function(child){
@@ -60,10 +62,13 @@ $(document).on('turbolinks:load', function(){
 
   //子カテゴリを選択した時
   $(".exhibit-detail_second-row").on("change", "#child_category", function(){
-    var childValue = $('#child_category option:selected').data('category');
+    var childValue = document.getElementById("child_category").value;
+    $('.category-grandchild').remove();
+    $('.detail-add-content2').empty();
+
     if (childValue != "---"){
       $.ajax({
-        url: 'items/get_category_grandchildren',
+        url: '/items/items/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childValue },
         dataType: 'json'
