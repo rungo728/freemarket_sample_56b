@@ -58,6 +58,13 @@ class ItemsController < ApplicationController
     redirect_to action: 'index'
   end
 
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
+  end
+  
   def edit
     @item = Item.find(params[:id])
     num = @item.photos.length
