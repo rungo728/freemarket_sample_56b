@@ -48,14 +48,19 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    10.times{@item.photos.build}
+    6.times{@item.photos.build}
     
     @parents = Category.where(ancestry: nil)
   end
 
   def create
-    Item.create(item_params)
-    redirect_to action: 'index'
+    @item = Item.create(item_params)
+
+    if @item.save
+      redirect_to root_path, notice: '出品が完了しました'
+    else
+      render 'new'
+    end
   end
 
 
@@ -68,7 +73,7 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     num = @item.photos.length
-    num = 10 - num
+    num = 6 - num
     num.times{@item.photos.build}
     
     # 最上層のカテゴリーを取得
@@ -85,7 +90,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
 
-    redirect_to action: 'index'
+    if @item.save
+      redirect_to root_path, notice: '更新が完了しました'
+    else
+      render 'edit'
+    end
   end
 
   # 子カテゴリーidを取得するためのアクション
@@ -129,10 +138,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    # @item = Item.find(params[:id])
-    # @photo = @item.photos.find(params[:item]['photos_attributes']['0']['id'])
-
-    params.require(:item).permit(:name, :description, :category_id, :size, :status, :brand, :shipping_charge, :shipping_method, :prefecture_id, :days_before_shipment, :price, photos_attributes: [:photo]).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :description, :category_id, :size, :status, :brand, :shipping_charge, :shipping_method, :prefecture_id, :days_before_shipment, :price, photos_attributes: [:id, :photo, :_destroy]).merge(saler_id: current_user.id)
   end
   
   def set_search

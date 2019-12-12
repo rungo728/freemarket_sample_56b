@@ -12,11 +12,14 @@
           %span 必須
        
         %p.exhibit-image_middle-row
-          最大10枚までアップロードできます
+          最大6枚までアップロードできます
         .dropzone-container.clearfix
           = f.fields_for :photos do |i|
-            .sell_upload__area
-              = i.file_field :photo
+            .image-box
+              .image-preview
+                .image-preview__box{id: "#{i.index}"}
+              .sell_upload__area
+                = i.file_field :photo
       
       
       .exhibit-content__item

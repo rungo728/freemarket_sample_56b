@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   has_many :photos, dependent: :destroy
 
   # 画像と同時に投稿するための記述
-  accepts_nested_attributes_for :photos
+  accepts_nested_attributes_for :photos, allow_destroy: true
 
   
   def previous

@@ -392,8 +392,6 @@ $(document).on('turbolinks:load', function(){
     var selectsize15 = $("[id=selectsize15]").val();
     var selectsize16 = $("[id=selectsize16]").val();
 
-    console.log(selectsize1)
-    console.log(size)
  
     if(size == selectsize1){
       $("#selectsize1").attr('selected', 'seleted');
