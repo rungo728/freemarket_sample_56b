@@ -101,3 +101,9 @@ gem 'phony_rails'
 gem "gretel"
 gem 'carrierwave'
 gem 'mini_magick'
+# Omniauthでの認証を可能にするためのgem
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+# Omniauthでの認証の脆弱性を補うためのgem
+gem 'omniauth-rails_csrf_protection'
