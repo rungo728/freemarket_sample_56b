@@ -1,7 +1,11 @@
-
 .exhibit-screen
   = render partial: 'shared/signup-header'
   
+  - if @item.errors.messages.any?
+    %ul.has-error-text
+      - @item.errors.full_messages.each do |message|
+        %li= message
+
   .exhibit-content
     
     .exhibit-content__title
