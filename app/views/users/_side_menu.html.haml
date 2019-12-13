@@ -3,7 +3,7 @@
   %nav.mypage__nav
     %ul.mypage__nav-list
       %li
-        = link_to '', class: "mypage__nav-list-item active" do
+        = link_to user_path(id: current_user.id), class: "mypage__nav-list-item active" do
           マイページ
           = fa_icon "chevron-right"
       %li
@@ -19,7 +19,7 @@
           いいね！一覧
           = fa_icon "chevron-right"
       %li
-        = link_to '', class: "mypage__nav-list-item" do
+        = link_to new_item_path, class: "mypage__nav-list-item" do
           出品する
           = fa_icon "chevron-right"
       %li
@@ -97,6 +97,6 @@
           電話番号の確認
           = fa_icon "chevron-right"
       %li
-        = link_to '/users/logout', class: "mypage__nav-list-item" do
+        = link_to logout_users_path, class: "mypage__nav-list-item" do
           ログアウト
           = fa_icon "chevron-right"

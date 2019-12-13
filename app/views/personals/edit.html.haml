@@ -1,0 +1,95 @@
+//ユーザー情報登録ページ
+.user-container
+  = render partial: "shared/main_header"
+  %nav.bread-crumbs
+    // パンくずリスト
+    .bread-crumbs__line
+      - breadcrumb :identification
+      = breadcrumbs separator: " &rsaquo; ", class:"bread-crumbs-list"
+  %main.l-container.clearfix
+    .l-content
+      %section.content__registration
+        %h2.content__registration__head
+          本人情報の登録
+        %form.content__registration__main
+          .form__explanation
+            %p
+              お客さまの本人情報をご登録ください。
+              %br
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.text-right
+              = link_to '', target: "_blank" do
+                本人確認書類のアップロードについて
+                = fa_icon "chevron-right"
+          .form__group
+            %label
+              お名前
+            %p
+              = @personal.last_name
+              = @personal.first_name
+          .form__group
+            %label
+              お名前カナ
+            %p
+              = @personal.last_name_kana
+              = @personal.first_name_kana
+          .form__group
+            %label{for: "birthday"}
+              生年月日
+            %p
+              = @personal.birthday
+          = form_for @personal do |f|
+            .form__group
+              -# %label{for: "zip-code"}
+              -#   郵便番号
+              = f.label :postcode
+              %span.form-arbitrary
+                任意
+              -# %input{type: "text", value: "", name: "zip_code", placeholder: "例) 1234567", class: "input-default"}
+              = f.text_field :postcode, placeholder: "例) 1234567", class: "input-default"
+            .form__group
+              %label{for: "prefecture"}
+                都道府県
+              %span.form-arbitrary
+                任意
+              .select-wrap
+                = fa_icon "chevron-down"
+                %select{name: "prefecture", class: "select-default"}
+                  %option --
+            .form__group
+              %label{for: "city"}
+                市区町村
+              %span.form-arbitrary
+                任意
+              %input{type: "text", value: "", name: "city", placeholder: "例) 横浜市緑区", class: "input-default"}
+            .form__group
+              %label{for: "address1-label"}
+                番地
+              %span.form-arbitrary
+                任意
+              %input{type: "text", value: "", name: "address1", placeholder: "例) 青山1-1-1", class: "input-default"}
+            .form__group
+              %label{for: "address2-label"}
+                建物名
+              %span.form-arbitrary
+                任意
+              %input{type: "text", value: "", name: "address2", placeholder: "例) 柳ビル103", class: "input-default"}
+            -# %button{type: "submit", class: "btn-default btn-red"}
+            -#   登録する
+            = f.submit :登録する, class: "btn-default btn-red"
+          .form__group.text-right
+            %p
+              = link_to '', target: "blank" do
+                本人情報の登録について
+                = fa_icon "chevron-right"
+
+    // 部分テンプレートのサイドメニューを呼び出し
+    = render partial: "side_menu"
+
+
+  //バナーのテンプレートを挿入
+  = render partial: "shared/main_aside"
+  //フッターのテンプレートを挿入
+  = render partial: "shared/main_footer"
+  //出品ボタンのテンプレート呼びだし
+  = render partial: "shared/sell_btn"
