@@ -41,9 +41,17 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
-    redirect_to action: 'index'
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to users_path
+      flash[:notice] = "出品を完了しました。"
+    else
+      @parents = Category.where(ancestry: nil)
+      flash[:alert] = "出品に失敗しました。"
+      render "new"
+    end
   end
+
 
   # 子カテゴリーidを取得するためのアクション
   def get_category_children
