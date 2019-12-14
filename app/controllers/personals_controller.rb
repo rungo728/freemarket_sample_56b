@@ -23,7 +23,6 @@ class PersonalsController < ApplicationController
   end
 
   def personal_params
-    binding.pry
     params.require(:personal).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, :postcord, :prefecture_id, :city, :address, :building)
   end
 

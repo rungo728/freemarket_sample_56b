@@ -89,7 +89,7 @@
           メール/パスワード
           = fa_icon "chevron-right"
       %li
-        = link_to edit_personal_path, class: "mypage__nav-list-item" do
+        = link_to edit_personal_path(@user, id: current_user.id), class: "mypage__nav-list-item" do
           本人情報
           = fa_icon "chevron-right"
       %li
