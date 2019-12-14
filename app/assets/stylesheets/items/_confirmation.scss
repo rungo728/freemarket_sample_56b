@@ -99,24 +99,24 @@
               }
             }
           }
-          #payjp_checkout_box input[type=button]{
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-            width: 100%;
-            line-height: 48px;
-            font-size: 14px;
-          }
-          .has-error-text {
-            color: #ea352d;
-            font-size: 14px;
-          }
-          .btn-default:disabled {
-            margin-top: 20px;
-            border: 1px solid #888;
-            background: #888;
-            color: #fff;
-          }
+        }
+        #payjp_checkout_box input[type=button]{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+        }
+        .has-error-text {
+          color: #ea352d;
+          font-size: 14px;
+        }
+        .btn-default:disabled {
+          margin-top: 20px;
+          border: 1px solid #888;
+          background: #888;
+          color: #fff;
         }
        }
       }

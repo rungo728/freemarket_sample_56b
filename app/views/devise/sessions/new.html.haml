@@ -1,0 +1,28 @@
+.common-container
+  = render 'shared/signup-header'
+  %main.login-main
+    .login-panel
+      .login-no-account
+        %p
+          アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録"
+      .login-form-inner
+        %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook"}
+          = fa_icon "facebook-square"
+          Facebookでログイン
+        %button{id: "google-login", class: "btn-default btn-sns btn-sns-google"}
+          = image_tag "googlelogo.png"
+          Googleでログイン
+      = form_for(resource, as: resource_name, url: user_session_path, method: :post, novalidate: "novalidate") do |f|
+        .login-form-inner
+          .form-group
+            = f.email_field :email, value: "", placeholder: "メールアドレス", class: "login-input-text input-default"
+          .form-group
+            = f.password_field :password, placeholder: "パスワード", class: "login-input-text input-default"
+          .form-group
+            = recaptcha_tags
+                  
+          = f.submit "ログイン", class: "login-submit btn-default btn-red"
+          =link_to "パスワードをお忘れの方"
+    -# ページのフッダー部分
+  = render 'shared/signup-footer'
