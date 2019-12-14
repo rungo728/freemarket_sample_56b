@@ -24,8 +24,8 @@ crumb :edit do
 end
 
 # 本人情報の登録
-crumb :identification do 
-  link "本人情報の登録", identification_path
+crumb :edit_personal do 
+  link "本人情報の登録", edit_personal_path
   parent :show
 end
 

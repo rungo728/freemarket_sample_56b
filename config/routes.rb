@@ -46,7 +46,7 @@ Rails.application.routes.draw do
       get 'card', to: 'users#card'
     end
   end
-  get 'identification', to: 'users#identification'
+  resources :personals
 
   resources :categories
 
