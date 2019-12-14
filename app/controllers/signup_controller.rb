@@ -19,6 +19,17 @@ class SignupController < ApplicationController
     @user.build_personal
   end
 
+  # facebook、googleアカウント用
+  def registration_omniauth
+    # 新規インスタンスを作成する
+    # user_paramsでpersonalモデルの項目も取得できるようにする
+    @user = User.new(
+      nickname:              session[:omniauth_nickname],
+      email:                 session[:omniauth_email]
+    )
+    @user.build_personal
+  end
+
   # ---------------
   # 電話番号の確認画面
   # ---------------
@@ -34,6 +45,9 @@ class SignupController < ApplicationController
     session[:first_name_kana]       = user_params[:personal_attributes][:first_name_kana]
     session[:birthday]              = user_birthday_join
     
+    if session[:omniauth_password]
+      session[:password]              = session[:omniauth_password]
+    end
 
     # usersテーブル登録準備
     # 新規インスタンスを作成し、sessionに保存された値を格納する
@@ -42,16 +56,29 @@ class SignupController < ApplicationController
       email:                 session[:email],
       password:              session[:password],
       profile:"",
-      point: 0
+      point: 0,
+      provider:              session[:omniauth_provider],
+      uid:                   session[:omniauth_uid]
     )
 
     # usersテーブル登録処理実行
+    unless @user.valid?
+      @user.build_personal
+      unless session[:omniauth_password]
+        render '/signup/registration'
+        return
+      end
+      render '/signup/registration_omniauth'
+      return
+    end
+
     # 登録成功時：ユーザーIDをsessionに保存し、未ログインの場合ログインする
     # 登録失敗時：会員情報入力画面を表示する
     if @user.save!
       session[:user_id] = @user.id
       sign_in User.find(session[:user_id]) unless user_signed_in?
     else
+      @user.build_personal
       render '/signup/registration'
       return
     end
@@ -69,7 +96,14 @@ class SignupController < ApplicationController
 
     # personalsテーブル登録処理実行
     # 登録失敗時：会員情報入力画面を表示する
+    unless @personal.valid?
+      @user.build_personal
+      render '/signup/registration'
+      return
+    end
+
     unless @personal.save!
+      @user.build_personal
       render '/signup/registration'
       return
     end
@@ -217,6 +251,11 @@ class SignupController < ApplicationController
 
     # addressesテーブル登録処理実行
     # 登録失敗時：発送先・お届け先住所入力画面を表示する
+    unless @address.valid?
+      render '/signup/address'
+      return
+    end
+
     unless @address.save!
       render '/signup/address'
       return

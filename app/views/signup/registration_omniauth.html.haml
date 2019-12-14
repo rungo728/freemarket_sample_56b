@@ -48,22 +48,6 @@
                   %li= message
           %input{type: "hidden", name: "login_type"}
           .form-group
-            %label パスワード
-            %span.contents__form__require 必須
-            = f.password_field :password, placeholder: "7文字以上", class: "input-default"
-            - if @user.errors.messages[:password].any?
-              %ul.contents__errors__message
-                - @user.errors.full_messages_for(:password).each do |message|
-                  %li= message
-          .form-group
-            %label パスワード(確認)
-            %span.contents__form__require 必須
-            = f.password_field :password_confirmation, placeholder: "7文字以上", class: "input-default"
-            - if @user.errors.messages[:password_confirmation].any?
-              %ul.contents__errors__message
-                - @user.errors.full_messages_for(:password_confirmation).each do |message|
-                  %li= message
-          .form-group
             %h3.text-left.l-chapter-sub-head
               本人確認
             %p

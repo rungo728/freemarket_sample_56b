@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   #仮のルーティング
   root 'items#index'
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     collection do
       get  'index'
       get  'registration'
+      get  'registration_omniauth'
       get  'phone'
       post 'phone' => 'signup#send_sms'
       get  'phone2'
