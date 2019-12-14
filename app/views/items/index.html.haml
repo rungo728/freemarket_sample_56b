@@ -14,17 +14,17 @@
       .popular__box
         %ul.popular__box--lists
           %li.list
-            = link_to "レディース"
+            = link_to "レディース", "", id: "category-ladies"
           %li.list
-            = link_to "メンズ"
+            = link_to "メンズ", "", id: "category-mens"
           %li.list
-            = link_to "家電・スマホ・カメラ"
+            = link_to "家電・スマホ・カメラ", "", id: "category-phones"
           %li.list
-            = link_to "おもちゃ・ホビー・グッズ"
+            = link_to "おもちゃ・ホビー・グッズ", "", id: "category-toys"
     .popular-items
       .popular-header
         .popular-header__item
-          %h3.popular-header__item__title
+          %h3.popular-header__item__title#target-ladies
             レディース新着アイテム
           = link_to "#" do
             もっと見る
@@ -52,7 +52,7 @@
 
       .popular-header
         .popular-header__item
-          %h3.popular-header__item__title
+          %h3.popular-header__item__title#target-mens
             メンズ新着アイテム
           = link_to "#" do
             もっと見る
@@ -79,7 +79,7 @@
 
       .popular-header
         .popular-header__item
-          %h3.popular-header__item__title
+          %h3.popular-header__item__title#target-phones
             家電・スマホ・カメラ新着アイテム
           = link_to "#" do
             もっと見る
@@ -106,7 +106,7 @@
       
       .popular-header
         .popular-header__item
-          %h3.popular-header__item__title
+          %h3.popular-header__item__title#target-toys
             おもちゃ・ホビー・グッズ新着アイテム
           = link_to "#" do
             もっと見る
@@ -137,18 +137,18 @@
       .popular__box
         %ul.popular__box--lists
           %li.list
-            = link_to "シャネル"
+            = link_to "シャネル", "", id: "brand-chanels"
           %li.list
-            = link_to "ルイヴィトン"
+            = link_to "ルイヴィトン", "", id: "brand-vitons"
           %li.list
-            = link_to "シュプリーム"
+            = link_to "シュプリーム", "", id: "brand-supremes"
           %li.list
-            = link_to "ナイキ"
+            = link_to "ナイキ", "", id: "brand-nikes"
 
     .popular-items
       .popular-header
         .popular-header__item
-          %h3.popular-header__item__title
+          %h3.popular-header__item__title#target-chanels
             シャネル新着アイテム
           = link_to "#" do
             もっと見る
@@ -175,7 +175,7 @@
       
       .popular-header
         .popular-header__item
-          %h3.popular-header__item__title
+          %h3.popular-header__item__title#target-vitons
             ルイヴィトン新着アイテム
           = link_to "#" do
             もっと見る
@@ -202,7 +202,7 @@
 
       .popular-header
         .popular-header__item
-          %h3.popular-header__item__title
+          %h3.popular-header__item__title#target-supremes
             シュプリーム新着アイテム
           = link_to "#" do
             もっと見る
@@ -229,7 +229,7 @@
       
       .popular-header
         .popular-header__item
-          %h3.popular-header__item__title
+          %h3.popular-header__item__title#target-nikes
             ナイキ新着アイテム
           = link_to "#" do
             もっと見る

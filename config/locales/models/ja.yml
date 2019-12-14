@@ -8,6 +8,7 @@ ja:
       address: 発送元・お届け先住所
     attributes:
       item:
+        photos: 写真
         name: 商品名
         description: 商品の説明
         category: カテゴリー

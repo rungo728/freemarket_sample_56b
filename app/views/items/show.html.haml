@@ -32,7 +32,12 @@
         .information-item_content-detail2
           送料込み
       
-      - unless @user.id == current_user.id
+      - if user_signed_in?
+        - unless @user.id == current_user.id
+          - unless @item.buyer_id.nil?
+            .item-buy-btn-desabled-small
+              売り切れました
+      - else
         - unless @item.buyer_id.nil?
           .item-buy-btn-desabled-small
             売り切れました
@@ -140,7 +145,23 @@
       .information-item_content__value--detail2
         送料込み
 
-    - unless @user.id == current_user.id
+    - if user_signed_in?
+      - unless @user.id == current_user.id
+        - if @item.buyer_id.nil?
+          = link_to confirmation_item_path do
+            .information-item_content__purchace
+              購入画面に進む
+        - else
+          .item-buy-btn-desabled
+            売り切れました
+      - else
+        = link_to edit_item_path(@item.id) do
+          .information-item_content__edit
+            編集する
+        = link_to item_path(@item.id), method: :delete, data: { confirm: "本当に削除しますか？" } do
+          .information-item_content__destroy
+            削除する
+    - else
       - if @item.buyer_id.nil?
         = link_to confirmation_item_path do
           .information-item_content__purchace
@@ -148,13 +169,6 @@
       - else
         .item-buy-btn-desabled
           売り切れました
-    - else
-      = link_to edit_item_path(@item.id) do
-        .information-item_content__edit
-          編集する
-      = link_to item_path(@item.id), method: :delete, data: { confirm: "本当に削除しますか？" } do
-        .information-item_content__destroy
-          削除する
     
     .information-item_content__description
       = @item.description
@@ -336,9 +350,15 @@
 = render partial: 'shared/main_footer'
 
 
-- unless @user.id == current_user.id
-  - if @item.buyer_id.nil?
-    .exhibit-footer_fixed
-      = link_to '#' do
-        .exhibit-footer_fixed__purchace
-          購入画面に進む
+- if user_signed_in?
+  - unless @user.id == current_user.id
+    - if @item.buyer_id.nil?
+      .exhibit-footer_fixed
+        = link_to confirmation_item_path do
+          .exhibit-footer_fixed__purchace
+            購入画面に進む
+- else
+  .exhibit-footer_fixed
+    = link_to confirmation_item_path do
+      .exhibit-footer_fixed__purchace
+        購入画面に進む
