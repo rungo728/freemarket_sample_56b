@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
     else
       @family = "parent"
     end
-    @items = Item.includes(:photos).where(category_id: params[:id])
+    @items = Item.includes(:photos).where(category_id: params[:id]).order("updated_at DESC")
     @items = @items.page(params[:page])
   end
 
