@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :set_search
+  before_action :authenticate_user!,except: [:index,:search,:show]
+
   
   def index
     #テストで用いた記述
