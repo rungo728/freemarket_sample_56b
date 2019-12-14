@@ -44,7 +44,7 @@ class CardsController < ApplicationController
     card.delete 
     end
     #削除に成功した時にポップアップを表示。
-    redirect_to card_users_path, flash[:notice] = "削除しました。"
+    redirect_to card_users_path, notice: '削除しました。'
 
   end
 
