@@ -33,17 +33,19 @@
           .form-group
             %label ニックネーム
             %span.contents__form__require 必須
+            = f.text_field :nickname, placeholder: "例）メルカリ太郎", class: "input-default"
             - if @user.errors.messages[:nickname].any?
-              = f.text_field :nickname, placeholder: "例）メルカリ太郎", class: "input-default user_nickname_error"
               %ul.contents__errors__message
                 - @user.errors.full_messages_for(:nickname).each do |message|
                   %li= message
-            - else
-              = f.text_field :nickname, placeholder: "例）メルカリ太郎", class: "input-default"
           .form-group
             %label メールアドレス
             %span.contents__form__require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "input-default"
+            - if @user.errors.messages[:email].any?
+              %ul.contents__errors__message
+                - @user.errors.full_messages_for(:email).each do |message|
+                  %li= message
           %input{type: "hidden", name: "login_type"}
           .form-group
             %h3.text-left.l-chapter-sub-head
@@ -57,12 +59,28 @@
                 %span.contents__form__require 必須
               = pe.text_field :last_name, placeholder: "例) 山田", class: "input-default half"
               = pe.text_field :first_name, placeholder: "例) 彩", class: "input-default half"
+              - if @user.errors.messages[:last_name].any?
+                %ul.contents__errors__message
+                  - @user.errors.full_messages_for(:last_name).each do |message|
+                    %li= message
+              - if @user.errors.messages[:first_name].any?
+                %ul.contents__errors__message
+                  - @user.errors.full_messages_for(:first_name).each do |message|
+                    %li= message
             .form-group
               %div
                 %label お名前カナ(全角)
                 %span.contents__form__require 必須
               = pe.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "input-default half"
               = pe.text_field :first_name_kana, placeholder: "例) アヤ", class: "input-default half"
+              - if @user.errors.messages[:last_name_kana].any?
+                %ul.contents__errors__message
+                  - @user.errors.full_messages_for(:last_name_kana).each do |message|
+                    %li= message
+              - if @user.errors.messages[:first_name_kana].any?
+                %ul.contents__errors__message
+                  - @user.errors.full_messages_for(:first_name_kana).each do |message|
+                    %li= message
             .form-group
               %div
                 %label 生年月日
@@ -70,6 +88,10 @@
                 .birthday-select
                   .select-wrap
                     != sprintf(pe.date_select(:birthday, prefix:'birthday', prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+              - if @user.errors.messages[:birthday].any?
+                %ul.contents__errors__message
+                  - @user.errors.full_messages_for(:birthday).each do |message|
+                    %li= message
               %input{type: "hidden", name: "csrf_value", value: ""}
               %div{class: "clearfix"}
               %p

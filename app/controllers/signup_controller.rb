@@ -62,12 +62,23 @@ class SignupController < ApplicationController
     )
 
     # usersテーブル登録処理実行
+    unless @user.valid?
+      @user.build_personal
+      unless session[:omniauth_password]
+        render '/signup/registration'
+        return
+      end
+      render '/signup/registration_omniauth'
+      return
+    end
+
     # 登録成功時：ユーザーIDをsessionに保存し、未ログインの場合ログインする
     # 登録失敗時：会員情報入力画面を表示する
     if @user.save!
       session[:user_id] = @user.id
       sign_in User.find(session[:user_id]) unless user_signed_in?
     else
+      @user.build_personal
       render '/signup/registration'
       return
     end
@@ -85,7 +96,14 @@ class SignupController < ApplicationController
 
     # personalsテーブル登録処理実行
     # 登録失敗時：会員情報入力画面を表示する
+    unless @personal.valid?
+      @user.build_personal
+      render '/signup/registration'
+      return
+    end
+
     unless @personal.save!
+      @user.build_personal
       render '/signup/registration'
       return
     end
@@ -122,26 +140,26 @@ class SignupController < ApplicationController
       phone_number = PhonyRails.normalize_number phone_params[:phone_number], country_code:'JP'
       # 認証番号（ランダムな4桁の整数）を生成し、sessionに格納する
       session[:secure_code] = rand(1000..9999)
+binding.pry
+      # # SMS送信を行うための設定
+      # client = Twilio::REST::Client.new(ENV["TWILIO_ACCOUNT_SID"],ENV["TWILIO_AUTH_TOKEN"])
 
-      # SMS送信を行うための設定
-      client = Twilio::REST::Client.new(ENV["TWILIO_ACCOUNT_SID"],ENV["TWILIO_AUTH_TOKEN"])
-
-      # 送信処理実行
-      begin
-        # 送信元、送信先、メッセージ文を設定し送信する
-        client.messages.create(
-          from: ENV["TWILIO_NUMBER"],
-          to:   phone_number,
-          body: "#{session[:secure_code]}"
-        )
-      rescue
-        # 送信失敗時
-        # 電話番号の確認画面を表示する
-        redirect_to phone_signup_index_path
-        return false
-      end
-      # 送信成功時
-      # 電話番号認証画面を表示する
+      # # 送信処理実行
+      # begin
+      #   # 送信元、送信先、メッセージ文を設定し送信する
+      #   client.messages.create(
+      #     from: ENV["TWILIO_NUMBER"],
+      #     to:   phone_number,
+      #     body: "#{session[:secure_code]}"
+      #   )
+      # rescue
+      #   # 送信失敗時
+      #   # 電話番号の確認画面を表示する
+      #   redirect_to phone_signup_index_path
+      #   return false
+      # end
+      # # 送信成功時
+      # # 電話番号認証画面を表示する
       redirect_to phone2_signup_index_path
     else
       # 電話番号が取得できなかった場合
@@ -233,6 +251,11 @@ class SignupController < ApplicationController
 
     # addressesテーブル登録処理実行
     # 登録失敗時：発送先・お届け先住所入力画面を表示する
+    unless @address.valid?
+      render '/signup/address'
+      return
+    end
+
     unless @address.save!
       render '/signup/address'
       return

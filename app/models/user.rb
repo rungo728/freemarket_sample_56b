@@ -21,12 +21,15 @@ class User < ApplicationRecord
   has_one :address
   accepts_nested_attributes_for :address
 
+  # フォーマット定義
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   # registration入力項目
   validates :nickname, presence: true, length:{ maximum: 10 }
-  validates :email, presence: true, length:{ maximum: 254 }
+  validates :email, presence: true, length:{ maximum: 254 }, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length:{ minimum: 7, maximum: 128 }
-  validates :provider, length:{ in: 8..13 } if :provider
-  validates :uid, length:{ in: 15..21} if :uid
+  validates :provider, length:{ in: 8..13 }, allow_blank: true
+  validates :uid, length:{ in: 15..21}, allow_blank: true
 
   # omniauthのコールバック時に呼ばれるメソッド
   def self.from_omniauth(access_token)
