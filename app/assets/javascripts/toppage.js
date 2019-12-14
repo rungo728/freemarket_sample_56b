@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function(){
     function scrollLadies(){
       var target = $('#target-ladies')
       var position = target.offset().top;
-      $('html, body').animate({scrollTop: position}, 500);
+      $('html, body').animate({scrollTop: position}, 300);
     }
     scrollLadies();
   })
@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function(){
     function scrollMens(){
       var target = $('#target-mens')
       var position = target.offset().top;
-      $('html, body').animate({scrollTop: position}, 500);
+      $('html, body').animate({scrollTop: position}, 300);
     }
     scrollMens();
   })
@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function(){
     function scrollPhones(){
       var target = $('#target-phones')
       var position = target.offset().top;
-      $('html, body').animate({scrollTop: position}, 500);
+      $('html, body').animate({scrollTop: position}, 300);
     }
     scrollPhones();
   })
@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function(){
     function scrollToys(){
       var target = $('#target-toys')
       var position = target.offset().top;
-      $('html, body').animate({scrollTop: position}, 500);
+      $('html, body').animate({scrollTop: position}, 300);
     }
     scrollToys();
   })
@@ -45,7 +45,7 @@ $(document).on('turbolinks:load', function(){
     function scrollLadies(){
       var target = $('#target-chanels')
       var position = target.offset().top;
-      $('html, body').animate({scrollTop: position}, 500);
+      $('html, body').animate({scrollTop: position}, 300);
     }
     scrollLadies();
   })
@@ -55,7 +55,7 @@ $(document).on('turbolinks:load', function(){
     function scrollSupremes(){
       var target = $('#target-supremes')
       var position = target.offset().top;
-      $('html, body').animate({scrollTop: position}, 500);
+      $('html, body').animate({scrollTop: position}, 300);
     }
     scrollSupremes();
   })
@@ -65,7 +65,7 @@ $(document).on('turbolinks:load', function(){
     function scrollVitons(){
       var target = $('#target-vitons')
       var position = target.offset().top;
-      $('html, body').animate({scrollTop: position}, 500);
+      $('html, body').animate({scrollTop: position}, 300);
     }
     scrollVitons();
   })
@@ -75,7 +75,7 @@ $(document).on('turbolinks:load', function(){
     function scrollNikes(){
       var target = $('#target-nikes')
       var position = target.offset().top;
-      $('html, body').animate({scrollTop: position}, 500);
+      $('html, body').animate({scrollTop: position}, 300);
     }
     scrollNikes();
   })
