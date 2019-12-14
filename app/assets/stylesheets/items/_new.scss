@@ -27,6 +27,7 @@ select {
     background-color: white;
     margin: 0 auto;
     width: 100vw;
+    padding-bottom: 40px;
     &__title {
       padding: 30px 0px;
       text-align: center;
@@ -61,8 +62,27 @@ select {
         width: 100%;
         background-color: #f5f5f5;
         border: 1px dashed #ccc;
-        .sell_upload__area{
+        .image-box{
           float: left;
+          width: 33%;
+          .image-preview{
+            height: 100px;
+            .image-preview__box{
+              height: 80%;
+              img{
+                height: 100%;
+              }
+            }
+            .image-blank{
+              height: 100px;
+              img{
+                height: 80%;
+              }
+            }
+          }
+        }
+        .sell_upload__area{
+          //float: left;
         }
       }
       // UIを妥協するため一時的にコメントアウト
@@ -320,7 +340,7 @@ select {
     }
     
     &__bottom {
-      padding: 40px;
+      padding: 40px 40px 0 40px;
       border-top: 1px solid #eee;
       &--box {
         p {
@@ -330,12 +350,11 @@ select {
         .exhibit-bottom_submit {
           margin: 40px 0 0;
         }
-        
-        .exhibit-bottom_return {
-          width: 45%;
-          margin: 24px auto 0;
-        }
       }
+    }
+    .exhibit-bottom_return {
+      width: 45%;
+      margin: 24px auto 40px;
     }
   }
   @media screen and (min-width: 768px) {

@@ -17,11 +17,14 @@
           %span 必須
        
         %p.exhibit-image_middle-row
-          最大10枚までアップロードできます
+          最大6枚までアップロードできます
         .dropzone-container.clearfix
           = f.fields_for :photos do |i|
-            .sell_upload__area
-              = i.file_field :photo
+            .image-box
+              .image-preview
+                .image-preview__box{id: "#{i.index}"}
+              .sell_upload__area
+                = i.file_field :photo
       
       
       .exhibit-content__item
@@ -138,9 +141,9 @@
           
           = f.submit :出品する, class: "exhibit-bottom_submit btn-red btn-default"
           
-          = link_to root_path do
-            .exhibit-bottom_return.btn-default.btn-gray
-              もどる
+    = link_to root_path do
+      .exhibit-bottom_return.btn-default.btn-gray
+        もどる
   
   
   = render partial: 'shared/signup-footer'

@@ -5,13 +5,12 @@ class Item < ApplicationRecord
 
   belongs_to :prefecture
   belongs_to :category
-  has_many :comments
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
   validates_associated :prefecture, :category
 
   # 画像と同時に投稿するための記述
-  accepts_nested_attributes_for :photos
+  accepts_nested_attributes_for :photos, allow_destroy: true
 
   # バリデーションの記述
   validates :name, presence: true,length: { maximum: 40 }

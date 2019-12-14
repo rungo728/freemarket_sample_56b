@@ -23,9 +23,22 @@ class ItemsController < ApplicationController
     @itemsall = Item.all.order("id DESC").limit(20)
   end
 
+  # 商品購入確認画面
   def confirmation
+    @item = Item.find(params[:id])
+    @address = Address.find_by(user_id: current_user.id)
+    card = Card.where(user_id: current_user.id).first
+    if card.present?
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    else
+    # 支払い登録していない場合はマイページの支払い方法登録画面に遷移。
+      redirect_to card_users_path, notice: "購入に進むには支払い方法の登録が必要です。画面より登録をしてください。"
+    end
   end
 
+  # 商品詳細画面
   def show
     @item = Item.find(params[:id])
     @user = User.find_by(id: @item.saler_id)
@@ -35,20 +48,54 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    10.times{@item.photos.build}
+    6.times{@item.photos.build}
     
     @parents = Category.where(ancestry: nil)
   end
 
   def create
-    @item = Item.new(item_params)
+
+    @item = Item.create(item_params)
+
     if @item.save
-      redirect_to users_path
-      flash[:notice] = "出品を完了しました。"
+      redirect_to root_path, notice: '出品が完了しました'
     else
       @parents = Category.where(ancestry: nil)
-      flash[:alert] = "出品に失敗しました。"
-      render "new"
+      render 'new'
+    end
+  end
+
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
+  end
+  
+  def edit
+    @item = Item.find(params[:id])
+    num = @item.photos.length
+    num = 6 - num
+    num.times{@item.photos.build}
+    
+    # 最上層のカテゴリーを取得
+    @parents = Category.where(ancestry: nil)
+    # 編集する商品の最上層カテゴリーを指定
+    @root = @item.category.root_id
+    # 編集する商品の中層カテゴリーを指定
+    @children = Category.find(@root.to_s).children
+    # 編集する商品の最下層カテゴリーを指定
+    @grandchildren = Category.find(@item.category.parent_id).children
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+
+    if @item.save
+      redirect_to root_path, notice: '更新が完了しました'
+    else
+      render 'edit'
     end
   end
 
@@ -72,10 +119,29 @@ class ItemsController < ApplicationController
     end
   end
 
+  # 商品購入の為のpayjpに決済情報とトークンを送る際の定義を記述
+  def buy
+    @item = Item.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to action: :done
+  end
+
+  # 商品購入完了画面
+  def done
+    @item_buyer = Item.find(params[:id])
+    @item_buyer.update(buyer_id: current_user.id)
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :size, :status, :brand, :shipping_charge, :shipping_method, :prefecture_id, :days_before_shipment, :price, photos_attributes: [:photo]).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :description, :category_id, :size, :status, :brand, :shipping_charge, :shipping_method, :prefecture_id, :days_before_shipment, :price, photos_attributes: [:id, :photo, :_destroy]).merge(saler_id: current_user.id)
   end
   
   def set_search
