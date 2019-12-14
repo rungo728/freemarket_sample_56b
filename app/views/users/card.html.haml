@@ -21,7 +21,7 @@
               // この中に登録しているクレジットカードの一覧を表示
           %section.setting-add-card
             .l-single-content
-              = link_to "", class: "btn-default btn-red submit-btn" do
+              = link_to new_card_path, class: "btn-default btn-red submit-btn" do
                 = fa_icon "credit-card"
                 クレジットカードを追加する
           .setting-not-regist

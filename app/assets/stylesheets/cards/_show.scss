@@ -1,0 +1,72 @@
+.common-container{
+  .common-header{
+    h1{
+      display: inline-block;
+      margin: 11px 0 12px;
+    }
+  }
+  .l-step4-container{
+    margin: 24px auto 0;
+    padding: 0 0 40px;
+    .l-step4-content{
+      width: 100%;
+      .l-chapter-container:first-child{
+        margin: 0;
+      }  
+      .l-chapter-container{
+        background: #fff;
+        h2{
+          padding: 12px 4%;
+          border-bottom: 1px solid #f5f5f5;
+          text-align: center;
+          font-size: 18px;
+        }
+        .l-step4-inner{
+          border-top: 1px solid #f5f5f5;
+          padding: 40px;
+          .l-step4-content{
+            max-width: 320px;
+            margin: 0 auto;
+            .l-chapter-sub-head{
+              font-size: 14px;
+            }
+          }
+          .settings-payment-list{
+            li{
+              padding: 24px 0;
+              border-bottom: 1px solid #eee;
+              .l-step4-content{
+                max-width: 320px;
+                margin: 0 auto;
+                position: relative;
+              }
+              form{
+                .delete__button{
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  padding: 4px 6px;
+                  color: #ea352d;
+                  border: 1px solid #ea352d;
+                  border-radius: 3px;
+                  background: #fff;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+      .settings-not-regist{
+        a{
+          display: block;
+          margin: 40px 0 0;
+          text-align: right;
+          span{
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}
