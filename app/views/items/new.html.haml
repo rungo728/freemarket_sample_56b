@@ -1,10 +1,11 @@
 .exhibit-screen
   = render partial: 'shared/signup-header'
   
-  - if @item.errors.messages.any?
+  - if session[:error].present?
     %ul.has-error-text
-      - @item.errors.full_messages.each do |message|
-        %li= message
+      - session[:error].each do |e|
+        %li= e
+    = session[:error] = nil
 
   .exhibit-content
     

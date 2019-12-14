@@ -61,7 +61,8 @@ class ItemsController < ApplicationController
       redirect_to root_path, notice: '出品が完了しました'
     else
       @parents = Category.where(ancestry: nil)
-      render 'new'
+      session[:error] = @item.errors.full_messages
+      redirect_to new_item_path
     end
   end
 
@@ -95,7 +96,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: '更新が完了しました'
     else
-      render 'edit'
+      @parents = Category.where(ancestry: nil)
+      session[:error] = @item.errors.full_messages
+      redirect_to new_item_path
     end
   end
 
