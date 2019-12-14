@@ -140,26 +140,26 @@ class SignupController < ApplicationController
       phone_number = PhonyRails.normalize_number phone_params[:phone_number], country_code:'JP'
       # 認証番号（ランダムな4桁の整数）を生成し、sessionに格納する
       session[:secure_code] = rand(1000..9999)
-binding.pry
-      # # SMS送信を行うための設定
-      # client = Twilio::REST::Client.new(ENV["TWILIO_ACCOUNT_SID"],ENV["TWILIO_AUTH_TOKEN"])
 
-      # # 送信処理実行
-      # begin
-      #   # 送信元、送信先、メッセージ文を設定し送信する
-      #   client.messages.create(
-      #     from: ENV["TWILIO_NUMBER"],
-      #     to:   phone_number,
-      #     body: "#{session[:secure_code]}"
-      #   )
-      # rescue
-      #   # 送信失敗時
-      #   # 電話番号の確認画面を表示する
-      #   redirect_to phone_signup_index_path
-      #   return false
-      # end
-      # # 送信成功時
-      # # 電話番号認証画面を表示する
+      # SMS送信を行うための設定
+      client = Twilio::REST::Client.new(ENV["TWILIO_ACCOUNT_SID"],ENV["TWILIO_AUTH_TOKEN"])
+
+      # 送信処理実行
+      begin
+        # 送信元、送信先、メッセージ文を設定し送信する
+        client.messages.create(
+          from: ENV["TWILIO_NUMBER"],
+          to:   phone_number,
+          body: "#{session[:secure_code]}"
+        )
+      rescue
+        # 送信失敗時
+        # 電話番号の確認画面を表示する
+        redirect_to phone_signup_index_path
+        return false
+      end
+      # 送信成功時
+      # 電話番号認証画面を表示する
       redirect_to phone2_signup_index_path
     else
       # 電話番号が取得できなかった場合
