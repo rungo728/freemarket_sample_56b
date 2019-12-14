@@ -54,11 +54,13 @@ class ItemsController < ApplicationController
   end
 
   def create
+
     @item = Item.create(item_params)
 
     if @item.save
       redirect_to root_path, notice: '出品が完了しました'
     else
+      @parents = Category.where(ancestry: nil)
       render 'new'
     end
   end
@@ -96,6 +98,7 @@ class ItemsController < ApplicationController
       render 'edit'
     end
   end
+
 
   # 子カテゴリーidを取得するためのアクション
   def get_category_children
