@@ -32,9 +32,9 @@ class ItemsController < ApplicationController
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
-    else
-    # 支払い登録していない場合はマイページの支払い方法登録画面に遷移。
-      redirect_to card_users_path, notice: "購入に進むには支払い方法の登録が必要です。画面より登録をしてください。"
+    # else
+    # # 支払い登録していない場合はマイページの支払い方法登録画面に遷移。
+    #   redirect_to card_users_path, notice: "購入に進むには支払い方法の登録が必要です。画面より登録をしてください。"
     end
   end
 
