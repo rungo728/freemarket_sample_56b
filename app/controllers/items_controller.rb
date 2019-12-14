@@ -6,21 +6,21 @@ class ItemsController < ApplicationController
     #テストで用いた記述
     @items = Item.all.order("id DESC").limit(10)
     #カテゴリーごとに並べる
-    @ladies = Item.includes(:photos).where(category_id: 0..199).order("id DESC").limit(10)
-    @mens = Item.includes(:photos).where(category_id: 200..345).order("id DESC").limit(10)
-    @phones = Item.includes(:photos).where(category_id: 898..983).order("id DESC").limit(10)
-    @toys = Item.includes(:photos).where(category_id: 685..797).order("id DESC").limit(10)
+    @ladies = Item.includes(:photos).where(category_id: 0..199).order("updated_at DESC").limit(10)
+    @mens = Item.includes(:photos).where(category_id: 200..345).order("updated_at DESC").limit(10)
+    @phones = Item.includes(:photos).where(category_id: 898..983).order("updated_at DESC").limit(10)
+    @toys = Item.includes(:photos).where(category_id: 685..797).order("updated_at DESC").limit(10)
     #ブランドごとに並べる
-    @chanels = Item.includes(:photos).where(brand: "シャネル").order("id DESC").limit(10)
-    @vitons = Item.includes(:photos).where(brand: "ルイヴィトン").order("id DESC").limit(10)
-    @supremes = Item.includes(:photos).where(brand: "シュプリーム").order("id DESC").limit(10)
-    @nikes = Item.includes(:photos).where(brand: "ナイキ").order("id DESC").limit(10)
+    @chanels = Item.includes(:photos).where(brand: "シャネル").order("updated_at DESC").limit(10)
+    @vitons = Item.includes(:photos).where(brand: "ルイヴィトン").order("updated_at DESC").limit(10)
+    @supremes = Item.includes(:photos).where(brand: "シュプリーム").order("updated_at DESC").limit(10)
+    @nikes = Item.includes(:photos).where(brand: "ナイキ").order("updated_at DESC").limit(10)
   end
 
   def search
     @q = Item.includes(:photos).ransack(search_params)
     @items = @q.result(distinct: true).page(params[:page]).per(10).limit(20)
-    @itemsall = Item.all.order("id DESC").limit(20)
+    @itemsall = Item.all.order("updated_at DESC").limit(20)
   end
 
   # 商品購入確認画面
