@@ -98,7 +98,7 @@ class ItemsController < ApplicationController
     else
       @parents = Category.where(ancestry: nil)
       session[:error] = @item.errors.full_messages
-      redirect_to new_item_path
+      redirect_to edit_item_path
     end
   end
 
