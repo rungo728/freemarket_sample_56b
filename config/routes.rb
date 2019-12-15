@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       get 'login', to: 'users#login'
       get 'logout', to: 'users#logout'
       get 'card', to: 'users#card'
+      get 'exhibiting', to: 'users#exhibiting'
     end
   end
   get 'identification', to: 'users#identification'
