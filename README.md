@@ -38,6 +38,9 @@ url:
 
 # DB設計
 
+## ER図
+<img width="1194" alt="スクリーンショット 2019-12-21 1 06 21" src="https://user-images.githubusercontent.com/52952732/71268087-70eb8480-238f-11ea-9269-bbab386768f6.png">
+
 ## usersテーブル
 
 |Column|Type|Options|
