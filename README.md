@@ -4,8 +4,8 @@
 
 url: http://3.115.217.15/
 * Basic認証
-ID: 56b
-Password: 1005
+<br>ID: 56b
+<br>Password: 1005
 
 # 開発メンバー
 * 古谷篤志(SM)
