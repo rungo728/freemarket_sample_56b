@@ -1,12 +1,12 @@
-require "capistrano/setup"
-require "capistrano/deploy"
-require "capistrano/rbenv"
-require "capistrano/bundler"
-require "capistrano/rails/assets"
-require "capistrano/rails/migrations"
-require "capistrano3/unicorn"
+# require "capistrano/setup"
+# require "capistrano/deploy"
+# require "capistrano/rbenv"
+# require "capistrano/bundler"
+# require "capistrano/rails/assets"
+# require "capistrano/rails/migrations"
+# require "capistrano3/unicorn"
 
-Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+# Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 # Load DSL and set up stages
 
 # Include default deployment tasks
@@ -19,8 +19,8 @@ Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 # require "capistrano/scm/svn"
 # install_plugin Capistrano::SCM::Svn
 # or
-require "capistrano/scm/git"
-install_plugin Capistrano::SCM::Git
+# require "capistrano/scm/git"
+# install_plugin Capistrano::SCM::Git
 
 # Include tasks from other gems included in your Gemfile
 #
